@@ -1,0 +1,120 @@
+# CLIによる利用 {#sec-cli}
+
+## はじめに {#sec-cli-intro}
+
+論文等のため解析手順を正確に記録し、報告する場合には、CLIを使うと便利です。
+
+## インストール {#sec-cli-install}
+
+BirdnETをコマンドライン（CLI）で利用するには、**Windows**の場合はGUIを使うときにインストールしたもので十分なようです。**Mac**の場合は以下の手順を踏みます。公式ドキュメントの説明が少し簡素で個人的につまづいたため、若干の補足をしています。
+
+### gitの導入
+
+git（バージョン管理ソフト）を使えるようにする。このためにターミナルを開いて
+
+```         
+xcode-select --install
+```
+
+と入力し、xcodeをインストールする。
+
+### BirdNET-Analyzerリポジトリのコピー
+
+任意のフォルダにGitHubのBirdNETリポジトリをコピーする。
+
+```         
+cd ~/YOUR_FOLDER
+git clone https://github.com/kahst/BirdNET-Analyzer.git
+```
+
+ここで、YOUR_FOLDERには音声データの解析フォルダに設定したいフォルダまでのパスを入力します。これにより指定したフォルダにBirdNETのソースコードがすべてコピーされます。
+
+### 仮想環境の構築
+
+適切なバージョンのPython（3.9以上3.11以下）で仮想環境を構築。Pythonのバージョン管理にcondaを用いる場合は、たとえば[minicondaをインストール](https://docs.anaconda.com/miniconda/#quick-command-line-install)してから、以下のコマンドをターミナルに入力して仮想環境を構築します。
+
+```         
+conda create -n birdnet python=3.10
+```
+
+ここでbirdnetが新規仮想環境名で、birdnet以外にも好きな名前を入力できます。うまく仮想環境構築されたか確認するため、まず仮想環境をアクティブにします。
+
+```         
+conda activate birdnet
+```
+
+ターミナルの冒頭の文字が(base)から(birdnet)に変更されたら、Pythonのバージョンを確認します。
+
+```         
+python --version
+```
+
+Python 3.10.XX のように表示されたら成功です。
+
+::: callout-warning
+BirdNETが依存しているTensorflow 2.15.0に適合するPythonのバージョンは3.9から3.11のようです。単純に最新のpythonをインストールすると、3.11よりも新しいものがインストールされて使えませんので、仮想環境の構築では明示的にPythonのバージョンを指定する必要があります。少なくとも私の環境ではPython 3.10であれば問題なく利用できました。
+:::
+
+::: callout-note
+公式ドキュメントではvenvを用いて仮想環境の構築を行っているため、condaを用いたここでのコードと少し異なっています。venvでも仮想環境を管理できますが、単体ではPythonバージョンを自由に指定することができないため、Homebrewと組み合わせて扱うとよいようです。個人的にHomebrewを利用していないのでこれ以上詳しく書けませんが、@Symes2023-ps による[BirdNET Analyzer GUI MacOS install notes](https://tinyurl.com/BirdNETsounds)にやり方が書かれています。
+:::
+
+### Pythonライブラリのインストール
+
+適切なライブラリをインストールする。仮想環境がアクティブになっている（ターミナルの冒頭の文字が(base)から(birdnet)に変更されている）ことを確認してから、以下のコマンドを入力します。
+
+```         
+pip insall tensorflow==2.15.0 tensorflow-metal
+```
+
+これはディープラーニングを用いるときによく利用されるライブラリであるTensorfowをインストールしています。またtensorflow-metalはmacOSでTensorflowを利用するためのライブラリです。同様に、他にも必要なものをインストールします。
+
+```         
+pip install librosa resampy
+```
+
+訓練時にautotune機能を用いる場合は、加えて
+
+```         
+pip install keras-tuner
+```
+
+MacでGUIを使いたい場合は、
+
+```         
+pip install pywebview gradio
+```
+
+をさらにインストールします。
+
+
+## MacでのGUIの利用 {#sec-cli-gui}
+
+GUIを使うためには、GitHubからコピーしたBirdNET-AnalyzerフォルダをFinder上で右クリックし、「フォルダに新規ターミナル」を選択します。立ち上がったターミナルに以下のコマンドを入力し、GUIを起動させます。
+
+```         
+conda activate birdnet
+python -m gui
+```
+
+その後はWindowsでのGUIの使い方（@sec-gui）と同じです。
+
+
+## CLIによる訓練と解析 {#sec-cli-code}
+
+CLIによりモデルの訓練を行う場合、先ほど（@sec-cli-gui）と同様にBirdNET-Analyzerフォルダにターミナルを立ち上げ、以下のコードを打ち込みます。
+
+```
+conda activate BirdNET
+python train.py --i PATH/TO/TRAIN/DATASET --o model/CustomClassifier_autotune --autotune 
+```
+
+PATH/TO/TRAIN/DATASETの部分には訓練データへのパスを記入します。
+
+また、データ解析も同様に簡単なコードにより実行できます。
+
+```
+python analyze.py --i PATH/TO/AUDIO/DATA --o output/BirdNET-output --classifier model/CustomClassifier_autotune.tflite
+```
+
+詳細なオプションは[公式のドキュメント](https://github.com/kahst/BirdNET-Analyzer)を確認してください。

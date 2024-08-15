@@ -1,0 +1,2 @@
+Begin Time (s)	End Time (s)	Low Freq (Hz)	High Freq (Hz)	Annotation
+1.323172453544218	2.481812100938477	1145.833333333334	14437.5	ZHASCH

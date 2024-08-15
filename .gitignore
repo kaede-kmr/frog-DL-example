@@ -47,3 +47,13 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Mac specific
+.DS_Store
+
+# Others
+sample_data/test/*txt
+model/
+dataset/
+
+/.quarto/

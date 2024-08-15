@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ディープラーニングによるカエル類の種の識別方法 - 2&nbsp; アノテーション</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./data_prep.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./annotation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">アノテーション</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ディープラーニングによるカエル類の種の識別方法</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./annotation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">アノテーション</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">訓練データの整理</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./train_gui.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">モデルの訓練（GUI）</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./use_cli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLIによる利用</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">性能評価</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-annotation-intro" id="toc-sec-annotation-intro" class="nav-link active" data-scroll-target="#sec-annotation-intro"><span class="header-section-number">2.1</span> はじめに</a></li>
+  <li><a href="#sec-annotation-setup" id="toc-sec-annotation-setup" class="nav-link" data-scroll-target="#sec-annotation-setup"><span class="header-section-number">2.2</span> セットアップ</a></li>
+  <li><a href="#sec-annnotation-annotation" id="toc-sec-annnotation-annotation" class="nav-link" data-scroll-target="#sec-annnotation-annotation"><span class="header-section-number">2.3</span> アノテーション</a>
+  <ul class="collapse">
+  <li><a href="#鳴き声のアノテーション方法" id="toc-鳴き声のアノテーション方法" class="nav-link" data-scroll-target="#鳴き声のアノテーション方法"><span class="header-section-number">2.3.1</span> 鳴き声のアノテーション方法</a></li>
+  <li><a href="#アノテーションの基準" id="toc-アノテーションの基準" class="nav-link" data-scroll-target="#アノテーションの基準"><span class="header-section-number">2.3.2</span> アノテーションの基準</a></li>
+  <li><a href="#どれだけアノテーションするのか" id="toc-どれだけアノテーションするのか" class="nav-link" data-scroll-target="#どれだけアノテーションするのか"><span class="header-section-number">2.3.3</span> どれだけアノテーションするのか</a></li>
+  </ul></li>
+  <li><a href="#sec-annotation-others" id="toc-sec-annotation-others" class="nav-link" data-scroll-target="#sec-annotation-others"><span class="header-section-number">2.4</span> その他のアノテーションソフト</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-annotation" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">アノテーション</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="sec-annotation-intro" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-annotation-intro"><span class="header-section-number">2.1</span> はじめに</h2>
+<p>ここでは、野外に設置した音声レコーダーを用いてカエルの鳴き声を録音した、あるいは録音する予定であるという状況を想定し、得られた録音データの解析方法を扱います。同様の手法がカエル以外の生物でも適用可能ですが、コウモリなど可聴域を超える音声については後に紹介するBirdNETが<a href="https://github.com/kahst/BirdNET-Analyzer/issues/236">未対応です</a>。</p>
+<p>種を判定するためのディープラーニングモデルを作るには、まず<strong>対象種の訓練データが必要</strong>となります。このために、データに対し種名等のラベルを付けることを<strong>アノテーション</strong>といいます。日本産のカエル類ではアノテーション済みの公開データは非常に少ないため、多くの場合、調査者がアノテーションを行うか、あるいは合成音声を作成する必要があります。ここでは野外環境に近いデータに基づき訓練を行うため、野外録音をアノテーションする方法を紹介します。</p>
+<p>アノテーション用のソフトとして、生物音響分野では<a href="https://store.birds.cornell.edu/collections/raven-sound-software">Raven Pro/Lite</a>（Proは有料版。無料版のLiteでもアノテーションは可能）や<a href="https://www.audacityteam.org/">Audacity</a>を利用している例が多いようです。これらのソフトは音響解析一般を扱うもので、必ずしも大量のファイルをアノテーションすることに最適化されているわけではありませんが、ユーザーが多く動作が安定しているため、扱いやすいと思いました。ここでは<strong>Raven Lite</strong>を用いてアノテーションする方法を紹介します。</p>
+</section>
+<section id="sec-annotation-setup" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-annotation-setup"><span class="header-section-number">2.2</span> セットアップ</h2>
+<p><strong>インストール</strong></p>
+<p><a href="https://store.birds.cornell.edu/products/raven-lite-2-0-free-license">Raven Lite</a>のページからソフトのインストールを行ってください。インストール方法については全国鳥類繁殖分布調査による解説 <a href="https://www.bird-atlas.jp/data/download.pdf" class="uri">https://www.bird-atlas.jp/data/download.pdf</a> があります。</p>
+<p>インストールが完了したらRaven Liteを起動します。以下では初期設定とアノテーションの流れを扱います。より詳しいRavenの操作方法はYoutubeでわかりやすい <a href="https://www.youtube.com/playlist?list=PL9iLFNlWcYEVrvictnro8VWfzLJaFqvLw">解説</a> があります。動画は英語ですが必要に応じて字幕&gt;自動翻訳を使うこともできます。</p>
+<p><strong>設定</strong></p>
+<p>続いてRavenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（<a href="index.html#sec-index-dataset"><span>Section&nbsp;1.2</span></a>）でダウンロードしたデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと <a href="#fig-raven-initial">Figure&nbsp;<span>2.1</span></a> のような表示になるかと思います（Macでの画面です）。</p>
+<div class="callout callout-style-default callout-note callout-titled" title="サンプルデータについて">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+サンプルデータについて
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>訓練用のサンプルデータはsample_dataフォルダ内のtrainフォルダに入っています。このようなフォルダの構造をsample_data/trainと記しています。</p>
+<p>このデータは京都市の山中の小さな池にAudiomoth（OpenAcoustics社製）というレコーダーを設置して録音されたものです。各ファイルの長さは60秒です。もともと <span class="citation" data-cites="Kimura2023-tc">Kimura and Sota (<a href="references.html#ref-Kimura2023-tc" role="doc-biblioref">2023</a>)</span> で扱ったデータをRavenを用いてアノテーションし直したものになります。すべてのサンプル音声データはアノテーション済みで、サンプルの音声データと同じフォルダ内に、アノテーション結果を保存したtxtファイルも含めています。</p>
+</div>
+</div>
+<div id="fig-raven-initial" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/raven-initial.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.1: Ravenの初期表示</figcaption>
+</figure>
+</div>
+<p>画面上部には波形が、下部はスペクトログラムが表示されています。この音源にはヒキガエルの鳴き声が含まれていますが、デフォルトの設定では表示が小さくアノテーションしにくいので、設定を変更します。定まった方法があるわけではなく好みの問題ですが、個人的には以下のような設定で表示させています。</p>
+<ol type="1">
+<li>波形を非表示にする（Waveform 1 のチェックを外す <a href="#fig-raven-setting-menu">Figure&nbsp;<span>2.2</span></a>)</li>
+<li>4段表示にする（Lines: 1 を Lines: 4に変更する）。</li>
+<li>白黒表示にして、明るさとコントラストを少し上げる（初期設定の50から、70くらいに変更）。</li>
+<li>表示される周波数の上限を7 kHzほどまで下げる（画面右端の＋マークをクリックして、周波数方向に拡大表示をする）。</li>
+</ol>
+<div id="fig-raven-setting-menu" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/raven-setting-menu.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.2: Ravenの表示設定変更。説明の文字が見えやすいよう、画面を白黒画像に変換しています</figcaption>
+</figure>
+</div>
+<p>さらに、</p>
+<ul>
+<li>アノテーションしたとき種名ラベルが画面上に表示されるようにする。
+<ul>
+<li>画面上で右クリック &gt; Configure Selection Labels &gt; Available ItemsからAnnotationを選択後、「&lt;&lt;」 ボタンを押し、Displayed Itemsに移動させる。同時にFont sizeを14まで小さくする。</li>
+</ul></li>
+</ul>
+<p>これにより <a href="#fig-raven-setting">Figure&nbsp;<span>2.3</span></a> のように表示されます。</p>
+<div id="fig-raven-setting" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/raven-setting.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.3: 表示設定を調整後</figcaption>
+</figure>
+</div>
+<p>この状態で画面を右クリックし、Window Presets &gt; Save as… から表示設定を保存してください。たとえばFrogAnnotationといった後からわかる名前にします。次回以降、音声を読み込む際にはWindow PresetをFrogAnnotationに変更することで 、ここで定めた表示設定で音声を読み込むことができます（<a href="#fig-raven-preset">Figure&nbsp;<span>2.4</span></a>）。</p>
+<div id="fig-raven-preset" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/raven-window-preset.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.4: 音声読み込みの際にWindow Presetを新しく保存したプリセットに変更する</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-annnotation-annotation" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-annnotation-annotation"><span class="header-section-number">2.3</span> アノテーション</h2>
+<section id="鳴き声のアノテーション方法" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="鳴き声のアノテーション方法"><span class="header-section-number">2.3.1</span> 鳴き声のアノテーション方法</h3>
+<ol type="1">
+<li><p>再生ボタン（▶）から音声を聞いて、何の種がいつ鳴いているかを確認します</p></li>
+<li><p>鳴き声の範囲をマウスでドラッグすると、四角いボックスが赤色で描かれます</p></li>
+<li><p>そのままEnterをクリックするとAnnotation（どんなラベルを付けるか）を聞かれるので、種名を記録します（<a href="#fig-raven-annotation">Figure&nbsp;<span>2.5</span></a>）。</p></li>
+</ol>
+<p>私は <span class="citation" data-cites="Canas2023-hs">Cañas et al. (<a href="references.html#ref-Canas2023-hs" role="doc-biblioref">2023</a>)</span> をまねて、学名の属名と種小名の冒頭３文字をAnnotationに記載しています。たとえばニホンヒキガエル <em>Bufo japonicus</em> であればBUFJAPです。このとき「Use specified value as default」にチェックをいれると、同じファイルのなかで別の領域を選択した場合にBUFJAPが記入された状態から始まるので、何度も同じ文字を打ち込む必要がなく、ミスを減らせます。</p>
+<div id="fig-raven-annotation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/raven-annotation.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.5: アノテーションの例</figcaption>
+</figure>
+</div>
+<p>これをすべての鳴き声について続けると、 <a href="#fig-raven-annotated">Figure&nbsp;<span>2.6</span></a> のようアノテーションできます。今回はすでにアノテーションされたデータをdataフォルダに含めているので保存する必要はありませんが、実際に自分のデータをアノテーションする場合は File &gt; Save Selection Table “Table 1” から結果を保存できます。</p>
+<div id="fig-raven-annotated" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/raven-annotated1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">2022年3月15日の音声</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/raven-annotated2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">2022年3月26日の音声</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.6: アノテーションを完了したファイルの例</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="アノテーションの基準" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="アノテーションの基準"><span class="header-section-number">2.3.2</span> アノテーションの基準</h3>
+<p>どのようにアノテーションするかについて定まった方法はありません。北米の鳥(<span class="citation" data-cites="Chronister2021-au">Chronister et al. (<a href="references.html#ref-Chronister2021-au" role="doc-biblioref">2021</a>)</span>) やブラジルのカエル(<span class="citation" data-cites="Canas2023-hs">Cañas et al. (<a href="references.html#ref-Canas2023-hs" role="doc-biblioref">2023</a>)</span>)についてアノテーションされたデータセットが公開されているため、手法の検討のうえで参考にしました。</p>
+<p>なお、サンプルデータの作成にあたっては以下の基準でカエルの鳴き声をアノテーションしました。</p>
+<ul>
+<li>同種の鳴き声で、鳴き声の間隔が0.5秒未満のものは一つの鳴き声として四角で囲った。</li>
+<li>音を聞くとかろうじて聞こえるものでも、スペクトログラム上でほとんど表示されない鳴き声については無視した。</li>
+<li>種不名の鳴き声は「frog」というラベルをつけた。</li>
+</ul>
+</section>
+<section id="どれだけアノテーションするのか" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="どれだけアノテーションするのか"><span class="header-section-number">2.3.3</span> どれだけアノテーションするのか</h3>
+<p>アノテーションは時間と手間のかかる作業です。どれだけアノテーションする必要があるか、一概には言えないようですが、たとえば<a href="https://github.com/kahst/BirdNET-Analyzer">BirdNETのドキュメント</a>では各種最低100サンプル以上を推奨しています。BirdNETの場合、3秒間を一つの解析処理の単位として扱うため、3秒の音声ファイルが100個（合計300秒）ということになります。個人的な経験でも、背景音のノイズが比較的少なく、鳴き声が明瞭に聞こえる場合にはこれくらいの分量で一定の精度が出るような感覚があります。各種100サンプル以上用意できたら一度モデルを訓練してみて、目標とする性能に達していなければ、アノテーションを追加するという作業を繰り返すのが良いように思います。</p>
+<p>ディープラーニングでは訓練データに含まれないような音声があると適切に判断できないことが多いので、なるべく様々な種類の背景音（雨・救急車の音・異なる鳥や虫の声など）が含まれるようアノテーションする音声ファイルを選ぶことが推奨されます。</p>
+</section>
+</section>
+<section id="sec-annotation-others" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-annotation-others"><span class="header-section-number">2.4</span> その他のアノテーションソフト</h2>
+<p>はじめに（<a href="#sec-annotation-intro"><span>2.1</span></a>） で述べたように、Raven Liteは大量のファイルをアノテーションすることに必ずしも最適化されていないと感じます。生物音響用のアノテーションに特化したソフトを開発している論文も複数あり、たとえば Deep Audio Segmenter (<span class="citation" data-cites="Steinfath2021-du">Steinfath et al. (<a href="references.html#ref-Steinfath2021-du" role="doc-biblioref">2021</a>)</span>) や Whombat (<span class="citation" data-cites="Balvanera2023-uw">Balvanera et al. (<a href="references.html#ref-Balvanera2023-uw" role="doc-biblioref">2023</a>)</span>) が挙げられ、それぞれに面白い機能を持っています。生物音響解析ソフトまとめている<a href="https://github.com/rhine3/bioacoustics-software">サイト</a>には他の選択肢も載っています。</p>
+<p>このうちのいくつかMacで使えるものを試してみましたが、インストールにPythonの環境構築が必要だったり、動作が不安定だったりと、自分で使う分には慣れればなんとかなるものの、他人に勧めるという観点からはRavenが現状一番かなと感じました。</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Balvanera2023-uw" class="csl-entry" role="listitem">
+Balvanera, Santiago Martinez, Oisin Mac Aodha, Matthew J Weldy, Holly Pringle, Ella Browning, and Kate E Jones. 2023. <span>“Whombat: An Open-Source Annotation Tool for Machine Learning Development in Bioacoustics.”</span> <em>arXiv</em>. <a href="https://arxiv.org/abs/2308.12688">https://arxiv.org/abs/2308.12688</a>.
+</div>
+<div id="ref-Canas2023-hs" class="csl-entry" role="listitem">
+Cañas, Juan Sebastián, María Paula Toro-Gómez, Larissa Sayuri Moreira Sugai, Hernán Darío Benítez Restrepo, Jorge Rudas, Breyner Posso Bautista, Luís Felipe Toledo, et al. 2023. <span>“A Dataset for Benchmarking Neotropical Anuran Calls Identification in Passive Acoustic Monitoring.”</span> <em>Sci Data</em> 10 (1): 771. <a href="https://doi.org/10.1038/s41597-023-02666-2">https://doi.org/10.1038/s41597-023-02666-2</a>.
+</div>
+<div id="ref-Chronister2021-au" class="csl-entry" role="listitem">
+Chronister, Lauren M, Tessa A Rhinehart, Aidan Place, and Justin Kitzes. 2021. <span>“An Annotated Set of Audio Recordings of Eastern North American Birds Containing Frequency, Time, and Species Information.”</span> <em>Ecology</em> 102 (6): e03329. <a href="https://doi.org/10.1002/ecy.3329">https://doi.org/10.1002/ecy.3329</a>.
+</div>
+<div id="ref-Kimura2023-tc" class="csl-entry" role="listitem">
+Kimura, Kaede, and Teiji Sota. 2023. <span>“Evaluation of Deep Learning-Based Monitoring of Frog Reproductive Phenology.”</span> <em>Ichthyology &amp; Herpetology</em> 111 (4): 563–70. <a href="https://doi.org/10.1643/h2023018">https://doi.org/10.1643/h2023018</a>.
+</div>
+<div id="ref-Steinfath2021-du" class="csl-entry" role="listitem">
+Steinfath, Elsa, Adrian Palacios-Muñoz, Julian R Rottschäfer, Deniz Yuezak, and Jan Clemens. 2021. <span>“Fast and Accurate Annotation of Acoustic Signals with Deep Neural Networks.”</span> <em>eLife</em> 10: e68837. <a href="https://doi.org/10.7554/eLife.68837">https://doi.org/10.7554/eLife.68837</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./data_prep.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">訓練データの整理</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

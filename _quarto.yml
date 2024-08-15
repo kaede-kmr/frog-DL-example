@@ -1,0 +1,30 @@
+project:
+  type: book
+
+book:
+  title: "ディープラーニングによるカエル類の種の識別方法"
+  author: "Kaede Kimura"
+  date: "8/15/2024"
+  chapters:
+    - index.qmd
+    - annotation.qmd
+    - data_prep.qmd
+    - train_gui.qmd
+    - inference.qmd
+    - use_cli.qmd
+    - test.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    linestretch: 1.8
+    grid:
+      body-width: 1000px
+  pdf:
+    documentclass: scrreprt
+
+editor: source
+

@@ -1,0 +1,60 @@
+# モデルの訓練（GUI） {#sec-gui}
+
+## はじめに {#sec-gui-intro}
+
+訓練データを用意できたら[BirdNET-Analyzer](https://github.com/kahst/BirdNET-Analyzer)（以下BirdNET）というソフトを利用してモデルの訓練を行います。BirdNETは鳥類を主とした鳴き声によって訓練済みのモデルで、2024年7月現在、世界で6千種以上の生物の鳴き声を識別することができる大規模なものです(@Kahl2021-jo)。デフォルトのモデルで識別できる種のなかにはカエルも何種か含まれていますが、基本的に北米の種で、日本にも分布しているのは外来種であるウシガエルのみです。
+
+しかしBirdNETは訓練データさえこちらで用意すれば、デフォルトのモデルに含まれていない種でも認識するよう訓練できます。多様な鳴き声で事前に訓練されているため、音声に含まれる各種の特徴を抽出する能力が高く、比較的少数のサンプルでも高性能なモデルを作りやすいとされています(@Ghani2023-ro)。
+
+またBirdNETはGUI（グラフィカルユーザーインターフェイス）を提供していることも特徴で、とくにWindowsを使っている場合はインストールからモデルの訓練・解析まで、コードを書かずに完了できるため、とっつきやすいソフトです。CLI（コマンドラインインターフェイス）も用意されているので、解析手順の再現性を高めたい場合にはCLIを利用することができます。
+
+:::{.callout-note}
+MacでもGUIが使えますが、インストールのために仮想環境を用意し、適切なバージョンのPythonとライブラリーを入れる必要があります。この手順は @sec-cli で紹介します。
+:::
+
+公式にきちんと操作方法解説されているため、ここでの内容は、シンプルな訓練手順を日本語で簡単に紹介することにとどめます。詳細な訓練のオプションやその他の機能については、以下のドキュメントに書かれています。
+
+* [BirdNETの利用方法](https://github.com/kahst/BirdNET-Analyzer#3-usage-guide)
+
+## BitdNETのインストール（Windows） {#sec-gui-win-install}
+
+WindowsにおけるBirdNETのインストール方法は[YouTubeでの解説](https://www.youtube.com/watch?v=SWhvkWjzamw)がわかりやすいです。英語ですが、自動翻訳の字幕で日本語を選択することができます。
+
+## 訓練 {#sec-gui-train}
+
+BirdNETのインストールを終えてソフトを立ち上げたら（ソフトの立ち上がりに少し時間がかかると思います）、datasetフォルダに含まれている音声を利用してモデルの訓練を行ってみます。
+
+タブからTrainを選択し、Select training dataから、先ほど用意したdatasetのフォルダを選択してください。少し時間をおいて、訓練データに含まれていた、BUFJAP、ZHASCH、backgroundの３つのクラスが表示されるはずです (@fig-birdnet-train)。
+
+![BirdNET-Analyzerの訓練画面](figs/birdnet-train.png){#fig-birdnet-train}
+
+続いて、訓練したモデルの保存先を Select classifier output から指定します。ここではdatasetと同じfrog_DL_exampleフォルダのなかに、modelというフォルダを新規に作って選択します。
+
+その下にいろいろな訓練時のオプションがありますが、デフォルト設定のまま下にスクロールし、Start training のボタンを押して訓練を開始します。
+
+訓練データセットの読み込みから始まり、訓練過程を示す情報が現れたのちに、次のようなグラフが出力されたら完了です（@fig-birdnet-default）。
+
+![学習曲線](figs/birdnet-default.png){#fig-birdnet-default}
+
+このグラフはモデルの学習曲線であり、訓練が進む（Epochの値が高くなる）ほど、モデルの評価指標であるAUPRCやAUROCが向上する様子が見られます。
+
+## 訓練オプション {#sec-gui-options}
+
+続いて **autotune** 機能を利用してモデルの訓練を行ってみます。先ほどは様々なパラメータを変更せずデフォルトのまま訓練しましたが、訓練時の学習率やモデルの構造などを決めるパラメータ（ハイパーパラメータ）を様々に操作して、最適な値の探索を行うオプションが Use autotune と書かれたチェック項目です。ここにチェックを入れると、ベイズ最適化によるハイパーパラメータ探索が行われます。
+
+ハイパーパラメータの値の組み合わせをどれだけ探索するかはTrialsの数で変更できます。ここではTrialsをデフォルトの50のままにして訓練を行ってみます。Select classifier outputの欄で、モデルを保存する名称をデフォルト（CustomClassifier）から変更し、たとえばCustomClassifier_autotuneなどとして訓練開始（Start training）します。結果を @fig-birdnet-autotune に示します。
+
+![autotune機能を使った場合の学習曲線](figs/birdnet-autotune.png){#fig-birdnet-autotune}
+
+先ほどのデフォルトのモデルですでに高い性能が出ていたため、パラメータの調整を行っても最終的なAUPRC,AUROCの値にはわずかな違いしか見られませんでした。
+
+:::{.callout-note}
+
+モデルの訓練過程にはランダム性があるため、実際に訓練してみても、同じ学習曲線にはならないかと思います。
+
+:::
+
+最適と判断されたハイパーパラメータは、modelフォルダに出力された、CustomeClassifier_autotune_Params.csvから確認できます。
+
+
+

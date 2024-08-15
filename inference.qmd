@@ -1,0 +1,42 @@
+# データの解析 {#sec-inference}
+
+## はじめに {#sec-inference-intro}
+
+モデルの訓練（GUI）(@sec-gui)によって、ニホンヒキガエルとシュレーゲルアオガエルの鳴き声を判定できるカスタムモデルが作成できました。次はこのモデルを使って訓練データに利用していないデータを解析してみます。
+
+そのためのデータはsample_data/testのフォルダに入っていることを確認してください。ニホンヒキガエルが鳴いている音声が一つ、またシュレーゲルアオガエルが鳴いている音声が一つです。
+
+## 実行 {#sec-inference-run}
+
+訓練時と同様に、BirdNETのGUIを起動してください。
+
+Batch analysisのタブから、Select input directory (recursive)をクリックし、sample_data/testを選択すると、解析予定のファイル一覧が表示されます（@fig-birdnet-test1）。
+
+![解析の設定](figs/birdnet-test1.png){#fig-birdnet-test1}
+
+続いて、画面の下の方に行って Species selection \> Custom Classifier にチェック。Select classifierから、先程訓練したモデルを選択します。Output settingsとしてはデフォルトのRaven selection tableのほかにも好みの形式を選ぶことができます（@fig-birdnet-test2）。
+
+![解析の設定つづき](figs/birdnet-test2.png){#fig-birdnet-test2}
+
+この設定でAnalyzeすると、sample_data/testフォルダの中に、「~BirdNET.selection.table.txt」が末尾についたファイルが生成されます。
+
+結果をRavenで確認してみると、@fig-birdnet-results のようになりました（Ravenを立ち上げ、音声ファイル、BirdNETの出力ファイルの順にドラッグ・アンド・ドロップすることで結果を確認可能です）。
+
+:::{#fig-birdnet-results layout-ncol=1}
+
+![ニホンヒキガエルの解析結果](figs/birdnet-BUFJAP-result.png)
+
+![シュレーゲルアオガエルの解析結果](figs/birdnet-ZHASCH-result.png)
+
+解析結果
+:::
+
+青色で囲われた部分が、BirdNETモデルが検出した各種の鳴き声です。BirdNETでは３秒間が解析単位なので、鳴き声の開始点と終了点が正確に出力されるわけではありませんが、どちらの種も、鳴き声を含んだ音声セグメントをよく検出できています。
+
+どれだけよく検出できているかを、より具体的に評価する方法は、@sec-test で扱います。
+
+:::{.callout-note}
+このページを用意する過程で、最初は現在の３分の１ほどのデータ量（音声ファイルとしては10ファイル、3秒間に区切った後の数では各種約45サンプルずつ）でモデルを訓練していました。その結果、モデルはシュレーゲルアオガエルはよく検出できたのですが、ヒキガエルは見落としが多く、検出できていた場合もConfidence Score（モデルの確信度）が低いものでした。そこでデータを追加して訓練し直したところ、性能が向上し、ヒキガエルもよく検出できるようになりました。
+
+今回サンプルデータとして用いたのは、山中の小さな池で、背景雑音（川の流れや車の音など）がほとんどせず、カエルもレコーダと距離が近い狭い範囲で鳴くため、かなり識別しやすい音声になっています。音響モニタリングではもっと難しい条件の地点も珍しくなく、これほど容易には学習が進まないケースもあります。
+:::

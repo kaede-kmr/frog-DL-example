@@ -1,0 +1,130 @@
+# 性能評価 {#sec-test}
+
+自動化した解析結果がどれだけ信用できるかを判断したり、複数のモデルの性能を比較するうえで、モデルの**性能評価**が役立ちます。
+
+## 性能の評価指標 {#sec-test-index}
+
+機械学習モデルの性能評価指標の一つとして、モデルの訓練（@sec-gui）で登場した**AUPRC**や**AUROC**があります。BirdNETではデフォルトで訓練データの20%をモデルの評価に利用してこれらの値を算出しています。
+
+その他のよく用いられる評価指標に**Precision**と**Recall**があります。それぞれ以下の式で定義されます。
+
+$$
+\begin{aligned}
+Precision = \frac{TP}{TP + FP}, \\
+Recall = \frac{TP}{TP + FN}
+\end{aligned}
+$$
+
+ここでTP, FP, FNはそれぞれ真陽性（true positives）、偽陽性（false positives）、偽陰性（false negatives）を表します。
+
+すなわち、precisionは「モデルがこのカエルだと判断したサンプルのうち、実際にそのカエルが鳴いていたサンプルの割合」を、recallは「あるカエルが鳴いているすべてのサンプルのうち、モデルが正しく検出できたサンプルの割合」を表します。どちらも1に近いほどモデルの性能が良いことを表します。Precisionとrecallは一般にトレードオフの関係にあり、モデルの検出閾値を高めることで偽陽性（FP）が減ってprecisionは向上するものの、偽陰性（FN）が増えてrecallの値が低下します。
+
+Precisionとrecallは、AUROC等と比べて値の意味が解釈がしやすく、解析結果がどれだけ信用できるものなのか判断するうえで役立つため、以下でそれを算出するコードの一例を紹介します。このページの内容はサンプルデータ内にある、test.qmdを開いて実行することができます。
+
+## 評価指標の算出 {#sec-test-calc}
+
+評価指標の算出にはcaretパッケージを用います。訓練済みモデルの予測と、対応するアノテーションデータはsample_data/performanceの中に格納されています。
+
+```{r message=FALSE}
+library(tidyverse)
+library(caret)
+```
+
+```{r}
+# データの一覧取得
+annotation_list <- list.files("sample_data/performance", "*selections.txt", full.names = TRUE)
+BirdNET_results_list <- list.files("sample_data/performance", "*BirdNET.selection.table.txt", full.names = TRUE)
+```
+
+まずニホンヒキガエル（BUFJAP）についての性能評価を行います。BirdNETの出力や、アノテーションデータからラベルを取得するために、`create_labels()`関数を少し変更したもの以下に定義します。
+
+```{r}
+create_labels2 <- function(df){
+  label_vec <- vector(mode = "character")  # ラベルを格納するベクトルを初期化
+  
+  for(i in 1:20){
+    start <- (i-1) * 3  
+    end <- i * 3  
+    label_df <- df |> 
+      # startからendと重複する部分のあるアノテーションのみを抜き出す
+      filter(`Begin Time (s)` < end & `End Time (s)` > start) |> 
+      distinct(Annotation)  # 同じ種のラベルの重複を削除
+    
+    # クリップ内にアノテーションがない場合は"background"、ある場合はアノテーションをラベルにする
+    label <- if(nrow(label_df) == 0) "background" else label_df$Annotation
+    label_vec[i] <- label  # ラベルをリストに格納
+  }
+  
+  return(label_vec)
+}
+```
+
+これを用いて、モデルの予測をfactor形式で取得します。
+
+```{r message=FALSE}
+pred_list <- annotation_list |> 
+  map(function(x) x |> 
+        read_delim(delim = "\t") |> 
+        filter(Annotation == "BUFJAP") |>  # ニホンヒキガエルのみに着目
+        create_labels2()
+        )
+
+# モデルの予測をfactor形式に変換
+pred <- pred_list |> unlist() |> as.factor()
+```
+
+ここで`map()`は、リスト（`annotation_list`）内のすべての要素に対して、`function(x)`以下の関数を作用させる機能を持ちます。同様に、訓練したBirdNETモデルの予測をfactor形式で取得します。
+
+```{r message=FALSE}
+truth_list <- BirdNET_results_list |> 
+  map(function(x) x |> 
+        read_delim(delim = "\t") |> 
+        mutate(Annotation = `Species Code`) |>  # create_labels2()が機能するように列を追加
+        filter(Annotation == "BUFJAP") |> 
+        create_labels2()
+        )
+
+truth <- truth_list |> unlist() |> as.factor()
+```
+
+正解ラベル（`truth`）とモデルの予測（`pred`）から、`confusionMatrix()`によりどれだけ正解していたのか確認します。
+
+```{r}
+confusionMatrix(pred, truth, positive = "BUFJAP", mode = "prec_recall")
+```
+
+今回の場合、precision、recallともに100%で、ニホンヒキガエルに関する予測は完璧だったようです。
+
+このようなprecisionとrecallの算出を、シュレーゲルアオガエル（ZHASCH）についても行います。
+
+```{r message=FALSE}
+species = "ZHASCH"
+
+# モデルの予測
+pred <- annotation_list |> 
+  map(function(x) x |> 
+        read_delim(delim = "\t") |> 
+        filter(Annotation == species) |> 
+        create_labels2()
+        ) |> 
+  unlist() |> 
+  as.factor()
+
+# 正解ラベル
+truth <- BirdNET_results_list |> 
+  map(function(x) x |> 
+        read_delim(delim = "\t") |> 
+        mutate(Annotation = `Species Code`) |>  # create_labels2()が機能するように列を追加
+        filter(Annotation == species) |> 
+        create_labels2()
+        ) |> 
+  unlist() |> 
+  as.factor()
+
+
+# 混同行列と評価指標の算出
+confusionMatrix(pred, truth, positive = species, mode = "prec_recall")
+```
+
+今回のケースでは、モデルの性能は高く、1分間×2つの音声ファイルについて、ニホンヒキガエルとシュレーゲルアオガエルのprecison、recallはいずれも100％という結果になりました。
+
