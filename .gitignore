@@ -52,6 +52,6 @@ rsconnect/
 sample_data/test/*txt
 model/
 dataset/
-_book
+_book/
 
 /.quarto/
