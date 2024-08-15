@@ -24,7 +24,9 @@ format:
     grid:
       body-width: 1000px
   pdf:
-    documentclass: scrreprt
+    pdf-engine: xelatex
+    documentclass: bxjsbook
+    classoption: xelatex,ja=standard
 
 editor: source
 

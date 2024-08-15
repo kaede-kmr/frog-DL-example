@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -66,7 +67,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,6 +82,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -90,12 +98,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./annotation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">アノテーション</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./annotation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">アノテーション</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -105,7 +113,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ディープラーニングによるカエル類の種の識別方法</a> 
@@ -169,7 +177,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -206,7 +214,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="sec-annotation-intro" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-annotation-intro"><span class="header-section-number">2.1</span> はじめに</h2>
@@ -220,7 +230,7 @@ div.csl-indent {
 <p><a href="https://store.birds.cornell.edu/products/raven-lite-2-0-free-license">Raven Lite</a>のページからソフトのインストールを行ってください。インストール方法については全国鳥類繁殖分布調査による解説 <a href="https://www.bird-atlas.jp/data/download.pdf" class="uri">https://www.bird-atlas.jp/data/download.pdf</a> があります。</p>
 <p>インストールが完了したらRaven Liteを起動します。以下では初期設定とアノテーションの流れを扱います。より詳しいRavenの操作方法はYoutubeでわかりやすい <a href="https://www.youtube.com/playlist?list=PL9iLFNlWcYEVrvictnro8VWfzLJaFqvLw">解説</a> があります。動画は英語ですが必要に応じて字幕&gt;自動翻訳を使うこともできます。</p>
 <p><strong>設定</strong></p>
-<p>続いてRavenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（<a href="index.html#sec-index-dataset"><span>Section&nbsp;1.2</span></a>）でダウンロードしたデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと <a href="#fig-raven-initial">Figure&nbsp;<span>2.1</span></a> のような表示になるかと思います（Macでの画面です）。</p>
+<p>続いてRavenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（<a href="index.html#sec-index-dataset" class="quarto-xref"><span>Section 1.2</span></a>）でダウンロードしたデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと <a href="#fig-raven-initial" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> のような表示になるかと思います（Macでの画面です）。</p>
 <div class="callout callout-style-default callout-note callout-titled" title="サンプルデータについて">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -235,23 +245,31 @@ div.csl-indent {
 <p>このデータは京都市の山中の小さな池にAudiomoth（OpenAcoustics社製）というレコーダーを設置して録音されたものです。各ファイルの長さは60秒です。もともと <span class="citation" data-cites="Kimura2023-tc">Kimura and Sota (<a href="references.html#ref-Kimura2023-tc" role="doc-biblioref">2023</a>)</span> で扱ったデータをRavenを用いてアノテーションし直したものになります。すべてのサンプル音声データはアノテーション済みで、サンプルの音声データと同じフォルダ内に、アノテーション結果を保存したtxtファイルも含めています。</p>
 </div>
 </div>
-<div id="fig-raven-initial" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/raven-initial.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.1: Ravenの初期表示</figcaption>
+<div id="fig-raven-initial" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-raven-initial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/raven-initial.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-raven-initial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Ravenの初期表示
+</figcaption>
 </figure>
 </div>
 <p>画面上部には波形が、下部はスペクトログラムが表示されています。この音源にはヒキガエルの鳴き声が含まれていますが、デフォルトの設定では表示が小さくアノテーションしにくいので、設定を変更します。定まった方法があるわけではなく好みの問題ですが、個人的には以下のような設定で表示させています。</p>
 <ol type="1">
-<li>波形を非表示にする（Waveform 1 のチェックを外す <a href="#fig-raven-setting-menu">Figure&nbsp;<span>2.2</span></a>)</li>
+<li>波形を非表示にする（Waveform 1 のチェックを外す <a href="#fig-raven-setting-menu" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>)</li>
 <li>4段表示にする（Lines: 1 を Lines: 4に変更する）。</li>
 <li>白黒表示にして、明るさとコントラストを少し上げる（初期設定の50から、70くらいに変更）。</li>
 <li>表示される周波数の上限を7 kHzほどまで下げる（画面右端の＋マークをクリックして、周波数方向に拡大表示をする）。</li>
 </ol>
-<div id="fig-raven-setting-menu" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/raven-setting-menu.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.2: Ravenの表示設定変更。説明の文字が見えやすいよう、画面を白黒画像に変換しています</figcaption>
+<div id="fig-raven-setting-menu" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-raven-setting-menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/raven-setting-menu.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-raven-setting-menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Ravenの表示設定変更。説明の文字が見えやすいよう、画面を白黒画像に変換しています
+</figcaption>
 </figure>
 </div>
 <p>さらに、</p>
@@ -261,18 +279,26 @@ div.csl-indent {
 <li>画面上で右クリック &gt; Configure Selection Labels &gt; Available ItemsからAnnotationを選択後、「&lt;&lt;」 ボタンを押し、Displayed Itemsに移動させる。同時にFont sizeを14まで小さくする。</li>
 </ul></li>
 </ul>
-<p>これにより <a href="#fig-raven-setting">Figure&nbsp;<span>2.3</span></a> のように表示されます。</p>
-<div id="fig-raven-setting" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/raven-setting.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.3: 表示設定を調整後</figcaption>
+<p>これにより <a href="#fig-raven-setting" class="quarto-xref">Figure&nbsp;<span>2.3</span></a> のように表示されます。</p>
+<div id="fig-raven-setting" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-raven-setting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/raven-setting.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-raven-setting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: 表示設定を調整後
+</figcaption>
 </figure>
 </div>
-<p>この状態で画面を右クリックし、Window Presets &gt; Save as… から表示設定を保存してください。たとえばFrogAnnotationといった後からわかる名前にします。次回以降、音声を読み込む際にはWindow PresetをFrogAnnotationに変更することで 、ここで定めた表示設定で音声を読み込むことができます（<a href="#fig-raven-preset">Figure&nbsp;<span>2.4</span></a>）。</p>
-<div id="fig-raven-preset" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/raven-window-preset.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.4: 音声読み込みの際にWindow Presetを新しく保存したプリセットに変更する</figcaption>
+<p>この状態で画面を右クリックし、Window Presets &gt; Save as… から表示設定を保存してください。たとえばFrogAnnotationといった後からわかる名前にします。次回以降、音声を読み込む際にはWindow PresetをFrogAnnotationに変更することで 、ここで定めた表示設定で音声を読み込むことができます（<a href="#fig-raven-preset" class="quarto-xref">Figure&nbsp;<span>2.4</span></a>）。</p>
+<div id="fig-raven-preset" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-raven-preset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/raven-window-preset.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-raven-preset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: 音声読み込みの際にWindow Presetを新しく保存したプリセットに変更する
+</figcaption>
 </figure>
 </div>
 </section>
@@ -283,37 +309,45 @@ div.csl-indent {
 <ol type="1">
 <li><p>再生ボタン（▶）から音声を聞いて、何の種がいつ鳴いているかを確認します</p></li>
 <li><p>鳴き声の範囲をマウスでドラッグすると、四角いボックスが赤色で描かれます</p></li>
-<li><p>そのままEnterをクリックするとAnnotation（どんなラベルを付けるか）を聞かれるので、種名を記録します（<a href="#fig-raven-annotation">Figure&nbsp;<span>2.5</span></a>）。</p></li>
+<li><p>そのままEnterをクリックするとAnnotation（どんなラベルを付けるか）を聞かれるので、種名を記録します（<a href="#fig-raven-annotation" class="quarto-xref">Figure&nbsp;<span>2.5</span></a>）。</p></li>
 </ol>
 <p>私は <span class="citation" data-cites="Canas2023-hs">Cañas et al. (<a href="references.html#ref-Canas2023-hs" role="doc-biblioref">2023</a>)</span> をまねて、学名の属名と種小名の冒頭３文字をAnnotationに記載しています。たとえばニホンヒキガエル <em>Bufo japonicus</em> であればBUFJAPです。このとき「Use specified value as default」にチェックをいれると、同じファイルのなかで別の領域を選択した場合にBUFJAPが記入された状態から始まるので、何度も同じ文字を打ち込む必要がなく、ミスを減らせます。</p>
-<div id="fig-raven-annotation" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/raven-annotation.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.5: アノテーションの例</figcaption>
+<div id="fig-raven-annotation" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-raven-annotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/raven-annotation.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-raven-annotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: アノテーションの例
+</figcaption>
 </figure>
 </div>
-<p>これをすべての鳴き声について続けると、 <a href="#fig-raven-annotated">Figure&nbsp;<span>2.6</span></a> のようアノテーションできます。今回はすでにアノテーションされたデータをdataフォルダに含めているので保存する必要はありませんが、実際に自分のデータをアノテーションする場合は File &gt; Save Selection Table “Table 1” から結果を保存できます。</p>
+<p>これをすべての鳴き声について続けると、 <a href="#fig-raven-annotated" class="quarto-xref">Figure&nbsp;<span>2.6</span></a> のようアノテーションできます。今回はすでにアノテーションされたデータをdataフォルダに含めているので保存する必要はありませんが、実際に自分のデータをアノテーションする場合は File &gt; Save Selection Table “Table 1” から結果を保存できます。</p>
 <div id="fig-raven-annotated" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-raven-annotated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/raven-annotated1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">2022年3月15日の音声</figcaption>
+<figcaption>2022年3月15日の音声</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/raven-annotated2.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">2022年3月26日の音声</figcaption>
+<figcaption>2022年3月26日の音声</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.6: アノテーションを完了したファイルの例</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-raven-annotated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.6: アノテーションを完了したファイルの例
+</figcaption>
 </figure>
 </div>
 </section>
@@ -335,11 +369,11 @@ div.csl-indent {
 </section>
 <section id="sec-annotation-others" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="sec-annotation-others"><span class="header-section-number">2.4</span> その他のアノテーションソフト</h2>
-<p>はじめに（<a href="#sec-annotation-intro"><span>2.1</span></a>） で述べたように、Raven Liteは大量のファイルをアノテーションすることに必ずしも最適化されていないと感じます。生物音響用のアノテーションに特化したソフトを開発している論文も複数あり、たとえば Deep Audio Segmenter (<span class="citation" data-cites="Steinfath2021-du">Steinfath et al. (<a href="references.html#ref-Steinfath2021-du" role="doc-biblioref">2021</a>)</span>) や Whombat (<span class="citation" data-cites="Balvanera2023-uw">Balvanera et al. (<a href="references.html#ref-Balvanera2023-uw" role="doc-biblioref">2023</a>)</span>) が挙げられ、それぞれに面白い機能を持っています。生物音響解析ソフトまとめている<a href="https://github.com/rhine3/bioacoustics-software">サイト</a>には他の選択肢も載っています。</p>
+<p>はじめに（<a href="#sec-annotation-intro" class="quarto-xref"><span>2.1</span></a>） で述べたように、Raven Liteは大量のファイルをアノテーションすることに必ずしも最適化されていないと感じます。生物音響用のアノテーションに特化したソフトを開発している論文も複数あり、たとえば Deep Audio Segmenter (<span class="citation" data-cites="Steinfath2021-du">Steinfath et al. (<a href="references.html#ref-Steinfath2021-du" role="doc-biblioref">2021</a>)</span>) や Whombat (<span class="citation" data-cites="Balvanera2023-uw">Balvanera et al. (<a href="references.html#ref-Balvanera2023-uw" role="doc-biblioref">2023</a>)</span>) が挙げられ、それぞれに面白い機能を持っています。生物音響解析ソフトまとめている<a href="https://github.com/rhine3/bioacoustics-software">サイト</a>には他の選択肢も載っています。</p>
 <p>このうちのいくつかMacで使えるものを試してみましたが、インストールにPythonの環境構築が必要だったり、動作が不安定だったりと、自分で使う分には慣れればなんとかなるものの、他人に勧めるという観点からはRavenが現状一番かなと感じました。</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Balvanera2023-uw" class="csl-entry" role="listitem">
 Balvanera, Santiago Martinez, Oisin Mac Aodha, Matthew J Weldy, Holly Pringle, Ella Browning, and Kate E Jones. 2023. <span>“Whombat: An Open-Source Annotation Tool for Machine Learning Development in Bioacoustics.”</span> <em>arXiv</em>. <a href="https://arxiv.org/abs/2308.12688">https://arxiv.org/abs/2308.12688</a>.
 </div>
@@ -438,10 +472,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -451,8 +502,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -464,7 +524,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -508,6 +691,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -533,6 +717,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -594,17 +804,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
+      <a href="./index.html" class="pagination-link" aria-label="はじめに">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data_prep.html" class="pagination-link">
+      <a href="./data_prep.html" class="pagination-link" aria-label="訓練データの整理">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">訓練データの整理</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

@@ -4,129 +4,29 @@
     "href": "index.html",
     "title": "ディープラーニングによるカエル類の種の識別方法",
     "section": "",
-    "text": "1 はじめに\n本ページは 木村 (2024) のオンライン補遺です。\n野外録音データからニホンヒキガエルとシュレーゲルアオガエルの2種のカエルの鳴き声を検出することを例にして、ディープラーニングによる種判別モデルをなるべく簡単な手順で作る方法を紹介しています。\n野生生物の分布域や個体数の変化をモニタリングする必要性が高まるなか、ディープラーニングによる調査の自動化が注目されています。カエルを含め鳴き声を発する生き物では、音声レコーダーを使うことで分布や繁殖個体の有無を効率的に調べることができます。野外にレコーダーを設置し、予約録音機能を使うことでデータ取得を自動化できますが、得られる膨大なデータの解析が課題でした。近年発達した機械学習の一種であるディープラーニングを用いることで、この膨大なデータの解析を機械に助けてもらうことができます。\n野外で取得した音響データを解析にするにはしばしば自分でモデルを訓練する必要があります。そのための使いやすいソフトも開発されてきていますが、初学者向けに訓練データの用意から解析までの一連の手順をまとめている文献はなかなか見当たりません。そこでモデルの訓練方法の一例を紹介し、音響解析にディープラーニングを用いるをハードルを下げることが本ページの目的です。",
+    "text": "1 本ページは準備中です",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>はじめに</span>"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  イントロダクション",
-    "section": "",
-    "text": "1.1 始め方\nモデルの訓練に用いるデータセットおよびコードはこちらから入手してください。\n用いるソフトはRaven Lite、R、BidrNETの3種類です。Raven Liteを用いて野外の音声データに種名のラベル付けを行い、プログラミング言語Rを用いてラベルと音声データを後に使いやすいよう整理します。整理されたデータを用いてBirdNETというソフト上でディープラーニングの訓練を行うという流れです。それぞれのソフトの使い方は後に紹介します。\nThis is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>イントロダクション</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "8  終わりに",
-    "section": "",
-    "text": "8.1 まとめ\nここまでで、\nを扱いました。",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>終わりに</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "引用文献",
-    "section": "",
-    "text": "Balvanera, Santiago Martinez, Oisin Mac Aodha, Matthew J Weldy, Holly\nPringle, Ella Browning, and Kate E Jones. 2023. “Whombat: An\nOpen-Source Annotation Tool for Machine Learning Development in\nBioacoustics.” arXiv. https://arxiv.org/abs/2308.12688.\n\n\nCañas, Juan Sebastián, María Paula Toro-Gómez, Larissa Sayuri Moreira\nSugai, Hernán Darío Benítez Restrepo, Jorge Rudas, Breyner Posso\nBautista, Luís Felipe Toledo, et al. 2023. “A Dataset for\nBenchmarking Neotropical Anuran Calls Identification in Passive Acoustic\nMonitoring.” Sci Data 10 (1): 771. https://doi.org/10.1038/s41597-023-02666-2.\n\n\nChronister, Lauren M, Tessa A Rhinehart, Aidan Place, and Justin Kitzes.\n2021. “An Annotated Set of Audio Recordings of Eastern North\nAmerican Birds Containing Frequency, Time, and Species\nInformation.” Ecology 102 (6): e03329. https://doi.org/10.1002/ecy.3329.\n\n\nGhani, Burooj, Tom Denton, Stefan Kahl, and Holger Klinck. 2023.\n“Global Birdsong Embeddings Enable Superior Transfer Learning for\nBioacoustic Classification.” Sci. Rep. 13 (1): 22876. https://doi.org/10.1038/s41598-023-49989-z.\n\n\nKahl, Stefan, Connor M Wood, Maximilian Eibl, and Holger Klinck. 2021.\n“BirdNET: A Deep Learning Solution for Avian\nDiversity Monitoring.” Ecol. Inform. 61: 101236. https://doi.org/10.1016/j.ecoinf.2021.101236.\n\n\nKimura, Kaede, and Teiji Sota. 2023. “Evaluation of Deep\nLearning-Based Monitoring of Frog Reproductive Phenology.”\nIchthyology & Herpetology 111 (4): 563–70. https://doi.org/10.1643/h2023018.\n\n\nSteinfath, Elsa, Adrian Palacios-Muñoz, Julian R Rottschäfer, Deniz\nYuezak, and Jan Clemens. 2021. “Fast and Accurate Annotation of\nAcoustic Signals with Deep Neural Networks.” eLife 10:\ne68837. https://doi.org/10.7554/eLife.68837.\n\n\nSymes, Laurel, Larissa S M Sugai, Benjamin Gottesman, Michael Pitzrick,\nand Connor Wood. 2023. “Acoustic analysis\nwith BirdNET and (almost) no coding: practical\ninstructions.” Zenodo. https://doi.org/10.5281/zenodo.8357176.\n\n\n木村楓. 2024.\n“ディープラーニングによるカエル類の音響モニタリング入門.”\n爬虫両棲類学会報 2024 (2).",
-    "crumbs": [
-      "引用文献"
-    ]
-  },
-  {
-    "objectID": "index.html#引用方法",
-    "href": "index.html#引用方法",
-    "title": "ディープラーニングによるカエル類の種の識別方法",
-    "section": "引用方法",
-    "text": "引用方法\nこの内容がもし役立てば以下の文献を引用ください。\n木村楓. 2024. ディープラーニングによるカエル類の音響モニタリング入門. 爬虫両棲類学会報 2024(2):XXX-XXX.\n内容について間違いや改善点を見つけたら、issueにてお知らせいただけますと大変ありがたいです。\n\n\n\n\n木村楓. 2024. “ディープラーニングによるカエル類の音響モニタリング入門.” 爬虫両棲類学会報 2024 (2).",
-    "crumbs": [
-      "はじめに"
-    ]
-  },
-  {
-    "objectID": "intro.html#始め方",
-    "href": "intro.html#始め方",
-    "title": "1  イントロダクション",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>イントロダクション</span>"
-    ]
-  },
-  {
-    "objectID": "annotation.html",
-    "href": "annotation.html",
-    "title": "2  アノテーション",
-    "section": "",
-    "text": "2.1 はじめに\nここでは、野外に設置した音声レコーダーを用いてカエルの鳴き声を録音した、あるいは録音する予定であるという状況を想定し、得られた録音データの解析方法を扱います。同様の手法がカエル以外の生物でも適用可能ですが、コウモリなど可聴域を超える音声については後に紹介するBirdNETが未対応です。\n種を判定するためのディープラーニングモデルを作るには、まず対象種の訓練データが必要となります。このために、データに対し種名等のラベルを付けることをアノテーションといいます。日本産のカエル類ではアノテーション済みの公開データは非常に少ないため、多くの場合、調査者がアノテーションを行うか、あるいは合成音声を作成する必要があります。ここでは野外環境に近いデータに基づき訓練を行うため、野外録音をアノテーションする方法を紹介します。\nアノテーション用のソフトとして、生物音響分野ではRaven Pro/Lite（Proは有料版。無料版のLiteでもアノテーションは可能）やAudacityを利用している例が多いようです。これらのソフトは音響解析一般を扱うもので、必ずしも大量のファイルをアノテーションすることに最適化されているわけではありませんが、ユーザーが多く動作が安定しているため、扱いやすいと思いました。ここではRaven Liteを用いてアノテーションする方法を紹介します。",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>アノテーション</span>"
-    ]
-  },
-  {
-    "objectID": "annotation.html#セットアップ",
-    "href": "annotation.html#セットアップ",
-    "title": "1  アノテーション",
-    "section": "1.2 セットアップ",
-    "text": "1.2 セットアップ",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>アノテーション</span>"
-    ]
-  },
-  {
-    "objectID": "annotation.html#その他のアノテーションソフト",
-    "href": "annotation.html#その他のアノテーションソフト",
-    "title": "1  アノテーション",
-    "section": "1.3 その他のアノテーションソフト",
-    "text": "1.3 その他のアノテーションソフト\nはじめに（1.1） で述べたように、\n\n\n\n\nMetcalf, Oliver, Carlos Abrahams, Bob Ashington, Ed Baker, Tom Bradfer-Lawrence, Ella Browning, Jonathan Carruthers-Jones, et al. 2023. Good Practice Guidelines for Long-Term Ecoacoustic Monitoring in the UK. The UK Acoustics Network.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>アノテーション</span>"
-    ]
-  },
-  {
-    "objectID": "annotation.html#sec-annotation_setup",
-    "href": "annotation.html#sec-annotation_setup",
-    "title": "1  アノテーション",
-    "section": "1.2 セットアップ",
-    "text": "1.2 セットアップ\n\nインストール\n\nRaven Liteのページからソフトのインストールを行ってください。インストール方法については全国鳥類繁殖分布調査による日本語での分かりやすい解説（[https://www.bird-atlas.jp/data/download.pdf]（https://www.bird-atlas.jp/data/download.pdf））があります。",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>アノテーション</span>"
-    ]
-  },
-  {
-    "objectID": "annotation.html#sec-annotation_others",
-    "href": "annotation.html#sec-annotation_others",
-    "title": "1  アノテーション",
-    "section": "1.3 その他のアノテーションソフト",
-    "text": "1.3 その他のアノテーションソフト\nはじめに（1.1） で述べたように、Raven Liteは大量のファイルをアノテーションすることに必ずしも最適化されていないと感じます。生物音響用のアノテーションに特化したソフトを開発している論文も複数あり、たとえば Deep Audio Segmente Steinfath et al. (2021) や Whombat Balvanera et al. (2023) が挙げられます。生物音響解析ソフトまとめているサイトには他の選択肢も載っています。このうちのいくつかMacで使えるものを利用してみましたが、インストールにPythonの環境構築が必要だったり、動作が止まりがちだったりと、自分で使う分には慣れればなんとかなるものの、他の人に勧めるという観点からはRavenが現状一番いいのかなと感じました。ただアノテーションソフトの選択は好みの問題なので、他の機能があるソフトを試してみるのもいいかもしれません。\n\n\n\n\nBalvanera, Santiago Martinez, Oisin Mac Aodha, Matthew J Weldy, Holly Pringle, Ella Browning, and Kate E Jones. 2023. “Whombat: An Open-Source Annotation Tool for Machine Learning Development in Bioacoustics.” arXiv. https://arxiv.org/abs/2308.12688.\n\n\nMetcalf, Oliver, Carlos Abrahams, Bob Ashington, Ed Baker, Tom Bradfer-Lawrence, Ella Browning, Jonathan Carruthers-Jones, et al. 2023. Good Practice Guidelines for Long-Term Ecoacoustic Monitoring in the UK. The UK Acoustics Network.\n\n\nSteinfath, Elsa, Adrian Palacios-Muñoz, Julian R Rottschäfer, Deniz Yuezak, and Jan Clemens. 2021. “Fast and Accurate Annotation of Acoustic Signals with Deep Neural Networks.” eLife 10: e68837. https://doi.org/10.7554/eLife.68837.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>アノテーション</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>本ページは準備中です</span>"
     ]
   },
   {
     "objectID": "index.html#sec-index-contents",
     "href": "index.html#sec-index-contents",
     "title": "ディープラーニングによるカエル類の種の識別方法",
-    "section": "1.1 内容",
-    "text": "1.1 内容\n立ち位置としては論文の補遺ですが、本ページ単体でも内容が理解できるように配慮しています。論文本体から分離させることで、具体的なソフトの扱いやコードを載せられるようにというのと、手法の発展が早い分野であるため、よりよいソフトが出てきたらその内容を加えてアップデートしやすいようにという意図があります。\nディープラーニングを使って音響モニタリングデータを解析するには、訓練データの用意、モデルの訓練・評価を経て、データ解析を行います。これらの内容を後のページで扱います。\n\nChapter 2 録音した野外データからアノテーションを行う\nChapter 3 そのアノテーションファイルをBirdNETで扱いやすいよう3秒毎に分割\nChapter 4 BirdNETを用いたモデルの訓練\nChapter 5 新規データの解析\nChapter 6 コマンドラインでの利用\nChapter 7 モデルの性能評価\n\n一般的に、ディープラーニングを扱う際は、PyTorchやTensorflowといった専用のPythonライブラリを用いることが多いです。しかしそれぞれのライブラリの扱いに習熟するのはやはり大変です。最近ではBirdNETという生物音響に特化したソフトを使うことで、とくにWindowsではコードを書かずにモデルの訓練が可能ですので、ここではBirdNETを使った訓練方法を紹介します。\nモデルの訓練でコードを書く必要が減ったとはいえ、データの中間処理や解析結果をまとめるにあたっては一定のコードを書く必要があります。ここでは生態学分野で広く使われているR言語を利用しています。",
+    "section": "2.1 内容",
+    "text": "2.1 内容\n立ち位置としては論文の補遺ですが、本ページ単体でも内容が理解できるように配慮しています。論文本体から分離させることで、具体的なソフトの扱いやコードを載せられるようにというのと、手法の発展が早い分野であるため、よりよいソフトが出てきたらその内容を加えてアップデートしやすいようにという意図があります。\nディープラーニングを使って音響モニタリングデータを解析するには、訓練データの用意、モデルの訓練・評価を経て、データ解析を行います。これらの内容を後のページで扱います。\n\nChapter 2 録音した野外データからアノテーションを行う\nChapter 3 そのアノテーションファイルをBirdNETで扱いやすいよう3秒毎に分割\nChapter 4 BirdNETを用いたモデルの訓練\nChapter 5 新規データの解析\nChapter 6 コマンドラインでの利用\nChapter 7 モデルの性能評価\n\n一般的に、ディープラーニングを扱う際は、PyTorchやTensorflowといった専用のPythonライブラリを用いることが多いです。しかしそれぞれのライブラリの扱いに習熟するのはやはり大変です。最近ではBirdNETという生物音響に特化したソフトを使うことで、とくにWindowsではコードを書かずにモデルの訓練が可能ですので、ここではBirdNETを使った訓練方法を紹介します。\nモデルの訓練でコードを書く必要が減ったとはいえ、データの中間処理や解析結果をまとめるにあたっては一定のコードを書く必要があります。ここでは生態学分野で広く使われているR言語を利用しています。",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>はじめに</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>本ページは準備中です</span>"
     ]
   },
   {
     "objectID": "index.html#sec-index-dataset",
     "href": "index.html#sec-index-dataset",
     "title": "ディープラーニングによるカエル類の種の識別方法",
-    "section": "1.2 データセット",
-    "text": "1.2 データセット\nモデルの訓練に用いるサンプルデータセットおよびコードはこちらから入手できます。\n\nGitHubのダウンロード方法を記す",
+    "section": "2.2 データセット",
+    "text": "2.2 データセット\nモデルの訓練に用いるサンプルデータセットおよびコードはこちらから入手できます。",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>はじめに</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>本ページは準備中です</span>"
     ]
   },
   {
@@ -140,25 +40,44 @@
     ]
   },
   {
+    "objectID": "annotation.html",
+    "href": "annotation.html",
+    "title": "2  アノテーション",
+    "section": "",
+    "text": "2.1 はじめに\nここでは、野外に設置した音声レコーダーを用いてカエルの鳴き声を録音した、あるいは録音する予定であるという状況を想定し、得られた録音データの解析方法を扱います。同様の手法がカエル以外の生物でも適用可能ですが、コウモリなど可聴域を超える音声については後に紹介するBirdNETが未対応です。\n種を判定するためのディープラーニングモデルを作るには、まず対象種の訓練データが必要となります。このために、データに対し種名等のラベルを付けることをアノテーションといいます。日本産のカエル類ではアノテーション済みの公開データは非常に少ないため、多くの場合、調査者がアノテーションを行うか、あるいは合成音声を作成する必要があります。ここでは野外環境に近いデータに基づき訓練を行うため、野外録音をアノテーションする方法を紹介します。\nアノテーション用のソフトとして、生物音響分野ではRaven Pro/Lite（Proは有料版。無料版のLiteでもアノテーションは可能）やAudacityを利用している例が多いようです。これらのソフトは音響解析一般を扱うもので、必ずしも大量のファイルをアノテーションすることに最適化されているわけではありませんが、ユーザーが多く動作が安定しているため、扱いやすいと思いました。ここではRaven Liteを用いてアノテーションする方法を紹介します。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>アノテーション</span>"
+    ]
+  },
+  {
     "objectID": "annotation.html#sec-annotation-setup",
     "href": "annotation.html#sec-annotation-setup",
     "title": "2  アノテーション",
     "section": "2.2 セットアップ",
-    "text": "2.2 セットアップ\nインストール\nRaven Liteのページからソフトのインストールを行ってください。インストール方法については全国鳥類繁殖分布調査による解説 https://www.bird-atlas.jp/data/download.pdf があります。\nインストールが完了したらRaven Liteを起動します。以下では初期設定とアノテーションの流れを扱います。より詳しいRavenの操作方法はYoutubeでわかりやすい 解説 があります。動画は英語ですが必要に応じて字幕&gt;自動翻訳を使うこともできます。\n設定\n続いてRavenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（Section 1.2）でダウンロードしたデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと Figure 2.1 のような表示になるかと思います（Macでの画面です）。\n\n\n\n\n\n\nサンプルデータについて\n\n\n\n訓練用のサンプルデータはsample_dataフォルダ内のtrainフォルダに入っています。このようなフォルダの構造をsample_data/trainと記しています。\nこのデータは京都市の山中の小さな池にAudiomoth（OpenAcoustics社製）というレコーダーを設置して録音されたものです。各ファイルの長さは60秒です。もともと Kimura and Sota (2023) で扱ったデータをRavenを用いてアノテーションし直したものになります。すべてのサンプル音声データはアノテーション済みで、サンプルの音声データと同じフォルダ内に、アノテーション結果を保存したtxtファイルも含めています。\n\n\n\n\n\nFigure 2.1: Ravenの初期表示\n\n\n画面上部には波形が、下部はスペクトログラムが表示されています。この音源にはヒキガエルの鳴き声が含まれていますが、デフォルトの設定では表示が小さくアノテーションしにくいので、設定を変更します。定まった方法があるわけではなく好みの問題ですが、個人的には以下のような設定で表示させています。\n\n波形を非表示にする（Waveform 1 のチェックを外す Figure 2.2)\n4段表示にする（Lines: 1 を Lines: 4に変更する）。\n白黒表示にして、明るさとコントラストを少し上げる（初期設定の50から、70くらいに変更）。\n表示される周波数の上限を7 kHzほどまで下げる（画面右端の＋マークをクリックして、周波数方向に拡大表示をする）。\n\n\n\n\nFigure 2.2: Ravenの表示設定変更。説明の文字が見えやすいよう、画面を白黒画像に変換しています\n\n\nさらに、\n\nアノテーションしたとき種名ラベルが画面上に表示されるようにする。\n\n画面上で右クリック &gt; Configure Selection Labels &gt; Available ItemsからAnnotationを選択後、「&lt;&lt;」 ボタンを押し、Displayed Itemsに移動させる。同時にFont sizeを14まで小さくする。\n\n\nこれにより Figure 2.3 のように表示されます。\n\n\n\nFigure 2.3: 表示設定を調整後\n\n\nこの状態で画面を右クリックし、Window Presets &gt; Save as… から表示設定を保存してください。たとえばFrogAnnotationといった後からわかる名前にします。次回以降、音声を読み込む際にはWindow PresetをFrogAnnotationに変更することで 、ここで定めた表示設定で音声を読み込むことができます（Figure 2.4）。\n\n\n\nFigure 2.4: 音声読み込みの際にWindow Presetを新しく保存したプリセットに変更する"
+    "text": "2.2 セットアップ\nインストール\nRaven Liteのページからソフトのインストールを行ってください。インストール方法については全国鳥類繁殖分布調査による解説 https://www.bird-atlas.jp/data/download.pdf があります。\nインストールが完了したらRaven Liteを起動します。以下では初期設定とアノテーションの流れを扱います。より詳しいRavenの操作方法はYoutubeでわかりやすい 解説 があります。動画は英語ですが必要に応じて字幕&gt;自動翻訳を使うこともできます。\n設定\n続いてRavenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（Section 1.2）でダウンロードしたデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと Figure 2.1 のような表示になるかと思います（Macでの画面です）。\n\n\n\n\n\n\nサンプルデータについて\n\n\n\n訓練用のサンプルデータはsample_dataフォルダ内のtrainフォルダに入っています。このようなフォルダの構造をsample_data/trainと記しています。\nこのデータは京都市の山中の小さな池にAudiomoth（OpenAcoustics社製）というレコーダーを設置して録音されたものです。各ファイルの長さは60秒です。もともと Kimura and Sota (2023) で扱ったデータをRavenを用いてアノテーションし直したものになります。すべてのサンプル音声データはアノテーション済みで、サンプルの音声データと同じフォルダ内に、アノテーション結果を保存したtxtファイルも含めています。\n\n\n\n\n\n\n\n\nFigure 2.1: Ravenの初期表示\n\n\n\n画面上部には波形が、下部はスペクトログラムが表示されています。この音源にはヒキガエルの鳴き声が含まれていますが、デフォルトの設定では表示が小さくアノテーションしにくいので、設定を変更します。定まった方法があるわけではなく好みの問題ですが、個人的には以下のような設定で表示させています。\n\n波形を非表示にする（Waveform 1 のチェックを外す Figure 2.2)\n4段表示にする（Lines: 1 を Lines: 4に変更する）。\n白黒表示にして、明るさとコントラストを少し上げる（初期設定の50から、70くらいに変更）。\n表示される周波数の上限を7 kHzほどまで下げる（画面右端の＋マークをクリックして、周波数方向に拡大表示をする）。\n\n\n\n\n\n\n\nFigure 2.2: Ravenの表示設定変更。説明の文字が見えやすいよう、画面を白黒画像に変換しています\n\n\n\nさらに、\n\nアノテーションしたとき種名ラベルが画面上に表示されるようにする。\n\n画面上で右クリック &gt; Configure Selection Labels &gt; Available ItemsからAnnotationを選択後、「&lt;&lt;」 ボタンを押し、Displayed Itemsに移動させる。同時にFont sizeを14まで小さくする。\n\n\nこれにより Figure 2.3 のように表示されます。\n\n\n\n\n\n\nFigure 2.3: 表示設定を調整後\n\n\n\nこの状態で画面を右クリックし、Window Presets &gt; Save as… から表示設定を保存してください。たとえばFrogAnnotationといった後からわかる名前にします。次回以降、音声を読み込む際にはWindow PresetをFrogAnnotationに変更することで 、ここで定めた表示設定で音声を読み込むことができます（Figure 2.4）。\n\n\n\n\n\n\nFigure 2.4: 音声読み込みの際にWindow Presetを新しく保存したプリセットに変更する",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>アノテーション</span>"
+    ]
   },
   {
     "objectID": "annotation.html#sec-annnotation-annotation",
     "href": "annotation.html#sec-annnotation-annotation",
     "title": "2  アノテーション",
     "section": "2.3 アノテーション",
-    "text": "2.3 アノテーション\n\n2.3.1 鳴き声のアノテーション方法\n\n再生ボタン（▶）から音声を聞いて、何の種がいつ鳴いているかを確認します\n鳴き声の範囲をマウスでドラッグすると、四角いボックスが赤色で描かれます\nそのままEnterをクリックするとAnnotation（どんなラベルを付けるか）を聞かれるので、種名を記録します（Figure 2.5）。\n\n私は Cañas et al. (2023) をまねて、学名の属名と種小名の冒頭３文字をAnnotationに記載しています。たとえばニホンヒキガエル Bufo japonicus であればBUFJAPです。このとき「Use specified value as default」にチェックをいれると、同じファイルのなかで別の領域を選択した場合にBUFJAPが記入された状態から始まるので、何度も同じ文字を打ち込む必要がなく、ミスを減らせます。\n\n\n\nFigure 2.5: アノテーションの例\n\n\nこれをすべての鳴き声について続けると、 Figure 2.6 のようアノテーションできます。今回はすでにアノテーションされたデータをdataフォルダに含めているので保存する必要はありませんが、実際に自分のデータをアノテーションする場合は File &gt; Save Selection Table “Table 1” から結果を保存できます。\n\n\n\n\n\n\n\n2022年3月15日の音声\n\n\n\n\n\n\n\n2022年3月26日の音声\n\n\n\n\nFigure 2.6: アノテーションを完了したファイルの例\n\n\n\n\n2.3.2 アノテーションの基準\nどのようにアノテーションするかについて定まった方法はありません。北米の鳥(Chronister et al. (2021)) やブラジルのカエル(Cañas et al. (2023))についてアノテーションされたデータセットが公開されているため、手法の検討のうえで参考にしました。\nなお、サンプルデータの作成にあたっては以下の基準でカエルの鳴き声をアノテーションしました。\n\n同種の鳴き声で、鳴き声の間隔が0.5秒未満のものは一つの鳴き声として四角で囲った。\n音を聞くとかろうじて聞こえるものでも、スペクトログラム上でほとんど表示されない鳴き声については無視した。\n種不名の鳴き声は「frog」というラベルをつけた。\n\n\n\n2.3.3 どれだけアノテーションするのか\nアノテーションは時間と手間のかかる作業です。どれだけアノテーションする必要があるか、一概には言えないようですが、たとえばBirdNETのドキュメントでは各種最低100サンプル以上を推奨しています。BirdNETの場合、3秒間を一つの解析処理の単位として扱うため、3秒の音声ファイルが100個（合計300秒）ということになります。個人的な経験でも、背景音のノイズが比較的少なく、鳴き声が明瞭に聞こえる場合にはこれくらいの分量で一定の精度が出るような感覚があります。各種100サンプル以上用意できたら一度モデルを訓練してみて、目標とする性能に達していなければ、アノテーションを追加するという作業を繰り返すのが良いように思います。\nディープラーニングでは訓練データに含まれないような音声があると適切に判断できないことが多いので、なるべく様々な種類の背景音（雨・救急車の音・異なる鳥や虫の声など）が含まれるようアノテーションする音声ファイルを選ぶことが推奨されます。"
+    "text": "2.3 アノテーション\n\n2.3.1 鳴き声のアノテーション方法\n\n再生ボタン（▶）から音声を聞いて、何の種がいつ鳴いているかを確認します\n鳴き声の範囲をマウスでドラッグすると、四角いボックスが赤色で描かれます\nそのままEnterをクリックするとAnnotation（どんなラベルを付けるか）を聞かれるので、種名を記録します（Figure 2.5）。\n\n私は Cañas et al. (2023) をまねて、学名の属名と種小名の冒頭３文字をAnnotationに記載しています。たとえばニホンヒキガエル Bufo japonicus であればBUFJAPです。このとき「Use specified value as default」にチェックをいれると、同じファイルのなかで別の領域を選択した場合にBUFJAPが記入された状態から始まるので、何度も同じ文字を打ち込む必要がなく、ミスを減らせます。\n\n\n\n\n\n\nFigure 2.5: アノテーションの例\n\n\n\nこれをすべての鳴き声について続けると、 Figure 2.6 のようアノテーションできます。今回はすでにアノテーションされたデータをdataフォルダに含めているので保存する必要はありませんが、実際に自分のデータをアノテーションする場合は File &gt; Save Selection Table “Table 1” から結果を保存できます。\n\n\n\n\n\n\n\n\n2022年3月15日の音声\n\n\n\n\n\n\n\n2022年3月26日の音声\n\n\n\n\n\n\nFigure 2.6: アノテーションを完了したファイルの例\n\n\n\n\n\n2.3.2 アノテーションの基準\nどのようにアノテーションするかについて定まった方法はありません。北米の鳥(Chronister et al. (2021)) やブラジルのカエル(Cañas et al. (2023))についてアノテーションされたデータセットが公開されているため、手法の検討のうえで参考にしました。\nなお、サンプルデータの作成にあたっては以下の基準でカエルの鳴き声をアノテーションしました。\n\n同種の鳴き声で、鳴き声の間隔が0.5秒未満のものは一つの鳴き声として四角で囲った。\n音を聞くとかろうじて聞こえるものでも、スペクトログラム上でほとんど表示されない鳴き声については無視した。\n種不名の鳴き声は「frog」というラベルをつけた。\n\n\n\n2.3.3 どれだけアノテーションするのか\nアノテーションは時間と手間のかかる作業です。どれだけアノテーションする必要があるか、一概には言えないようですが、たとえばBirdNETのドキュメントでは各種最低100サンプル以上を推奨しています。BirdNETの場合、3秒間を一つの解析処理の単位として扱うため、3秒の音声ファイルが100個（合計300秒）ということになります。個人的な経験でも、背景音のノイズが比較的少なく、鳴き声が明瞭に聞こえる場合にはこれくらいの分量で一定の精度が出るような感覚があります。各種100サンプル以上用意できたら一度モデルを訓練してみて、目標とする性能に達していなければ、アノテーションを追加するという作業を繰り返すのが良いように思います。\nディープラーニングでは訓練データに含まれないような音声があると適切に判断できないことが多いので、なるべく様々な種類の背景音（雨・救急車の音・異なる鳥や虫の声など）が含まれるようアノテーションする音声ファイルを選ぶことが推奨されます。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>アノテーション</span>"
+    ]
   },
   {
     "objectID": "annotation.html#sec-annotation-others",
     "href": "annotation.html#sec-annotation-others",
     "title": "2  アノテーション",
     "section": "2.4 その他のアノテーションソフト",
-    "text": "2.4 その他のアノテーションソフト\nはじめに（2.1） で述べたように、Raven Liteは大量のファイルをアノテーションすることに必ずしも最適化されていないと感じます。生物音響用のアノテーションに特化したソフトを開発している論文も複数あり、たとえば Deep Audio Segmenter (Steinfath et al. (2021)) や Whombat (Balvanera et al. (2023)) が挙げられ、それぞれに面白い機能を持っています。生物音響解析ソフトまとめているサイトには他の選択肢も載っています。\nこのうちのいくつかMacで使えるものを試してみましたが、インストールにPythonの環境構築が必要だったり、動作が不安定だったりと、自分で使う分には慣れればなんとかなるものの、他人に勧めるという観点からはRavenが現状一番かなと感じました。\n\n\n\n\nBalvanera, Santiago Martinez, Oisin Mac Aodha, Matthew J Weldy, Holly Pringle, Ella Browning, and Kate E Jones. 2023. “Whombat: An Open-Source Annotation Tool for Machine Learning Development in Bioacoustics.” arXiv. https://arxiv.org/abs/2308.12688.\n\n\nCañas, Juan Sebastián, María Paula Toro-Gómez, Larissa Sayuri Moreira Sugai, Hernán Darío Benítez Restrepo, Jorge Rudas, Breyner Posso Bautista, Luís Felipe Toledo, et al. 2023. “A Dataset for Benchmarking Neotropical Anuran Calls Identification in Passive Acoustic Monitoring.” Sci Data 10 (1): 771. https://doi.org/10.1038/s41597-023-02666-2.\n\n\nChronister, Lauren M, Tessa A Rhinehart, Aidan Place, and Justin Kitzes. 2021. “An Annotated Set of Audio Recordings of Eastern North American Birds Containing Frequency, Time, and Species Information.” Ecology 102 (6): e03329. https://doi.org/10.1002/ecy.3329.\n\n\nKimura, Kaede, and Teiji Sota. 2023. “Evaluation of Deep Learning-Based Monitoring of Frog Reproductive Phenology.” Ichthyology & Herpetology 111 (4): 563–70. https://doi.org/10.1643/h2023018.\n\n\nSteinfath, Elsa, Adrian Palacios-Muñoz, Julian R Rottschäfer, Deniz Yuezak, and Jan Clemens. 2021. “Fast and Accurate Annotation of Acoustic Signals with Deep Neural Networks.” eLife 10: e68837. https://doi.org/10.7554/eLife.68837."
+    "text": "2.4 その他のアノテーションソフト\nはじめに（2.1） で述べたように、Raven Liteは大量のファイルをアノテーションすることに必ずしも最適化されていないと感じます。生物音響用のアノテーションに特化したソフトを開発している論文も複数あり、たとえば Deep Audio Segmenter (Steinfath et al. (2021)) や Whombat (Balvanera et al. (2023)) が挙げられ、それぞれに面白い機能を持っています。生物音響解析ソフトまとめているサイトには他の選択肢も載っています。\nこのうちのいくつかMacで使えるものを試してみましたが、インストールにPythonの環境構築が必要だったり、動作が不安定だったりと、自分で使う分には慣れればなんとかなるものの、他人に勧めるという観点からはRavenが現状一番かなと感じました。\n\n\n\n\nBalvanera, Santiago Martinez, Oisin Mac Aodha, Matthew J Weldy, Holly Pringle, Ella Browning, and Kate E Jones. 2023. “Whombat: An Open-Source Annotation Tool for Machine Learning Development in Bioacoustics.” arXiv. https://arxiv.org/abs/2308.12688.\n\n\nCañas, Juan Sebastián, María Paula Toro-Gómez, Larissa Sayuri Moreira Sugai, Hernán Darío Benítez Restrepo, Jorge Rudas, Breyner Posso Bautista, Luís Felipe Toledo, et al. 2023. “A Dataset for Benchmarking Neotropical Anuran Calls Identification in Passive Acoustic Monitoring.” Sci Data 10 (1): 771. https://doi.org/10.1038/s41597-023-02666-2.\n\n\nChronister, Lauren M, Tessa A Rhinehart, Aidan Place, and Justin Kitzes. 2021. “An Annotated Set of Audio Recordings of Eastern North American Birds Containing Frequency, Time, and Species Information.” Ecology 102 (6): e03329. https://doi.org/10.1002/ecy.3329.\n\n\nKimura, Kaede, and Teiji Sota. 2023. “Evaluation of Deep Learning-Based Monitoring of Frog Reproductive Phenology.” Ichthyology & Herpetology 111 (4): 563–70. https://doi.org/10.1643/h2023018.\n\n\nSteinfath, Elsa, Adrian Palacios-Muñoz, Julian R Rottschäfer, Deniz Yuezak, and Jan Clemens. 2021. “Fast and Accurate Annotation of Acoustic Signals with Deep Neural Networks.” eLife 10: e68837. https://doi.org/10.7554/eLife.68837.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>アノテーション</span>"
+    ]
   },
   {
     "objectID": "data_prep.html",
@@ -166,6 +85,16 @@
     "title": "3  訓練データの整理",
     "section": "",
     "text": "3.1 はじめに\n続いて、アノテーションされた音声を訓練データとして扱いやすい形に変換します。\n今回扱うBirdNETモデルの場合、３秒間の音声データを１サンプルとして訓練や解析を行う仕様です。３秒以上の音声ファイルは中央の３秒間が抽出され、３秒未満なら３秒間になるようノイズが付加されます（公式ドキュメント）。ディープラーニングのモデルでは、多くの場合、計算を高速化するため特定の時間間隔で音声データを区切って扱う仕様になっています。\nBirdNETが必要とする訓練データを用意するため、アノテーションした音声データに以下の処理を行います。\n以下、Rを用いてその作業を自動化するサンプルコードを提示します。このページの内容はサンプルデータ内にある、data_prep.qmdを開いて実行することができます。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>訓練データの整理</span>"
+    ]
+  },
+  {
+    "objectID": "data_prep.html#sec-prep-intro",
+    "href": "data_prep.html#sec-prep-intro",
+    "title": "3  訓練データの整理",
+    "section": "",
+    "text": "音声データを３秒ずつに区切る\nカエルの種ごとにフォルダを作成し、その中に３秒間の音声データを入れていく\n\n\nたとえば３秒間の音声にヒキガエルが含まれているならBUFJAPという名称のフォルダに入れ、シュレーゲルアオガエルが含まれているならZHASCHに入れます。\nどの種も含まれていない背景音ならbackgroundという名称のフォルダを作って、そこに入れます。\nヒキガエルとシュレーゲルアオガエルの両種が含まれる場合は、保存フォルダの名称を「BUFJAP,ZHASCH」のようにカンマ区切りで両種の名前をつけます（種名の間にはスペースを入れない）。",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>訓練データの整理</span>"
     ]
@@ -181,23 +110,23 @@
     ]
   },
   {
-    "objectID": "data_prep.html#ライブラリのインストールと読み込み",
-    "href": "data_prep.html#ライブラリのインストールと読み込み",
-    "title": "2  訓練データの整理",
-    "section": "2.3 ライブラリのインストールと読み込み",
-    "text": "2.3 ライブラリのインストールと読み込み\n以下のパッケージを使用します。\n\n# 必要なライブラリの読み込み\nlibrary(tuneR)\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n初回のみ、RStudioのPackages &gt; Install からインストールするこで、次回以降、library(“パッケージ名”)のコードによりそのパッケージが利用できるようになります。",
+    "objectID": "data_prep.html#sec-prep-setup",
+    "href": "data_prep.html#sec-prep-setup",
+    "title": "3  訓練データの整理",
+    "section": "3.3 セットアップ",
+    "text": "3.3 セットアップ\n以下のパッケージを使用します。\n\n# 必要なライブラリの読み込み\nlibrary(tuneR)\nlibrary(tidyverse)\n\n\n\n\n\n\n\nNote\n\n\n\n以下に記載しているコードが適切に実行されるには、Rのワーキングディレクトリの直下にsample_dataフォルダがある必要があります。ダウンロードしたサンプルデータ・コード（Section 1.2）から、frog-DL-example.RprojをクリックしてRを開くと、ワーキングディレクトリが適切に設定されるはずです。\nなおワーキングディレクトリはコンソールにgetwd()と打ち込んで確認できます。\n\n\nまずサンプルデータに含まれているアノテーションを確認します。このために、list.files()関数によりsample_data/trainフォルダに入っているアノテーションファイルの一覧を取得し、その冒頭6個を表示させてみます。\n\nannotations &lt;- list.files(\"sample_data/train\", \"selections.txt\")\nprint(head(annotations))\n\n[1] \"20220315_090000.Table.1.selections.txt\"\n[2] \"20220315_100000.Table.1.selections.txt\"\n[3] \"20220315_110000.Table.1.selections.txt\"\n[4] \"20220315_130000.Table.1.selections.txt\"\n[5] \"20220316_090000.Table.1.selections.txt\"\n[6] \"20220316_120000.Table.1.selections.txt\"\n\n\n各ファイルは{録音日}_{録音時刻}.Table.1.selections.txt という命名規則になっています。 これらのアノテーションファイルに対応する音声もフォルダ内にあり、そのファイル名は録音日時を表す部分に拡張子.WAV がついた形をしています。\n\naudio &lt;- list.files(\"sample_data/train\", \"WAV\")\nprint(head(audio))\n\n[1] \"20220315_090000.WAV\" \"20220315_100000.WAV\" \"20220315_110000.WAV\"\n[4] \"20220315_130000.WAV\" \"20220316_090000.WAV\" \"20220316_120000.WAV\"\n\n\n最終的にこれらの音声ファイルを３秒間ずつに区切り、鳴いている種の名前がついたフォルダに保存していくのですが、そのために使ういくつかの関数を定義していきます。",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>訓練データの整理</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>訓練データの整理</span>"
     ]
   },
   {
-    "objectID": "data_prep.html#アノテーションのチェック",
-    "href": "data_prep.html#アノテーションのチェック",
-    "title": "2  訓練データの整理",
-    "section": "2.4 アノテーションのチェック",
-    "text": "2.4 アノテーションのチェック\nまずサンプルデータのdata/trainフォルダに含まれているアノテーションを確認します。このために、list.files関数によりアノテーションのファイル名を取得します。\n\nannotations &lt;- list.files(\"data/train\", \"selections.txt\", full.names = TRUE)\nprint(annotations)\n\n [1] \"data/train/20220315_090000.Table.1.selections.txt\"\n [2] \"data/train/20220316_120000.Table.1.selections.txt\"\n [3] \"data/train/20220316_160000.Table.1.selections.txt\"\n [4] \"data/train/20220317_120000.Table.1.selections.txt\"\n [5] \"data/train/20220326_100000.Table.1.selections.txt\"\n [6] \"data/train/20220326_110000.Table.1.selections.txt\"\n [7] \"data/train/20220330_010000.Table.1.selections.txt\"\n [8] \"data/train/20220414_120000.Table.1.selections.txt\"\n [9] \"data/train/20220415_140000.Table.1.selections.txt\"\n[10] \"data/train/20220418_110000.Table.1.selections.txt\"\n\n\ntrainフォルダにはRaven Liteで作られた10個のアノテーションファイル（ファイル名の末尾にTable.1.selections.txtがついているファイル）があることがわかります。これらのアノテーションファイルに対応する音声も10個含まれていて、そのファイル名は録音日時を表す部分（20220315_090000）に拡張子.WAV がついた形をしています。\n\naudio &lt;- list.files(\"data/train\", \"WAV\", full.names = TRUE)\nprint(audio)\n\n [1] \"data/train/20220315_090000.WAV\" \"data/train/20220316_120000.WAV\"\n [3] \"data/train/20220316_160000.WAV\" \"data/train/20220317_120000.WAV\"\n [5] \"data/train/20220326_100000.WAV\" \"data/train/20220326_110000.WAV\"\n [7] \"data/train/20220330_010000.WAV\" \"data/train/20220414_120000.WAV\"\n [9] \"data/train/20220415_140000.WAV\" \"data/train/20220418_110000.WAV\"\n\n\n最終的にこれらのアノテーションファイルに対応した音声ファイルを３秒間ずつに区切り、種名のついたフォルダに保存していくのですが、そのために後に使ういくつかの関数を定義します。\n\n2.4.1 音声分割関数\nまず音声ファイルを読み込み、3秒ごとの短い音声クリップに分割する関数を定義します。\n\ncut_audio &lt;- function(audio_file){\n  wave &lt;- readWave(audio_file)  # 音声ファイルを読み込む\n  y &lt;- wave@left  # 音声データの左チャンネルを取得\n  sr &lt;- wave@samp.rate  # サンプリングレートを取得\n  \n  audio_list &lt;- list()  # 分割された音声を格納するリストを初期化\n  filename_list &lt;- list()  # 対応するファイル名を格納するリストを初期化\n  \n  # 60秒の音源なので、20個の音声クリップに分割する\n  for(i in 1:20){\n    start &lt;- (i-1) * 3 * sr + 1  # 音声クリップの開始位置を計算\n    end &lt;- i * 3 * sr  # クリップの終了位置を計算\n    clip &lt;- y[start:end]  # 音声データを3秒ごとに分割\n    audio_list[[i]] &lt;- Wave(left = clip, samp.rate = sr, bit = 16)  # 分割した音声をWaveオブジェクトに格納\n    \n    filename_list[[i]] &lt;- str_c(  # 音声クリップを保存する際のファイル名を生成\n      audio_file |&gt; str_split_i(\"/\",3) |&gt; tools::file_path_sans_ext(),  # 拡張子を除いた日時部分だけを取得\n      str_pad((i-1)*3, 2, pad=\"0\"),\n      str_pad(i*3, 2, pad=\"0\"),\n      sep = \"_\"\n    ) |&gt; \n      str_c(\".wav\")  # 末尾に拡張子 .wav　を付ける\n  }\n  \n  return(list(audio = audio_list, filename = filename_list))  # 分割された音声データとファイル名をリストとして返す\n}\n\nこの関数がどんな働きをするか、テストしてみます。\n\ntest &lt;- cut_audio(\"data/train/20220315_090000.WAV\")\n\n得られたtestオブジェクトにはaudoとfilenameの２つの要素があり、それぞれの冒頭３つを表示してみます。\n\nprint(test$audio[1:3])\n\n[[1]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n[[2]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n[[3]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n\nprint(test$filename[1:3])\n\n[[1]]\n[1] \"20220315_090000_00_03.wav\"\n\n[[2]]\n[1] \"20220315_090000_03_06.wav\"\n\n[[3]]\n[1] \"20220315_090000_06_09.wav\"\n\n\nこのように、３秒ずつに区切られた音声データ（Number of Samples / Samplingrate = 96000/32000 = 3秒）と、それに対応するファイル名が生成されています。\n\n\n2.4.2 ラベル作成関数\n続いて、アノテーションファイルを読み込み、3秒ごとのラベルを作成する関数を作成します。\n\ncreate_labels &lt;- function(annotation){\n  df &lt;- read_delim(annotation, delim = \"\\t\", show_col_types = FALSE)  # アノテーションファイルを読み込む\n  \n  label_list &lt;- list()  # ラベルを格納するリストを初期化\n  \n  for(i in 1:20){\n    start &lt;- (i-1) * 3  # i番目の音声クリップの開始時間\n    end &lt;- i * 3  # i番目の音声クリップの終了時間\n    # 音声クリップ内に含まれるアノテーションを整理\n    label_df &lt;- df %&gt;%\n      # startからendと重複する部分のあるアノテーションのみを抜き出す\n      filter(between(`Begin Time (s)`, start, end) | between(`End Time (s)`, start, end)) %&gt;%  \n      distinct(Annotation) %&gt;%  # 同じ種のラベルの重複を削除\n      arrange(Annotation)  # アノテーションをアルファベット順に並べ替え\n    \n    # クリップ内にアノテーションがない場合は\"background\"、ある場合はアノテーションをカンマ区切りで連結\n    label &lt;- if(nrow(label_df) == 0) \"background\" else str_flatten(label_df$Annotation, collapse = \",\")\n    label_list[[i]] &lt;- label  # ラベルをリストに格納\n  }\n  \n  return(label_list)  # ラベルのリストを返す\n}\n\n冒頭のread_delim関数は、Ravenで作成されたselections.txtファイルを読み込むためのものです。このtxtファイルはタブによって表の列が区切られた形式をしているため、delim = “ と指定することで、適切に表として読み込むことができます。たとえば\n\nread_delim(annotations[1], delim = \"\\t\", show_col_types = FALSE)\n\n# A tibble: 6 × 11\n  Selection View         Channel `Begin Time (s)` `End Time (s)` `Low Freq (Hz)`\n      &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;            &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;\n1         1 Spectrogram…       1             15.8           16.2            294.\n2         3 Spectrogram…       1             18.0           19.1            348.\n3         4 Spectrogram…       1             26.3           29.7            187.\n4         5 Spectrogram…       1             32.1           35.0            321.\n5         6 Spectrogram…       1             43.7           44.1            401.\n6        11 Spectrogram…       1             48.0           48.5            394.\n# ℹ 5 more variables: `High Freq (Hz)` &lt;dbl&gt;, `Delta Time (s)` &lt;dbl&gt;,\n#   `Delta Freq (Hz)` &lt;dbl&gt;, `Avg Power Density (dB FS/Hz)` &lt;dbl&gt;,\n#   Annotation &lt;chr&gt;\n\n\nなお末尾の show_col_types は、列の形式（数値か文字列かなど）を表示するかどうかを決めるオプションです。\nつづくfor文では３秒間ずつアノテーションされた種名抽出しており、０から３秒目、３から６秒目、６から９秒目…の順にアノテーションされた種を抜き出しています。複数種の鳴き声が含まれる場合は、最後のstr_flatten関数で連結してラベル名とします。アノテーションが含まれない部分は表の行数が0になることを利用し、if(nrow(label_df) == 0)で判定して、backgroundというラベル名をつけています。\nこれも関数をテストしてみます。\n\ncreate_labels(annotations[1])\n\n[[1]]\n[1] \"background\"\n\n[[2]]\n[1] \"background\"\n\n[[3]]\n[1] \"background\"\n\n[[4]]\n[1] \"background\"\n\n[[5]]\n[1] \"background\"\n\n[[6]]\n[1] \"BUFJAP\"\n\n[[7]]\n[1] \"BUFJAP\"\n\n[[8]]\n[1] \"background\"\n\n[[9]]\n[1] \"BUFJAP\"\n\n[[10]]\n[1] \"BUFJAP\"\n\n[[11]]\n[1] \"BUFJAP\"\n\n[[12]]\n[1] \"BUFJAP\"\n\n[[13]]\n[1] \"background\"\n\n[[14]]\n[1] \"background\"\n\n[[15]]\n[1] \"BUFJAP\"\n\n[[16]]\n[1] \"BUFJAP\"\n\n[[17]]\n[1] \"BUFJAP\"\n\n[[18]]\n[1] \"background\"\n\n[[19]]\n[1] \"background\"\n\n[[20]]\n[1] \"background\"\n\n\n60秒間20個のラベルが作成されました。ニホンヒキガエルの鳴き声が含まれる音声クリップについてはBUFJAP、アノテーションがついていない音声クリップについてはbackgroundというラベルがついています。\n\n\n2.4.3 音声とラベルの保存関数\n最後に、分割された音声クリップを、指定されたフォルダに保存する関数を定義します。\n\nsave_audio &lt;- function(cutted_audio, labels, dir){\n  for(i in 1:20){\n    save_dir &lt;- file.path(dir, labels[[i]])  # 保存先フォルダ（ディレクトリ）を指定\n    if(!dir.exists(save_dir)){\n      dir.create(save_dir, recursive = TRUE)  # フォルダが存在しない場合は作成\n    }\n    # 分割された音声ファイルを指定されたフォルダに保存\n    writeWave(cutted_audio$audio[[i]], file.path(save_dir, cutted_audio$filename[[i]]), extensible = FALSE)\n  }\n}",
+    "objectID": "data_prep.html#関数の定義",
+    "href": "data_prep.html#関数の定義",
+    "title": "3  訓練データの整理",
+    "section": "3.4 関数の定義",
+    "text": "3.4 関数の定義\n\n3.4.1 ラベル作成関数\nRavenで作成されたselections.txtファイルを読み込むにはread_delim()関数を用います。このファイルは表の各列がタブによって区切られた形式をしているため、delim = \\t と指定することで、適切に読み込むことができます。たとえば\n\ndf &lt;- read_delim(file.path(\"sample_data/train\", annotations[1]), delim = \"\\t\", show_col_types = FALSE)\nknitr::kable(df)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSelection\nView\nChannel\nBegin Time (s)\nEnd Time (s)\nLow Freq (Hz)\nHigh Freq (Hz)\nDelta Time (s)\nDelta Freq (Hz)\nAvg Power Density (dB FS/Hz)\nAnnotation\n\n\n\n\n1\nSpectrogram 1\n1\n15.75682\n16.18630\n294.314\n1846.154\n0.4295\n1551.840\n-47.19\nBUFJAP\n\n\n3\nSpectrogram 1\n1\n18.03148\n19.11313\n347.826\n1712.375\n1.0817\n1364.549\n-58.90\nBUFJAP\n\n\n4\nSpectrogram 1\n1\n26.27742\n29.71326\n187.291\n1846.154\n3.4358\n1658.863\n-54.75\nBUFJAP\n\n\n5\nSpectrogram 1\n1\n32.06475\n34.95977\n321.070\n7036.789\n2.8950\n6715.719\n-56.51\nBUFJAP\n\n\n6\nSpectrogram 1\n1\n43.66724\n44.11263\n401.338\n6795.987\n0.4454\n6394.649\n-50.14\nBUFJAP\n\n\n11\nSpectrogram 1\n1\n47.96549\n48.45974\n394.010\n5459.849\n0.4943\n5065.839\n-48.19\nBUFJAP\n\n\n\n\n\nなお末尾の show_col_types は、列の形式（数値か文字列かなど）を表示するかどうかを決めるオプションです。また、knitr::kable()部分は、オンライン上で表が綺麗に表示されるためだけのもので、ここでは無視して問題ありません。\nつづいて３秒間ずつ（０から３秒目、３から６秒目、６から９秒目…のように）アノテーションされた種を抜き出すことを考えます。例えば前述の表で、15から18秒目までに含まれるアノテーションを抜き出すには、\n\nlabel_df &lt;- df |&gt; \n  filter(`Begin Time (s)` &lt; 18 & `End Time (s)` &gt; 15) |&gt; \n  distinct(Annotation)  # 同じ種のラベルがあった場合に重複を削除する\n\nknitr::kable(label_df)\n\n\n\n\nAnnotation\n\n\n\n\nBUFJAP\n\n\n\n\n\n15から18秒の間ではニホンヒキガエルの鳴き声が一つ含まれていましたが、何の種も鳴いていない場合、あるいは複数種が鳴いている場合もあります。これに対処するため、以下のようにラベルを取得します。\n\nlabel_df &lt;- df |&gt; \n  filter(`Begin Time (s)` &lt; 3 & `End Time (s)` &gt; 0) |&gt;   # ０から３秒目には何も鳴いていない\n  distinct(Annotation) |&gt; \n  arrange(Annotation)  # アノテーションをアルファベット順に並べ替え\n\nlabel &lt;- if(nrow(label_df) == 0) \"background\" else str_flatten(label_df$Annotation, collapse = \",\")\nprint(label)\n\n[1] \"background\"\n\n\nここでアノテーションが含まれない部分は、表の行数が0になることを利用し、if(nrow(label_df) == 0)で判定して、backgroundというラベル名をつけています。また複数種の鳴き声が含まれる場合は、str_flatten()関数によりカンマで連結されたラベル名とします（例：BUFJAP,ZHASCH）。\nここまでのことを利用して、アノテーションファイルを読み込み、3秒ごとのラベルを作成する関数を作成します。０から３秒目、３から６秒目…と逐次的な操作を行うため、for文を用いて繰り返しの処理を行っています。\n\ncreate_labels &lt;- function(annotation){\n  df &lt;- read_delim(annotation, delim = \"\\t\", show_col_types = FALSE) |&gt;   # アノテーションファイルを読み込む\n    filter(Annotation != \"frog\")  # 種不明を表すfrogを除く\n  \n  label_vec &lt;- vector(mode = \"character\")  # ラベルを格納するベクトルを初期化\n  \n  for(i in 1:20){\n    start &lt;- (i-1) * 3  # i番目の音声クリップの開始時間\n    end &lt;- i * 3  # i番目の音声クリップの終了時間\n    # 音声クリップ内に含まれるアノテーションを整理\n    label_df &lt;- df %&gt;%\n      # startからendと重複する部分のあるアノテーションのみを抜き出す\n      filter(`Begin Time (s)` &lt; end & `End Time (s)` &gt; start) %&gt;%  \n      distinct(Annotation) %&gt;%  # 同じ種のラベルの重複を削除\n      arrange(Annotation)  # アノテーションをアルファベット順に並べ替え\n    \n    # クリップ内にアノテーションがない場合は\"background\"、ある場合はアノテーションをカンマ区切りで連結\n    label &lt;- if(nrow(label_df) == 0) \"background\" else str_flatten(label_df$Annotation, collapse = \",\")\n    label_vec[i] &lt;- label  # ラベルをリストに格納\n  }\n  \n  return(label_vec)\n}\n\nこの関数をテストしてみます。\n\nlabels &lt;- create_labels(file.path(\"sample_data/train\", annotations[1]))\nprint(labels)\n\n [1] \"background\" \"background\" \"background\" \"background\" \"background\"\n [6] \"BUFJAP\"     \"BUFJAP\"     \"background\" \"BUFJAP\"     \"BUFJAP\"    \n[11] \"BUFJAP\"     \"BUFJAP\"     \"background\" \"background\" \"BUFJAP\"    \n[16] \"BUFJAP\"     \"BUFJAP\"     \"background\" \"background\" \"background\"\n\n\n60秒間を3秒毎に区切ったので、20個のラベルが作成されました。ニホンヒキガエルの鳴き声が含まれる音声クリップについてはBUFJAP、アノテーションがついていない音声クリップについてはbackgroundというラベルがついています。\n\n\n3.4.2 音声の分割\n続いて、音声ファイルを読み込み、３秒ごとの短い音声クリップに分割する関数を定義します。まずRで音声ファイルを扱うためにtuneRのreadWave()関数により音声データを読み込みます。\n\nwave &lt;- readWave(file.path(\"sample_data/train\", audio[1]))\n\nこの音声（audio[1] = 20220315_090000.WAV ）の概要を確認すると、\n\nprint(wave)\n\n\nWave Object\n    Number of Samples:      1920000\n    Duration (seconds):     60\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n60秒間（Durationに着目）のモノラル音源で、サンプリング周波数（Samplingrate）は32000 Hz であることがわかります。この60秒の音声のうち、０から３秒目までは以下のように取得できます。\n\ny &lt;- wave@left          # 音声データの具体的な数値を取得\nsr &lt;- wave@samp.rate    # サンプリング周波数を取得\n\nclip &lt;- y[1 : (3*sr)]   # ０から３秒目までを取得\n\nここで、音声データは毎秒サンプリング周波数個（この音源では32000個）の数値によって表現されているため、１から「3×サンプリング周波数」番目までの音声データを切り取ると冒頭３秒の音声を取得できることに注意してください。\n以上をふまえて、音声を3秒ずつにカットする関数を定義します。\n\ncut_audio &lt;- function(audio_file){\n  wave &lt;- readWave(audio_file)    # 音声ファイルの読み込み\n  y &lt;- wave@left                  # 波形データを取得\n  sr &lt;- wave@samp.rate            # サンプリング周波数を取得\n  \n  # 分割された音声を格納するリストを作成\n  audio_list &lt;- list()\n  \n  for(i in 1:20){\n    start &lt;- (i-1) * 3 * sr + 1   # 音声クリップの開始位置を計算\n    end &lt;- i * 3 * sr             # 音声クリップの終了位置を計算\n    clip &lt;- y[start:end]          # 3秒ごとに分割\n    audio_list[[i]] &lt;- Wave(left = clip, samp.rate = sr, bit = 16)  # 分割した音声をリストに格納\n  }\n    \n  return(audio_list)\n}\n\nこれも関数がどんな働きをするか、テストしてみます。\n\ntest &lt;- cut_audio(file.path(\"sample_data/train\", audio[1]))\nprint(test[1:3])\n\n[[1]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n[[2]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n[[3]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\nこのように、３秒ずつに区切られた音声データ（Durationに着目）が生成されています。\n\n\n3.4.3 音声とラベルの保存\n音声データの保存にはwriteWave()関数が利用できます。この関数は、第一引数として保存する音声データを、第二引数として保存する際のファイル名をとります。音声データは先程定義したcut_audio()関数により取得できますので、保存先のフォルダと、保存する際のファイル名を作成することを考えます。\nまず保存先のフォルダとしてdatasetという名称のフォルダを作り、その中にbackground,BUFJAP,ZHASCHといった種名のフォルダを含めることにします。\n\nsave_dir &lt;- file.path(\"dataset\", labels[1])\nsave_dir\n\n[1] \"dataset/background\"\n\n\nすでにdataset/backgroundのようなフォルダが存在している場合にはこれで問題なく音声を保存できますが、最初の一回はフォルダの作成から始める必要があります。Rでは`dir.create()によりフォルダを作成することが出来ます。\n\ndir.create(save_dir, recursive = TRUE, showWarnings = FALSE)  # フォルダが存在しない場合は作成\n\nこれにより、ワーキングディレクトリにdataset/backgroundという空のフォルダが作成されます。ラベルがbackgroundではなくBUFJAPやZHASCHであった場合にも、それぞれの種名がついたフォルダが自動で作成されます。\nまた、保存する際のファイル名（上流のパスを含む）は、以下のように設定できます。ここでは{録音日}_{録音時刻}_{番号}.WAVという命名規則でファイル名をつけています。\n\nfile.path(\n  \"dataset\",\n  labels[1],\n  str_replace(audio[1], \".WAV\", str_c(\"_\", \"1\", \".WAV\"))\n)\n\n[1] \"dataset/background/20220315_090000_1.WAV\"",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>訓練データの整理</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>訓練データの整理</span>"
     ]
   },
   {
@@ -211,28 +140,24 @@
     ]
   },
   {
-    "objectID": "data_prep.html#セットアップ",
-    "href": "data_prep.html#セットアップ",
-    "title": "2  訓練データの整理",
-    "section": "2.3 セットアップ",
-    "text": "2.3 セットアップ\n以下のパッケージを使用します。\n\n# 必要なライブラリの読み込み\nlibrary(tuneR)\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n初回のみ、RStudioのPackages &gt; Install からインストールするこで、次回以降、library(“パッケージ名”)のコードにより、そのパッケージが利用できるようになります。\nまずサンプルデータのdata/trainフォルダに含まれているアノテーションを確認します。このために、list.files関数により、data/trainフォルダに入っているアノテーションファイル一覧を表示させます。\n\nannotations &lt;- list.files(\"data/train\", \"selections.txt\", full.names = TRUE)\nprint(annotations)\n\n [1] \"data/train/20220315_090000.Table.1.selections.txt\"\n [2] \"data/train/20220316_120000.Table.1.selections.txt\"\n [3] \"data/train/20220316_160000.Table.1.selections.txt\"\n [4] \"data/train/20220317_120000.Table.1.selections.txt\"\n [5] \"data/train/20220326_100000.Table.1.selections.txt\"\n [6] \"data/train/20220326_110000.Table.1.selections.txt\"\n [7] \"data/train/20220330_010000.Table.1.selections.txt\"\n [8] \"data/train/20220414_120000.Table.1.selections.txt\"\n [9] \"data/train/20220415_140000.Table.1.selections.txt\"\n[10] \"data/train/20220418_110000.Table.1.selections.txt\"\n\n\nこのフォルダにはRaven Liteで作られた10個のアノテーションファイル（ファイル名の末尾にselections.txtがついているファイル）があることがわかります。これらのアノテーションファイルに対応する音声も10個含まれていて、そのファイル名は録音日時を表す部分（20220315_090000）に拡張子.WAV がついた形をしています。\n\naudio &lt;- list.files(\"data/train\", \"WAV\", full.names = TRUE)\nprint(audio)\n\n [1] \"data/train/20220315_090000.WAV\" \"data/train/20220316_120000.WAV\"\n [3] \"data/train/20220316_160000.WAV\" \"data/train/20220317_120000.WAV\"\n [5] \"data/train/20220326_100000.WAV\" \"data/train/20220326_110000.WAV\"\n [7] \"data/train/20220330_010000.WAV\" \"data/train/20220414_120000.WAV\"\n [9] \"data/train/20220415_140000.WAV\" \"data/train/20220418_110000.WAV\"\n\n\n最終的にこれらの音声ファイルを３秒間ずつに区切り、アノテーションされた種名のついたフォルダに保存していくのですが、そのために使ういくつかの関数を定義します。"
-  },
-  {
-    "objectID": "data_prep.html#関数の定義",
-    "href": "data_prep.html#関数の定義",
-    "title": "3  訓練データの整理",
-    "section": "3.4 関数の定義",
-    "text": "3.4 関数の定義\n\n3.4.1 ラベル作成関数\nRavenで作成されたselections.txtファイルを読み込むにはread_delim()関数を用います。このファイルは表の各列がタブによって区切られた形式をしているため、delim = \\t と指定することで、適切に読み込むことができます。たとえば\n\ndf &lt;- read_delim(file.path(\"sample_data/train\", annotations[1]), delim = \"\\t\", show_col_types = FALSE)\nknitr::kable(df)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSelection\nView\nChannel\nBegin Time (s)\nEnd Time (s)\nLow Freq (Hz)\nHigh Freq (Hz)\nDelta Time (s)\nDelta Freq (Hz)\nAvg Power Density (dB FS/Hz)\nAnnotation\n\n\n\n\n1\nSpectrogram 1\n1\n15.75682\n16.18630\n294.314\n1846.154\n0.4295\n1551.840\n-47.19\nBUFJAP\n\n\n3\nSpectrogram 1\n1\n18.03148\n19.11313\n347.826\n1712.375\n1.0817\n1364.549\n-58.90\nBUFJAP\n\n\n4\nSpectrogram 1\n1\n26.27742\n29.71326\n187.291\n1846.154\n3.4358\n1658.863\n-54.75\nBUFJAP\n\n\n5\nSpectrogram 1\n1\n32.06475\n34.95977\n321.070\n7036.789\n2.8950\n6715.719\n-56.51\nBUFJAP\n\n\n6\nSpectrogram 1\n1\n43.66724\n44.11263\n401.338\n6795.987\n0.4454\n6394.649\n-50.14\nBUFJAP\n\n\n11\nSpectrogram 1\n1\n47.96549\n48.45974\n394.010\n5459.849\n0.4943\n5065.839\n-48.19\nBUFJAP\n\n\n\n\n\nなお末尾の show_col_types は、列の形式（数値か文字列かなど）を表示するかどうかを決めるオプションです。また、knitr::kable()部分は、オンライン上で表が綺麗に表示されるためだけのもので、ここでは無視して問題ありません。\nつづいて３秒間ずつ（０から３秒目、３から６秒目、６から９秒目…のように）アノテーションされた種を抜き出すことを考えます。例えば前述の表で、15から18秒目までに含まれるアノテーションを抜き出すには、\n\nlabel_df &lt;- df |&gt; \n  filter(`Begin Time (s)` &lt; 18 & `End Time (s)` &gt; 15) |&gt; \n  distinct(Annotation)  # 同じ種のラベルがあった場合に重複を削除する\n\nknitr::kable(label_df)\n\n\n\n\nAnnotation\n\n\n\n\nBUFJAP\n\n\n\n\n\n15から18秒の間ではニホンヒキガエルの鳴き声が一つ含まれていましたが、何の種も鳴いていない場合、あるいは複数種が鳴いている場合もあります。これに対処するため、以下のようにラベルを取得します。\n\nlabel_df &lt;- df |&gt; \n  filter(`Begin Time (s)` &lt; 3 & `End Time (s)` &gt; 0) |&gt;   # ０から３秒目には何も鳴いていない\n  distinct(Annotation) |&gt; \n  arrange(Annotation)  # アノテーションをアルファベット順に並べ替え\n\nlabel &lt;- if(nrow(label_df) == 0) \"background\" else str_flatten(label_df$Annotation, collapse = \",\")\nprint(label)\n\n[1] \"background\"\n\n\nここでアノテーションが含まれない部分は、表の行数が0になることを利用し、if(nrow(label_df) == 0)で判定して、backgroundというラベル名をつけています。また複数種の鳴き声が含まれる場合は、str_flatten()関数によりカンマで連結されたラベル名とします（例：BUFJAP,ZHASCH）。\nここまでのことを利用して、アノテーションファイルを読み込み、3秒ごとのラベルを作成する関数を作成します。０から３秒目、３から６秒目…と逐次的な操作を行うため、for文を用いて繰り返しの処理を行っています。\n\ncreate_labels &lt;- function(annotation){\n  df &lt;- read_delim(annotation, delim = \"\\t\", show_col_types = FALSE) |&gt;   # アノテーションファイルを読み込む\n    filter(Annotation != \"frog\")  # 種不明を表すfrogを除く\n  \n  label_vec &lt;- vector(mode = \"character\")  # ラベルを格納するベクトルを初期化\n  \n  for(i in 1:20){\n    start &lt;- (i-1) * 3  # i番目の音声クリップの開始時間\n    end &lt;- i * 3  # i番目の音声クリップの終了時間\n    # 音声クリップ内に含まれるアノテーションを整理\n    label_df &lt;- df %&gt;%\n      # startからendと重複する部分のあるアノテーションのみを抜き出す\n      filter(`Begin Time (s)` &lt; end & `End Time (s)` &gt; start) %&gt;%  \n      distinct(Annotation) %&gt;%  # 同じ種のラベルの重複を削除\n      arrange(Annotation)  # アノテーションをアルファベット順に並べ替え\n    \n    # クリップ内にアノテーションがない場合は\"background\"、ある場合はアノテーションをカンマ区切りで連結\n    label &lt;- if(nrow(label_df) == 0) \"background\" else str_flatten(label_df$Annotation, collapse = \",\")\n    label_vec[i] &lt;- label  # ラベルをリストに格納\n  }\n  \n  return(label_vec)\n}\n\nこの関数をテストしてみます。\n\nlabels &lt;- create_labels(file.path(\"sample_data/train\", annotations[1]))\nprint(labels)\n\n [1] \"background\" \"background\" \"background\" \"background\" \"background\"\n [6] \"BUFJAP\"     \"BUFJAP\"     \"background\" \"BUFJAP\"     \"BUFJAP\"    \n[11] \"BUFJAP\"     \"BUFJAP\"     \"background\" \"background\" \"BUFJAP\"    \n[16] \"BUFJAP\"     \"BUFJAP\"     \"background\" \"background\" \"background\"\n\n\n60秒間を3秒毎に区切ったので、20個のラベルが作成されました。ニホンヒキガエルの鳴き声が含まれる音声クリップについてはBUFJAP、アノテーションがついていない音声クリップについてはbackgroundというラベルがついています。\n\n\n3.4.2 音声の分割\n続いて、音声ファイルを読み込み、３秒ごとの短い音声クリップに分割する関数を定義します。まずRで音声ファイルを扱うためにtuneRのreadWave()関数により音声データを読み込みます。\n\nwave &lt;- readWave(file.path(\"sample_data/train\", audio[1]))\n\nこの音声（audio[1] = 20220315_090000.WAV ）の概要を確認すると、\n\nprint(wave)\n\n\nWave Object\n    Number of Samples:      1920000\n    Duration (seconds):     60\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n60秒間（Durationに着目）のモノラル音源で、サンプリング周波数（Samplingrate）は32000 Hz であることがわかります。この60秒の音声のうち、０から３秒目までは以下のように取得できます。\n\ny &lt;- wave@left          # 音声データの具体的な数値を取得\nsr &lt;- wave@samp.rate    # サンプリング周波数を取得\n\nclip &lt;- y[1 : (3*sr)]   # ０から３秒目までを取得\n\nここで、音声データは毎秒サンプリング周波数個（この音源では32000個）の数値によって表現されているため、１から「3×サンプリング周波数」番目までの音声データを切り取ると冒頭３秒の音声を取得できることに注意してください。\n以上をふまえて、音声を3秒ずつにカットする関数を定義します。\n\ncut_audio &lt;- function(audio_file){\n  wave &lt;- readWave(audio_file)    # 音声ファイルの読み込み\n  y &lt;- wave@left                  # 波形データを取得\n  sr &lt;- wave@samp.rate            # サンプリング周波数を取得\n  \n  # 分割された音声を格納するリストを作成\n  audio_list &lt;- list()\n  \n  for(i in 1:20){\n    start &lt;- (i-1) * 3 * sr + 1   # 音声クリップの開始位置を計算\n    end &lt;- i * 3 * sr             # 音声クリップの終了位置を計算\n    clip &lt;- y[start:end]          # 3秒ごとに分割\n    audio_list[[i]] &lt;- Wave(left = clip, samp.rate = sr, bit = 16)  # 分割した音声をリストに格納\n  }\n    \n  return(audio_list)\n}\n\nこれも関数がどんな働きをするか、テストしてみます。\n\ntest &lt;- cut_audio(file.path(\"sample_data/train\", audio[1]))\nprint(test[1:3])\n\n[[1]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n[[2]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\n[[3]]\n\nWave Object\n    Number of Samples:      96000\n    Duration (seconds):     3\n    Samplingrate (Hertz):   32000\n    Channels (Mono/Stereo): Mono\n    PCM (integer format):   TRUE\n    Bit (8/16/24/32/64):    16 \n\n\nこのように、３秒ずつに区切られた音声データ（Durationに着目）が生成されています。\n\n\n3.4.3 音声とラベルの保存\n音声データの保存にはwriteWave()関数が利用できます。この関数は、第一引数として保存する音声データを、第二引数として保存する際のファイル名をとります。音声データは先程定義したcut_audio()関数により取得できますので、保存先のフォルダと、保存する際のファイル名を作成することを考えます。\nまず保存先のフォルダとしてdatasetという名称のフォルダを作り、その中にbackground,BUFJAP,ZHASCHといった種名のフォルダを含めることにします。\n\nsave_dir &lt;- file.path(\"dataset\", labels[1])\nsave_dir\n\n[1] \"dataset/background\"\n\n\nすでにdataset/backgroundのようなフォルダが存在している場合にはこれで問題なく音声を保存できますが、最初の一回はフォルダの作成から始める必要があります。Rでは`dir.create()によりフォルダを作成することが出来ます。\n\ndir.create(save_dir, recursive = TRUE, showWarnings = FALSE)  # フォルダが存在しない場合は作成\n\nこれにより、ワーキングディレクトリにdataset/backgroundという空のフォルダが作成されます。ラベルがbackgroundではなくBUFJAPやZHASCHであった場合にも、それぞれの種名がついたフォルダが自動で作成されます。\nまた、保存する際のファイル名（上流のパスを含む）は、以下のように設定できます。ここでは{録音日}_{録音時刻}_{番号}.WAVという命名規則でファイル名をつけています。\n\nfile.path(\n  \"dataset\",\n  labels[1],\n  str_replace(audio[1], \".WAV\", str_c(\"_\", \"1\", \".WAV\"))\n)\n\n[1] \"dataset/background/20220315_090000_1.WAV\"",
+    "objectID": "train_gui.html",
+    "href": "train_gui.html",
+    "title": "4  モデルの訓練（GUI）",
+    "section": "",
+    "text": "4.1 はじめに\n訓練データを用意できたらBirdNET-Analyzer（以下BirdNET）というソフトを利用してモデルの訓練を行います。BirdNETは鳥類を主とした鳴き声によって訓練済みのモデルで、2024年7月現在、世界で6千種以上の生物の鳴き声を識別することができる大規模なものです(Kahl et al. (2021))。デフォルトのモデルで識別できる種のなかにはカエルも何種か含まれていますが、基本的に北米の種で、日本にも分布しているのは外来種であるウシガエルのみです。\nしかしBirdNETは訓練データさえこちらで用意すれば、デフォルトのモデルに含まれていない種でも認識するよう訓練できます。多様な鳴き声で事前に訓練されているため、音声に含まれる各種の特徴を抽出する能力が高く、比較的少数のサンプルでも高性能なモデルを作りやすいとされています(Ghani et al. (2023))。\nまたBirdNETはGUI（グラフィカルユーザーインターフェイス）を提供していることも特徴で、とくにWindowsを使っている場合はインストールからモデルの訓練・解析まで、コードを書かずに完了できるため、とっつきやすいソフトです。CLI（コマンドラインインターフェイス）も用意されているので、解析手順の再現性を高めたい場合にはCLIを利用することができます。\n公式にきちんと操作方法解説されているため、ここでの内容は、シンプルな訓練手順を日本語で簡単に紹介することにとどめます。詳細な訓練のオプションやその他の機能については、以下のドキュメントに書かれています。",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>訓練データの整理</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>モデルの訓練（GUI）</span>"
     ]
   },
   {
-    "objectID": "train_gui.html#sec-win-intro",
-    "href": "train_gui.html#sec-win-intro",
-    "title": "3  モデルの訓練（GUI）",
-    "section": "3.1 はじめに",
-    "text": "3.1 はじめに\n訓練データを用意できたらBirdNETというソフトを利用してモデルの訓練を行います。BirdNETは鳥類を主とした鳴き声で訓練済みのモデルで、2024年7月現在世界で6千種以上の生物の鳴き声を識別することができる大規模なものです Kahl et al. (2021)。デフォルトのモデルで識別できる種のなかにはカエルも何種か含まれていますが、北米の種で、日本で使えるのは外来種であるウシガエルのみです。\nしかしBirdNETは訓練データさえこちらで用意すれば、デフォルトのモデルに含まれていない種でも認識できるように訓練することができます。多様な鳴き声で事前に訓練されているため、音声に含まれる各種の特徴をうまく抽出する能力が高く、比較的少数のサンプルでも高性能なモデルを作りやすいというメリットがあります Ghani et al. (2023)。"
+    "objectID": "train_gui.html#sec-gui-intro",
+    "href": "train_gui.html#sec-gui-intro",
+    "title": "4  モデルの訓練（GUI）",
+    "section": "",
+    "text": "Note\n\n\n\nMacでもGUIが使えますが、インストールのために仮想環境を用意し、適切なバージョンのPythonとライブラリーを入れる必要があります。この手順は Chapter 6 で紹介します。\n\n\n\n\nBirdNETの利用方法",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>モデルの訓練（GUI）</span>"
+    ]
   },
   {
     "objectID": "train_gui.html#sec-gui-win-install",
@@ -249,7 +174,7 @@
     "href": "train_gui.html#sec-gui-train",
     "title": "4  モデルの訓練（GUI）",
     "section": "4.3 訓練",
-    "text": "4.3 訓練\nBirdNETのインストールを終えてソフトを立ち上げたら（ソフトの立ち上がりに少し時間がかかると思います）、datasetフォルダに含まれている音声を利用してモデルの訓練を行ってみます。\nタブからTrainを選択し、Select training dataから、先ほど用意したdatasetのフォルダを選択してください。少し時間をおいて、訓練データに含まれていた、BUFJAP、ZHASCH、backgroundの３つのクラスが表示されるはずです (Figure fig-birdnet-train)。\n\n\n\n\n\n\nFigure 4.1: BirdNET-Analyzerの訓練画面\n\n\n\n続いて、訓練したモデルの保存先を Select classifier output から指定します。ここではdatasetと同じfrog_DL_exampleフォルダのなかに、modelというフォルダを新規に作って選択します。\nその下にいろいろな訓練時のオプションがありますが、デフォルト設定のまま下にスクロールし、Start training のボタンを押して訓練を開始します。\n訓練データセットの読み込みから始まり、訓練過程を示す情報が現れたのちに、次のようなグラフが出力されたら完了です（Figure fig-birdnet-default）。\n\n\n\n\n\n\nFigure 4.2: 学習曲線\n\n\n\nこのグラフはモデルの学習曲線であり、訓練が進む（Epochの値が高くなる）ほど、モデルの評価指標であるAUPRCやAUROCが向上する様子が見られます。",
+    "text": "4.3 訓練\nBirdNETのインストールを終えてソフトを立ち上げたら（ソフトの立ち上がりに少し時間がかかると思います）、datasetフォルダに含まれている音声を利用してモデルの訓練を行ってみます。\nタブからTrainを選択し、Select training dataから、先ほど用意したdatasetのフォルダを選択してください。少し時間をおいて、訓練データに含まれていた、BUFJAP、ZHASCH、backgroundの３つのクラスが表示されるはずです (Figure 4.1)。\n\n\n\n\n\n\nFigure 4.1: BirdNET-Analyzerの訓練画面\n\n\n\n続いて、訓練したモデルの保存先を Select classifier output から指定します。ここではdatasetと同じfrog_DL_exampleフォルダのなかに、modelというフォルダを新規に作って選択します。\nその下にいろいろな訓練時のオプションがありますが、デフォルト設定のまま下にスクロールし、Start training のボタンを押して訓練を開始します。\n訓練データセットの読み込みから始まり、訓練過程を示す情報が現れたのちに、次のようなグラフが出力されたら完了です（Figure 4.2）。\n\n\n\n\n\n\nFigure 4.2: 学習曲線\n\n\n\nこのグラフはモデルの学習曲線であり、訓練が進む（Epochの値が高くなる）ほど、モデルの評価指標であるAUPRCやAUROCが向上する様子が見られます。",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>モデルの訓練（GUI）</span>"
     ]
@@ -259,93 +184,9 @@
     "href": "train_gui.html#sec-gui-options",
     "title": "4  モデルの訓練（GUI）",
     "section": "4.4 訓練オプション",
-    "text": "4.4 訓練オプション\n続いて autotune 機能を利用してモデルの訓練を行ってみます。先ほどは様々なパラメータを変更せずデフォルトのまま訓練しましたが、訓練時の学習率やモデルの構造などを決めるパラメータ（ハイパーパラメータ）を様々に操作して、最適な値の探索を行うオプションが Use autotune と書かれたチェック項目です。ここにチェックを入れると、ベイズ最適化によるハイパーパラメータ探索が行われます。\nハイパーパラメータの値の組み合わせをどれだけ探索するかはTrialsの数で変更できます。ここではTrialsをデフォルトの50のままにして訓練を行ってみます。Select classifier outputの欄で、モデルを保存する名称をデフォルト（CustomClassifier）から変更し、たとえばCustomClassifier_autotuneなどとして訓練開始（Start training）します。結果を Figure fig-birdnet-autotune に示します。\n\n\n\n\n\n\nFigure 4.3: autotune機能を使った場合の学習曲線\n\n\n\n先ほどのデフォルトのモデルですでに高い性能が出ていたため、パラメータの調整を行っても最終的なAUPRC,AUROCの値にはわずかな違いしか見られませんでした。\n\n\n\n\n\n\nNote\n\n\n\nモデルの訓練過程にはランダム性があるため、実際に訓練してみても、同じ学習曲線にはならないかと思います。\n\n\n最適と判断されたハイパーパラメータは、modelフォルダに出力された、CustomeClassifier_autotune_Params.csvから確認できます。\n\n\n\n\nGhani, Burooj, Tom Denton, Stefan Kahl, and Holger Klinck. 2023. “Global Birdsong Embeddings Enable Superior Transfer Learning for Bioacoustic Classification.” Sci. Rep. 13 (1): 22876. https://doi.org/10.1038/s41598-023-49989-z.\n\n\nKahl, Stefan, Connor M Wood, Maximilian Eibl, and Holger Klinck. 2021. “BirdNET: A Deep Learning Solution for Avian Diversity Monitoring.” Ecol. Inform. 61: 101236. https://doi.org/10.1016/j.ecoinf.2021.101236.",
+    "text": "4.4 訓練オプション\n続いて autotune 機能を利用してモデルの訓練を行ってみます。先ほどは様々なパラメータを変更せずデフォルトのまま訓練しましたが、訓練時の学習率やモデルの構造などを決めるパラメータ（ハイパーパラメータ）を様々に操作して、最適な値の探索を行うオプションが Use autotune と書かれたチェック項目です。ここにチェックを入れると、ベイズ最適化によるハイパーパラメータ探索が行われます。\nハイパーパラメータの値の組み合わせをどれだけ探索するかはTrialsの数で変更できます。ここではTrialsをデフォルトの50のままにして訓練を行ってみます。Select classifier outputの欄で、モデルを保存する名称をデフォルト（CustomClassifier）から変更し、たとえばCustomClassifier_autotuneなどとして訓練開始（Start training）します。結果を Figure 4.3 に示します。\n\n\n\n\n\n\nFigure 4.3: autotune機能を使った場合の学習曲線\n\n\n\n先ほどのデフォルトのモデルですでに高い性能が出ていたため、パラメータの調整を行っても最終的なAUPRC,AUROCの値にはわずかな違いしか見られませんでした。\n\n\n\n\n\n\nNote\n\n\n\nモデルの訓練過程にはランダム性があるため、実際に訓練してみても、同じ学習曲線にはならないかと思います。\n\n\n最適と判断されたハイパーパラメータは、modelフォルダに出力された、CustomeClassifier_autotune_Params.csvから確認できます。\n\n\n\n\nGhani, Burooj, Tom Denton, Stefan Kahl, and Holger Klinck. 2023. “Global Birdsong Embeddings Enable Superior Transfer Learning for Bioacoustic Classification.” Sci. Rep. 13 (1): 22876. https://doi.org/10.1038/s41598-023-49989-z.\n\n\nKahl, Stefan, Connor M Wood, Maximilian Eibl, and Holger Klinck. 2021. “BirdNET: A Deep Learning Solution for Avian Diversity Monitoring.” Ecol. Inform. 61: 101236. https://doi.org/10.1016/j.ecoinf.2021.101236.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>モデルの訓練（GUI）</span>"
-    ]
-  },
-  {
-    "objectID": "train_gui.html#sec-gui-mac-install",
-    "href": "train_gui.html#sec-gui-mac-install",
-    "title": "3  モデルの訓練（GUI）",
-    "section": "3.5 インストール（Mac）",
-    "text": "3.5 インストール（Mac）\n\n\n\n\nGhani, Burooj, Tom Denton, Stefan Kahl, and Holger Klinck. 2023. “Global Birdsong Embeddings Enable Superior Transfer Learning for Bioacoustic Classification.” Sci. Rep. 13 (1): 22876. https://doi.org/10.1038/s41598-023-49989-z.\n\n\nKahl, Stefan, Connor M Wood, Maximilian Eibl, and Holger Klinck. 2021. “BirdNET: A Deep Learning Solution for Avian Diversity Monitoring.” Ecol. Inform. 61: 101236. https://doi.org/10.1016/j.ecoinf.2021.101236."
-  },
-  {
-    "objectID": "data_prep.html#sec-prep-intro",
-    "href": "data_prep.html#sec-prep-intro",
-    "title": "3  訓練データの整理",
-    "section": "",
-    "text": "音声データを３秒ずつに区切る\nカエルの種ごとにフォルダを作成し、その中に３秒間の音声データを入れていく\n\n\nたとえば３秒間の音声にヒキガエルが含まれているならBUFJAPという名称のフォルダに入れ、シュレーゲルアオガエルが含まれているならZHASCHに入れます。\nどの種も含まれていない背景音ならbackgroundという名称のフォルダを作って、そこに入れます。\nヒキガエルとシュレーゲルアオガエルの両種が含まれる場合は、保存フォルダの名称を「BUFJAP,ZHASCH」のようにカンマ区切りで両種の名前をつけます（種名の間にはスペースを入れない）。",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>訓練データの整理</span>"
-    ]
-  },
-  {
-    "objectID": "annotation.html#sec-annotation-intro",
-    "href": "annotation.html#sec-annotation-intro",
-    "title": "2  アノテーション",
-    "section": "2.1 はじめに",
-    "text": "2.1 はじめに\nここでは、野外に設置した音声レコーダーを用いてカエルの鳴き声を録音した、あるいは録音する予定であるという状況を想定し、得られた録音データの解析方法を扱います。同様の手法がカエル以外の生物でも適用可能ですが、コウモリなど可聴域を超える音声については後に紹介するBirdNETが未対応です。\n種を判定するためのディープラーニングモデルを作るには、まず対象種の訓練データが必要となります。このために、データに対し種名等のラベルを付けることをアノテーションといいます。日本産のカエル類ではアノテーション済みの公開データは非常に少ないため、多くの場合、調査者がアノテーションを行うか、あるいは合成音声を作成する必要があります。ここでは野外環境に近いデータに基づき訓練を行うため、野外録音をアノテーションする方法を紹介します。\nアノテーション用のソフトとして、生物音響分野ではRaven Pro/Lite（Proは有料版。無料版のLiteでもアノテーションは可能）やAudacityを利用している例が多いようです。これらのソフトは音響解析一般を扱うもので、必ずしも大量のファイルをアノテーションすることに最適化されているわけではありませんが、ユーザーが多く動作が安定しているため、扱いやすいと思いました。ここではRaven Liteを用いてアノテーションする方法を紹介します。"
-  },
-  {
-    "objectID": "train_gui.html#sec-gui-intro",
-    "href": "train_gui.html#sec-gui-intro",
-    "title": "4  モデルの訓練（GUI）",
-    "section": "",
-    "text": "Note\n\n\n\nMacでもGUIが使えますが、インストールのために仮想環境を用意し、適切なバージョンのPythonとライブラリーを入れる必要があります。この手順は sec-cli で紹介します。\n\n\n\n\nBirdNETの利用方法",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>モデルの訓練（GUI）</span>"
-    ]
-  },
-  {
-    "objectID": "data_prep.html#sec-prep-setup",
-    "href": "data_prep.html#sec-prep-setup",
-    "title": "3  訓練データの整理",
-    "section": "3.3 セットアップ",
-    "text": "3.3 セットアップ\n以下のパッケージを使用します。\n\n# 必要なライブラリの読み込み\nlibrary(tuneR)\nlibrary(tidyverse)\n\n\n\n\n\n\n\nNote\n\n\n\n以下に記載しているコードが適切に実行されるには、Rのワーキングディレクトリの直下にsample_dataフォルダがある必要があります。ダウンロードしたサンプルデータ・コード（Section 1.2）から、frog-DL-example.RprojをクリックしてRを開くと、ワーキングディレクトリが適切に設定されるはずです。\nなおワーキングディレクトリはコンソールにgetwd()と打ち込んで確認できます。\n\n\nまずサンプルデータに含まれているアノテーションを確認します。このために、list.files()関数によりsample_data/trainフォルダに入っているアノテーションファイルの一覧を取得し、その冒頭6個を表示させてみます。\n\nannotations &lt;- list.files(\"sample_data/train\", \"selections.txt\")\nprint(head(annotations))\n\n[1] \"20220315_090000.Table.1.selections.txt\"\n[2] \"20220315_100000.Table.1.selections.txt\"\n[3] \"20220315_110000.Table.1.selections.txt\"\n[4] \"20220315_130000.Table.1.selections.txt\"\n[5] \"20220316_090000.Table.1.selections.txt\"\n[6] \"20220316_120000.Table.1.selections.txt\"\n\n\n各ファイルは{録音日}_{録音時刻}.Table.1.selections.txt という命名規則になっています。 これらのアノテーションファイルに対応する音声もフォルダ内にあり、そのファイル名は録音日時を表す部分に拡張子.WAV がついた形をしています。\n\naudio &lt;- list.files(\"sample_data/train\", \"WAV\")\nprint(head(audio))\n\n[1] \"20220315_090000.WAV\" \"20220315_100000.WAV\" \"20220315_110000.WAV\"\n[4] \"20220315_130000.WAV\" \"20220316_090000.WAV\" \"20220316_120000.WAV\"\n\n\n最終的にこれらの音声ファイルを３秒間ずつに区切り、鳴いている種の名前がついたフォルダに保存していくのですが、そのために使ういくつかの関数を定義していきます。",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>訓練データの整理</span>"
-    ]
-  },
-  {
-    "objectID": "use_cli.html",
-    "href": "use_cli.html",
-    "title": "6  CLIによる利用",
-    "section": "",
-    "text": "6.1 はじめに\n論文等のため解析手順を正確に記録し、報告する場合には、CLIを使うと便利です。",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLIによる利用</span>"
-    ]
-  },
-  {
-    "objectID": "use_cli.html#sec-cli-install",
-    "href": "use_cli.html#sec-cli-install",
-    "title": "6  CLIによる利用",
-    "section": "6.2 インストール",
-    "text": "6.2 インストール\nBirdnETをコマンドライン（CLI）で利用するには、Windowsの場合はGUIを使うときにインストールしたもので十分なようです。Macの場合は以下の手順を踏みます。公式ドキュメントの説明が少し簡素で個人的につまづいたため、若干の補足をしています。\n\n6.2.1 gitの導入\ngit（バージョン管理ソフト）を使えるようにする。このためにターミナルを開いて\nxcode-select --install\nと入力し、xcodeをインストールする。\n\n\n6.2.2 BirdNET-Analyzerリポジトリのコピー\n任意のフォルダにGitHubのBirdNETリポジトリをコピーする。\ncd ~/YOUR_FOLDER\ngit clone https://github.com/kahst/BirdNET-Analyzer.git\nここで、YOUR_FOLDERには音声データの解析フォルダに設定したいフォルダまでのパスを入力します。これにより指定したフォルダにBirdNETのソースコードがすべてコピーされます。\n\n\n6.2.3 仮想環境の構築\n適切なバージョンのPython（3.9以上3.11以下）で仮想環境を構築。Pythonのバージョン管理にcondaを用いる場合は、たとえばminicondaをインストールしてから、以下のコマンドをターミナルに入力して仮想環境を構築します。\nconda create -n birdnet python=3.10\nここでbirdnetが新規仮想環境名で、birdnet以外にも好きな名前を入力できます。うまく仮想環境構築されたか確認するため、まず仮想環境をアクティブにします。\nconda activate birdnet\nターミナルの冒頭の文字が(base)から(birdnet)に変更されたら、Pythonのバージョンを確認します。\npython --version\nPython 3.10.XX のように表示されたら成功です。\n\n\n\n\n\n\nWarning\n\n\n\nBirdNETが依存しているTensorflow 2.15.0に適合するPythonのバージョンは3.9から3.11のようです。単純に最新のpythonをインストールすると、3.11よりも新しいものがインストールされて使えませんので、仮想環境の構築では明示的にPythonのバージョンを指定する必要があります。少なくとも私の環境ではPython 3.10であれば問題なく利用できました。\n\n\n\n\n\n\n\n\nNote\n\n\n\n公式ドキュメントではvenvを用いて仮想環境の構築を行っているため、condaを用いたここでのコードと少し異なっています。venvでも仮想環境を管理できますが、単体ではPythonバージョンを自由に指定することができないため、Homebrewと組み合わせて扱うとよいようです。個人的にHomebrewを利用していないのでこれ以上詳しく書けませんが、Symes et al. (2023) によるBirdNET Analyzer GUI MacOS install notesにやり方が書かれています。\n\n\n\n\n6.2.4 Pythonライブラリのインストール\n適切なライブラリをインストールする。仮想環境がアクティブになっている（ターミナルの冒頭の文字が(base)から(birdnet)に変更されている）ことを確認してから、以下のコマンドを入力します。\npip insall tensorflow==2.15.0 tensorflow-metal\nこれはディープラーニングを用いるときによく利用されるライブラリであるTensorfowをインストールしています。またtensorflow-metalはmacOSでTensorflowを利用するためのライブラリです。同様に、他にも必要なものをインストールします。\npip install librosa resampy\n訓練時にautotune機能を用いる場合は、加えて\npip install keras-tuner\nMacでGUIを使いたい場合は、\npip install pywebview gradio\nをさらにインストールします。",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLIによる利用</span>"
-    ]
-  },
-  {
-    "objectID": "train_gui.html",
-    "href": "train_gui.html",
-    "title": "4  モデルの訓練（GUI）",
-    "section": "",
-    "text": "4.1 はじめに\n訓練データを用意できたらBirdNET-Analyzer（以下BirdNET）というソフトを利用してモデルの訓練を行います。BirdNETは鳥類を主とした鳴き声によって訓練済みのモデルで、2024年7月現在、世界で6千種以上の生物の鳴き声を識別することができる大規模なものです(Kahl et al. (2021))。デフォルトのモデルで識別できる種のなかにはカエルも何種か含まれていますが、基本的に北米の種で、日本にも分布しているのは外来種であるウシガエルのみです。\nしかしBirdNETは訓練データさえこちらで用意すれば、デフォルトのモデルに含まれていない種でも認識するよう訓練できます。多様な鳴き声で事前に訓練されているため、音声に含まれる各種の特徴を抽出する能力が高く、比較的少数のサンプルでも高性能なモデルを作りやすいとされています(Ghani et al. (2023))。\nまたBirdNETはGUI（グラフィカルユーザーインターフェイス）を提供していることも特徴で、とくにWindowsを使っている場合はインストールからモデルの訓練・解析まで、コードを書かずに完了できるため、とっつきやすいソフトです。CLI（コマンドラインインターフェイス）も用意されているので、解析手順の再現性を高めたい場合にはCLIを利用することができます。\n公式にきちんと操作方法解説されているため、ここでの内容は、シンプルな訓練手順を日本語で簡単に紹介することにとどめます。詳細な訓練のオプションやその他の機能については、以下のドキュメントに書かれています。",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>モデルの訓練（GUI）</span>"
-    ]
-  },
-  {
-    "objectID": "use_cli.html#sec-cli-gui",
-    "href": "use_cli.html#sec-cli-gui",
-    "title": "6  CLIによる利用",
-    "section": "6.3 MacでのGUIの利用",
-    "text": "6.3 MacでのGUIの利用\nGUIを使うためには、GitHubからコピーしたBirdNET-AnalyzerフォルダをFinder上で右クリックし、「フォルダに新規ターミナル」を選択します。立ち上がったターミナルに以下のコマンドを入力し、GUIを起動させます。\nconda activate birdnet\npython -m gui\nその後はWindowsでのGUIの使い方（Chapter 4）と同じです。",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLIによる利用</span>"
     ]
   },
   {
@@ -369,59 +210,31 @@
     ]
   },
   {
-    "objectID": "inference.html#sec-inference-comment",
-    "href": "inference.html#sec-inference-comment",
-    "title": "5  データの解析",
-    "section": "5.3 データ解析のうえでは",
-    "text": "5.3 データ解析のうえでは\n上では出力結果をRaven selection tableで保存する設定にしていましたが、より大量のデータを扱い、それをRなどで解析する場合には、csvを保存形式として選択しておくと取り扱いが楽です。"
-  },
-  {
-    "objectID": "summary.html#sec-summary-performance",
-    "href": "summary.html#sec-summary-performance",
-    "title": "8  終わりに",
-    "section": "8.2 性能評価",
-    "text": "8.2 性能評価\n機械学習モデルの性能評価指標の一つとして、モデルの訓練（Chapter 4）で登場したAUPRCやAUROCがあります。BirdNETではデフォルトで訓練データの20%をモデルの評価に利用してこれらの値を算出しています。\nその他のよく用いられる評価指標にPrecisionとRecallがあります。それぞれ以下の式で定義されます。\n\\[\n\\begin{aligned}\nPrecision = \\frac{TP}{TP + FP}, \\\\\nRecall = \\frac{TP}{TP + FN}\n\\end{aligned}\n\\]\nここでTP, FP, FNはそれぞれ真陽性（true positives）、偽陽性（false positives）、偽陰性（false negatives）を表します。\nすなわち、precisionは「モデルがこのカエルだと判断したサンプルのうち、実際にそのカエルが鳴いていたサンプルの割合」を、recallは「あるカエルが鳴いているすべてのサンプルのうち、モデルが正しく検出できたサンプルの割合」を表します。どちらも1に近いほどモデルの性能が良いことを表します。Precisionとrecallは一般にトレードオフの関係にあり、モデルの検出閾値を高めることで偽陽性（FP）が減ってprecisionは向上するものの、偽陰性（FN）が増えてrecallの値が低下します。\nまず訓練データとは別にアノテーションしたテストデータを用意して、そこに適用したモデルの解析結果からprecisionやrecall値を算出するコードを書く方法があります。\nしかし3秒間の音声クリップ単位ではなく、音声ファイル単位や１日単位で在不在を正確に判断できているかが重要な場面もあるかと思います。たとえば音声クリップ単位では見落としがしばしばあっても、一日単位で見るとほぼ見落としがなく、解析上はそれが重要という場面が考えられます。この場合も、マニュアルでBirdNETの出力ファイルを確認することもできますが、それに適したコードをRなどで独自に書くことでミスを防ぎ、また結果の再確認を容易にできます。\n最後に、BirdNETはprecisionを算出するうえで便利な機能を備えており、検出した音声クリップ（すなわちTPとFPのサンプル）を一覧にして保存してくれるSegments機能がGUIおよびCLIで利用できます。",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>終わりに</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html#sec-summary-summary",
-    "href": "summary.html#sec-summary-summary",
-    "title": "8  終わりに",
+    "objectID": "use_cli.html",
+    "href": "use_cli.html",
+    "title": "6  CLIによる利用",
     "section": "",
-    "text": "Chapter 2 録音した野外データからアノテーションを行い、\nChapter 3 そのアノテーションファイルをBirdNETで扱いやすいよう3秒毎に分割\nChapter 4 モデルの訓練\nChapter 5 新規データの解析\nChapter 7 モデルの性能評価",
+    "text": "6.1 はじめに\n論文等のため解析手順を正確に記録し、報告する場合には、CLIを使うと便利です。",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>終わりに</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLIによる利用</span>"
     ]
   },
   {
-    "objectID": "annotation.html#sec-annotation-sample",
-    "href": "annotation.html#sec-annotation-sample",
-    "title": "1  アノテーション",
-    "section": "1.2 サンプルデータについて",
-    "text": "1.2 サンプルデータについて\n訓練用のサンプルデータはsample_dataフォルダ内のtrainフォルダに入っています。以下このようなフォルダの構造をsample_data/trainと記します。\nこのデータは京都市の山中の小さな池（あるいは大きめの水たまり）に設置した、Audiomoth（OpenAcoustics社製）というレコーダーにより録音されたものです。より詳しくは Kimura and Sota (2023) を参照してください。\nサンプルの音声データと同じフォルダ内に、それをアノテーションしたtxtファイルも含めています。"
-  },
-  {
-    "objectID": "inference.html#sec-inference-intro",
-    "href": "inference.html#sec-inference-intro",
-    "title": "5  データの解析",
-    "section": "5.1 はじめに",
-    "text": "5.1 はじめに\nモデルの訓練（GUI）(Chapter 4)によって、ニホンヒキガエルとシュレーゲルアオガエルの鳴き声を判定できるカスタムモデルが作成できました。次はこのモデルを使って訓練データに利用していないデータを解析してみます。\nそのためのデータはsample_data/testのフォルダに入っていることを確認してください。ニホンヒキガエルが鳴いている音声が一つ、またシュレーゲルアオガエルが鳴いている音声が一つです。"
-  },
-  {
-    "objectID": "use_cli.html#sec-cli-intro",
-    "href": "use_cli.html#sec-cli-intro",
+    "objectID": "use_cli.html#sec-cli-install",
+    "href": "use_cli.html#sec-cli-install",
     "title": "6  CLIによる利用",
-    "section": "6.1 はじめに",
-    "text": "6.1 はじめに\n論文等のため解析手順を正確に記録し、報告する場合には、CLIを使うと便利です。"
+    "section": "6.2 インストール",
+    "text": "6.2 インストール\nBirdnETをコマンドライン（CLI）で利用するには、Windowsの場合はGUIを使うときにインストールしたもので十分なようです。Macの場合は以下の手順を踏みます。公式ドキュメントの説明が少し簡素で個人的につまづいたため、若干の補足をしています。\n\n6.2.1 gitの導入\ngit（バージョン管理ソフト）を使えるようにする。このためにターミナルを開いて\nxcode-select --install\nと入力し、xcodeをインストールする。\n\n\n6.2.2 BirdNET-Analyzerリポジトリのコピー\n任意のフォルダにGitHubのBirdNETリポジトリをコピーする。\ncd ~/YOUR_FOLDER\ngit clone https://github.com/kahst/BirdNET-Analyzer.git\nここで、YOUR_FOLDERには音声データの解析フォルダに設定したいフォルダまでのパスを入力します。これにより指定したフォルダにBirdNETのソースコードがすべてコピーされます。\n\n\n6.2.3 仮想環境の構築\n適切なバージョンのPython（3.9以上3.11以下）で仮想環境を構築。Pythonのバージョン管理にcondaを用いる場合は、たとえばminicondaをインストールしてから、以下のコマンドをターミナルに入力して仮想環境を構築します。\nconda create -n birdnet python=3.10\nここでbirdnetが新規仮想環境名で、birdnet以外にも好きな名前を入力できます。うまく仮想環境構築されたか確認するため、まず仮想環境をアクティブにします。\nconda activate birdnet\nターミナルの冒頭の文字が(base)から(birdnet)に変更されたら、Pythonのバージョンを確認します。\npython --version\nPython 3.10.XX のように表示されたら成功です。\n\n\n\n\n\n\nWarning\n\n\n\nBirdNETが依存しているTensorflow 2.15.0に適合するPythonのバージョンは3.9から3.11のようです。単純に最新のpythonをインストールすると、3.11よりも新しいものがインストールされて使えませんので、仮想環境の構築では明示的にPythonのバージョンを指定する必要があります。少なくとも私の環境ではPython 3.10であれば問題なく利用できました。\n\n\n\n\n\n\n\n\nNote\n\n\n\n公式ドキュメントではvenvを用いて仮想環境の構築を行っているため、condaを用いたここでのコードと少し異なっています。venvでも仮想環境を管理できますが、単体ではPythonバージョンを自由に指定することができないため、Homebrewと組み合わせて扱うとよいようです。個人的にHomebrewを利用していないのでこれ以上詳しく書けませんが、Symes et al. (2023) によるBirdNET Analyzer GUI MacOS install notesにやり方が書かれています。\n\n\n\n\n6.2.4 Pythonライブラリのインストール\n適切なライブラリをインストールする。仮想環境がアクティブになっている（ターミナルの冒頭の文字が(base)から(birdnet)に変更されている）ことを確認してから、以下のコマンドを入力します。\npip insall tensorflow==2.15.0 tensorflow-metal\nこれはディープラーニングを用いるときによく利用されるライブラリであるTensorfowをインストールしています。またtensorflow-metalはmacOSでTensorflowを利用するためのライブラリです。同様に、他にも必要なものをインストールします。\npip install librosa resampy\n訓練時にautotune機能を用いる場合は、加えて\npip install keras-tuner\nMacでGUIを使いたい場合は、\npip install pywebview gradio\nをさらにインストールします。",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLIによる利用</span>"
+    ]
   },
   {
-    "objectID": "use_cli.html#cliによる訓練と解析",
-    "href": "use_cli.html#cliによる訓練と解析",
+    "objectID": "use_cli.html#sec-cli-gui",
+    "href": "use_cli.html#sec-cli-gui",
     "title": "6  CLIによる利用",
-    "section": "6.4 CLIによる訓練と解析",
-    "text": "6.4 CLIによる訓練と解析\nCLIによりモデルの訓練を行う場合、先ほど（{Section 6.3}）と同様にBirdNET-Analyzerフォルダにターミナルを立ち上げ、以下のコードを打ち込みます。\nconda activate BirdNET\npython train.py --i PATH/TO/TRAIN/DATASET --o checkpoints/custom/Custom_Classifier_autotune --autotune \nPATH/TO/TRAIN/DATASETの部分には訓練データへのパスを記入します。\nまた、データ解析も同様に簡単なコードにより実行できます。\npython analyze.py --i PATH/TO/AUDIO/DATA --o ../output/BirdNET-output --classifier checkpoints/custom/Custom_Classifier_autotune.tflite\n詳細なオプションは公式のドキュメントを確認してください。\n\n\n\n\nSymes, Laurel, Larissa S M Sugai, Benjamin Gottesman, Michael Pitzrick, and Connor Wood. 2023. “Acoustic analysis with BirdNET and (almost) no coding: practical instructions.” Zenodo. https://doi.org/10.5281/zenodo.8357176.",
+    "section": "6.3 MacでのGUIの利用",
+    "text": "6.3 MacでのGUIの利用\nGUIを使うためには、GitHubからコピーしたBirdNET-AnalyzerフォルダをFinder上で右クリックし、「フォルダに新規ターミナル」を選択します。立ち上がったターミナルに以下のコマンドを入力し、GUIを起動させます。\nconda activate birdnet\npython -m gui\nその後はWindowsでのGUIの使い方（Chapter 4）と同じです。",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLIによる利用</span>"
     ]
@@ -447,20 +260,6 @@
     ]
   },
   {
-    "objectID": "test.html#sec-test-index",
-    "href": "test.html#sec-test-index",
-    "title": "7  性能評価",
-    "section": "7.1 性能の評価指標",
-    "text": "7.1 性能の評価指標\n機械学習モデルの性能評価指標の一つとして、モデルの訓練（Chapter 4）で登場したAUPRCやAUROCがあります。BirdNETではデフォルトで訓練データの20%をモデルの評価に利用してこれらの値を算出しています。\nその他のよく用いられる評価指標にPrecisionとRecallがあります。それぞれ以下の式で定義されます。\n\\[\n\\begin{aligned}\nPrecision = \\frac{TP}{TP + FP}, \\\\\nRecall = \\frac{TP}{TP + FN}\n\\end{aligned}\n\\]\nここでTP, FP, FNはそれぞれ真陽性（true positives）、偽陽性（false positives）、偽陰性（false negatives）を表します。\nすなわち、precisionは「モデルがこのカエルだと判断したサンプルのうち、実際にそのカエルが鳴いていたサンプルの割合」を、recallは「あるカエルが鳴いているすべてのサンプルのうち、モデルが正しく検出できたサンプルの割合」を表します。どちらも1に近いほどモデルの性能が良いことを表します。Precisionとrecallは一般にトレードオフの関係にあり、モデルの検出閾値を高めることで偽陽性（FP）が減ってprecisionは向上するものの、偽陰性（FN）が増えてrecallの値が低下します。\nPrecisionとrecallは、AUROC等と比べて値の意味が解釈がしやすく、解析結果がどれだけ信用できるものなのか判断するうえで役立つため、以下でそれを算出するコードの一例を紹介します。このページの内容はサンプルデータ内にある、test.qmdを開いて実行することができます。"
-  },
-  {
-    "objectID": "test.html#評価指標の算出",
-    "href": "test.html#評価指標の算出",
-    "title": "7  性能評価",
-    "section": "7.2 評価指標の算出",
-    "text": "7.2 評価指標の算出\n評価指標の算出にはcaretパッケージを用います。訓練済みモデルの予測と、対応するアノテーションデータはsample_data/performanceの中に格納されています。\n\nlibrary(tidyverse)\nlibrary(caret)\n\nChapter 3 で利用した、create_label()関数をもう一度利用し、アノテーションの正解ラベルを取得します。\n\ncreate_labels &lt;- function(annotation){\n  df &lt;- read_delim(annotation, delim = \"\\t\", show_col_types = FALSE) |&gt;   # アノテーションファイルを読み込む\n    filter(Annotation != \"frog\")  # 種不明を表すfrogを除く\n  \n  label_vec &lt;- vector(mode = \"character\")  # ラベルを格納するベクトルを初期化\n  \n  for(i in 1:20){\n    start &lt;- (i-1) * 3  # i番目の音声クリップの開始時間\n    end &lt;- i * 3  # i番目の音声クリップの終了時間\n    # 音声クリップ内に含まれるアノテーションを整理\n    label_df &lt;- df %&gt;%\n      # startからendと重複する部分のあるアノテーションのみを抜き出す\n      filter(`Begin Time (s)` &lt;= end & `End Time (s)` &gt;= start) %&gt;%  \n      distinct(Annotation) %&gt;%  # 同じ種のラベルの重複を削除\n      arrange(Annotation)  # アノテーションをアルファベット順に並べ替え\n    \n    # クリップ内にアノテーションがない場合は\"background\"、ある場合はアノテーションをカンマ区切りで連結\n    label &lt;- if(nrow(label_df) == 0) \"background\" else str_flatten(label_df$Annotation, collapse = \",\")\n    label_vec[i] &lt;- label  # ラベルをリストに格納\n  }\n  \n  return(label_vec)\n}\n\n\n# 正解ラベルをfactorとして取得\ntruth &lt;- create_labels(\"sample_data/performance/20220315_120000.Table.1.selections.txt\") |&gt; \n  as.factor()\n\n同様に、訓練したBirdNETモデルの予測をfactor形式で取得する関数を定義します。\n\nconvert_birdnet_results &lt;- function(birdnet_results){\n  df &lt;- tibble(  # 0から60秒までの空のデータフレームを作成\n  `Start (s)` = seq(0, 57, by = 3),\n  `End (s)` = seq(3, 60, by = 3)\n  )\n\n  # BirdNETの出力結果読み込み\n  results &lt;- read_csv(birdnet_results)  \n  \n  # 予測を整理し、factor形式に変換する\n  pred_df &lt;- df |&gt; \n    left_join(results) |&gt; \n    mutate(`Scientific name` = ifelse(is.na(`Scientific name`), \"background\", `Scientific name`))\n  pred &lt;- as.factor(pred_df$`Scientific name`)\n  \n  return(pred)\n}\n\n\npred &lt;- convert_birdnet_results(\"sample_data/performance/20220315_120000.BirdNET.results.csv\")\n\n正解ラベル（truth）とモデルの予測（pred）から、どれだけ正解していたのか確認します。\n\nconfusionMatrix(pred, truth, positive = \"BUFJAP\", mode = \"prec_recall\")\n\nConfusion Matrix and Statistics\n\n            Reference\nPrediction   background BUFJAP\n  background          1      0\n  BUFJAP              0     19\n                                     \n               Accuracy : 1          \n                 95% CI : (0.8316, 1)\n    No Information Rate : 0.95       \n    P-Value [Acc &gt; NIR] : 0.3585     \n                                     \n                  Kappa : 1          \n                                     \n Mcnemar's Test P-Value : NA         \n                                     \n              Precision : 1.00       \n                 Recall : 1.00       \n                     F1 : 1.00       \n             Prevalence : 0.95       \n         Detection Rate : 0.95       \n   Detection Prevalence : 0.95       \n      Balanced Accuracy : 1.00       \n                                     \n       'Positive' Class : BUFJAP     \n                                     \n\n\n今回の場合、precision、recallともに100%で、ニホンヒキガエルに関する予測は完璧だったようです。\nこのようなprecisionとrecallの算出を、複数のテストデータも含めて行うように拡張します。\n\nannotation_list &lt;- list.files(\"sample_data/performance\", \"*selections.txt\", full.names = TRUE)\nBirdNET_results_list &lt;- list.files(\"sample_data/performance\", \"*BirdNET.results.csv\", full.names = TRUE)\n\ntruth &lt;- map(annotation_list, create_labels) |&gt; unlist() |&gt; as.factor()\npred &lt;- map(BirdNET_results_list, convert_birdnet_results) |&gt; unlist()\n\n\nconfusionMatrix(pred, truth, mode = \"prec_recall\")\n\nConfusion Matrix and Statistics\n\n            Reference\nPrediction   background BUFJAP ZHASCH\n  background         17      0      0\n  BUFJAP              0     19      0\n  ZHASCH              0      0      4\n\nOverall Statistics\n                                     \n               Accuracy : 1          \n                 95% CI : (0.9119, 1)\n    No Information Rate : 0.475      \n    P-Value [Acc &gt; NIR] : 1.169e-13  \n                                     \n                  Kappa : 1          \n                                     \n Mcnemar's Test P-Value : NA         \n\nStatistics by Class:\n\n                     Class: background Class: BUFJAP Class: ZHASCH\nPrecision                        1.000         1.000           1.0\nRecall                           1.000         1.000           1.0\nF1                               1.000         1.000           1.0\nPrevalence                       0.425         0.475           0.1\nDetection Rate                   0.425         0.475           0.1\nDetection Prevalence             0.425         0.475           0.1\nBalanced Accuracy                1.000         1.000           1.0\n\n\n今回のケースでは、モデルの性能は高く、1分間×2つの音声ファイルについて、ニホンヒキガエルとシュレーゲルアオガエルのprecison、recallはいずれも100％という結果になりました。"
-  },
-  {
     "objectID": "test.html#sec-test-calc",
     "href": "test.html#sec-test-calc",
     "title": "7  性能評価",
@@ -468,6 +267,16 @@
     "text": "7.2 評価指標の算出\n評価指標の算出にはcaretパッケージを用います。訓練済みモデルの予測と、対応するアノテーションデータはsample_data/performanceの中に格納されています。\n\nlibrary(tidyverse)\nlibrary(caret)\n\n\n# データの一覧取得\nannotation_list &lt;- list.files(\"sample_data/performance\", \"*selections.txt\", full.names = TRUE)\nBirdNET_results_list &lt;- list.files(\"sample_data/performance\", \"*BirdNET.selection.table.txt\", full.names = TRUE)\n\nまずニホンヒキガエル（BUFJAP）についての性能評価を行います。BirdNETの出力や、アノテーションデータからラベルを取得するために、create_labels()関数を少し変更したもの以下に定義します。\n\ncreate_labels2 &lt;- function(df){\n  label_vec &lt;- vector(mode = \"character\")  # ラベルを格納するベクトルを初期化\n  \n  for(i in 1:20){\n    start &lt;- (i-1) * 3  \n    end &lt;- i * 3  \n    label_df &lt;- df |&gt; \n      # startからendと重複する部分のあるアノテーションのみを抜き出す\n      filter(`Begin Time (s)` &lt; end & `End Time (s)` &gt; start) |&gt; \n      distinct(Annotation)  # 同じ種のラベルの重複を削除\n    \n    # クリップ内にアノテーションがない場合は\"background\"、ある場合はアノテーションをラベルにする\n    label &lt;- if(nrow(label_df) == 0) \"background\" else label_df$Annotation\n    label_vec[i] &lt;- label  # ラベルをリストに格納\n  }\n  \n  return(label_vec)\n}\n\nこれを用いて、モデルの予測をfactor形式で取得します。\n\npred_list &lt;- annotation_list |&gt; \n  map(function(x) x |&gt; \n        read_delim(delim = \"\\t\") |&gt; \n        filter(Annotation == \"BUFJAP\") |&gt;  # ニホンヒキガエルのみに着目\n        create_labels2()\n        )\n\n# モデルの予測をfactor形式に変換\npred &lt;- pred_list |&gt; unlist() |&gt; as.factor()\n\nここでmap()は、リスト（annotation_list）内のすべての要素に対して、function(x)以下の関数を作用させる機能を持ちます。同様に、訓練したBirdNETモデルの予測をfactor形式で取得します。\n\ntruth_list &lt;- BirdNET_results_list |&gt; \n  map(function(x) x |&gt; \n        read_delim(delim = \"\\t\") |&gt; \n        mutate(Annotation = `Species Code`) |&gt;  # create_labels2()が機能するように列を追加\n        filter(Annotation == \"BUFJAP\") |&gt; \n        create_labels2()\n        )\n\ntruth &lt;- truth_list |&gt; unlist() |&gt; as.factor()\n\n正解ラベル（truth）とモデルの予測（pred）から、confusionMatrix()によりどれだけ正解していたのか確認します。\n\nconfusionMatrix(pred, truth, positive = \"BUFJAP\", mode = \"prec_recall\")\n\nConfusion Matrix and Statistics\n\n            Reference\nPrediction   background BUFJAP\n  background         21      0\n  BUFJAP              0     19\n                                     \n               Accuracy : 1          \n                 95% CI : (0.9119, 1)\n    No Information Rate : 0.525      \n    P-Value [Acc &gt; NIR] : 6.403e-12  \n                                     \n                  Kappa : 1          \n                                     \n Mcnemar's Test P-Value : NA         \n                                     \n              Precision : 1.000      \n                 Recall : 1.000      \n                     F1 : 1.000      \n             Prevalence : 0.475      \n         Detection Rate : 0.475      \n   Detection Prevalence : 0.475      \n      Balanced Accuracy : 1.000      \n                                     \n       'Positive' Class : BUFJAP     \n                                     \n\n\n今回の場合、precision、recallともに100%で、ニホンヒキガエルに関する予測は完璧だったようです。\nこのようなprecisionとrecallの算出を、シュレーゲルアオガエル（ZHASCH）についても行います。\n\nspecies = \"ZHASCH\"\n\n# モデルの予測\npred &lt;- annotation_list |&gt; \n  map(function(x) x |&gt; \n        read_delim(delim = \"\\t\") |&gt; \n        filter(Annotation == species) |&gt; \n        create_labels2()\n        ) |&gt; \n  unlist() |&gt; \n  as.factor()\n\n# 正解ラベル\ntruth &lt;- BirdNET_results_list |&gt; \n  map(function(x) x |&gt; \n        read_delim(delim = \"\\t\") |&gt; \n        mutate(Annotation = `Species Code`) |&gt;  # create_labels2()が機能するように列を追加\n        filter(Annotation == species) |&gt; \n        create_labels2()\n        ) |&gt; \n  unlist() |&gt; \n  as.factor()\n\n\n# 混同行列と評価指標の算出\nconfusionMatrix(pred, truth, positive = species, mode = \"prec_recall\")\n\nConfusion Matrix and Statistics\n\n            Reference\nPrediction   background ZHASCH\n  background         36      0\n  ZHASCH              0      4\n                                     \n               Accuracy : 1          \n                 95% CI : (0.9119, 1)\n    No Information Rate : 0.9        \n    P-Value [Acc &gt; NIR] : 0.01478    \n                                     \n                  Kappa : 1          \n                                     \n Mcnemar's Test P-Value : NA         \n                                     \n              Precision : 1.0        \n                 Recall : 1.0        \n                     F1 : 1.0        \n             Prevalence : 0.1        \n         Detection Rate : 0.1        \n   Detection Prevalence : 0.1        \n      Balanced Accuracy : 1.0        \n                                     \n       'Positive' Class : ZHASCH     \n                                     \n\n\n今回のケースでは、モデルの性能は高く、1分間×2つの音声ファイルについて、ニホンヒキガエルとシュレーゲルアオガエルのprecison、recallはいずれも100％という結果になりました。",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>性能評価</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "引用文献",
+    "section": "",
+    "text": "Balvanera, Santiago Martinez, Oisin Mac Aodha, Matthew J Weldy, Holly\nPringle, Ella Browning, and Kate E Jones. 2023. “Whombat: An\nOpen-Source Annotation Tool for Machine Learning Development in\nBioacoustics.” arXiv. https://arxiv.org/abs/2308.12688.\n\n\nCañas, Juan Sebastián, María Paula Toro-Gómez, Larissa Sayuri Moreira\nSugai, Hernán Darío Benítez Restrepo, Jorge Rudas, Breyner Posso\nBautista, Luís Felipe Toledo, et al. 2023. “A Dataset for\nBenchmarking Neotropical Anuran Calls Identification in Passive Acoustic\nMonitoring.” Sci Data 10 (1): 771. https://doi.org/10.1038/s41597-023-02666-2.\n\n\nChronister, Lauren M, Tessa A Rhinehart, Aidan Place, and Justin Kitzes.\n2021. “An Annotated Set of Audio Recordings of Eastern North\nAmerican Birds Containing Frequency, Time, and Species\nInformation.” Ecology 102 (6): e03329. https://doi.org/10.1002/ecy.3329.\n\n\nGhani, Burooj, Tom Denton, Stefan Kahl, and Holger Klinck. 2023.\n“Global Birdsong Embeddings Enable Superior Transfer Learning for\nBioacoustic Classification.” Sci. Rep. 13 (1): 22876. https://doi.org/10.1038/s41598-023-49989-z.\n\n\nKahl, Stefan, Connor M Wood, Maximilian Eibl, and Holger Klinck. 2021.\n“BirdNET: A Deep Learning Solution for Avian\nDiversity Monitoring.” Ecol. Inform. 61: 101236. https://doi.org/10.1016/j.ecoinf.2021.101236.\n\n\nKimura, Kaede, and Teiji Sota. 2023. “Evaluation of Deep\nLearning-Based Monitoring of Frog Reproductive Phenology.”\nIchthyology & Herpetology 111 (4): 563–70. https://doi.org/10.1643/h2023018.\n\n\nSteinfath, Elsa, Adrian Palacios-Muñoz, Julian R Rottschäfer, Deniz\nYuezak, and Jan Clemens. 2021. “Fast and Accurate Annotation of\nAcoustic Signals with Deep Neural Networks.” eLife 10:\ne68837. https://doi.org/10.7554/eLife.68837.\n\n\nSymes, Laurel, Larissa S M Sugai, Benjamin Gottesman, Michael Pitzrick,\nand Connor Wood. 2023. “Acoustic analysis\nwith BirdNET and (almost) no coding: practical\ninstructions.” Zenodo. https://doi.org/10.5281/zenodo.8357176.\n\n\n木村楓. 2024.\n“ディープラーニングによるカエル類の音響モニタリング入門.”\n爬虫両棲類学会報 2024 (2).",
+    "crumbs": [
+      "引用文献"
     ]
   }
 ]
