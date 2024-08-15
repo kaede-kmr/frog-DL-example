@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ディープラーニングによるカエル類の種の識別方法 - 5&nbsp; データの解析</title>
+<title>ディープラーニングによるカエル類の種の識別方法 - 6&nbsp; CLIによる利用</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./use_cli.html" rel="next">
-<link href="./train_gui.html" rel="prev">
+<link href="./test.html" rel="next">
+<link href="./inference.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./inference.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./use_cli.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLIによる利用</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -109,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">本ページは準備中です</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -132,13 +152,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inference.html" class="sidebar-item-text sidebar-link active">
+  <a href="./inference.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./use_cli.html" class="sidebar-item-text sidebar-link">
+  <a href="./use_cli.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLIによる利用</span></span></a>
   </div>
 </li>
@@ -164,8 +184,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-inference-intro" id="toc-sec-inference-intro" class="nav-link active" data-scroll-target="#sec-inference-intro"><span class="header-section-number">5.1</span> はじめに</a></li>
-  <li><a href="#sec-inference-run" id="toc-sec-inference-run" class="nav-link" data-scroll-target="#sec-inference-run"><span class="header-section-number">5.2</span> 実行</a></li>
+  <li><a href="#sec-cli-intro" id="toc-sec-cli-intro" class="nav-link active" data-scroll-target="#sec-cli-intro"><span class="header-section-number">6.1</span> はじめに</a></li>
+  <li><a href="#sec-cli-install" id="toc-sec-cli-install" class="nav-link" data-scroll-target="#sec-cli-install"><span class="header-section-number">6.2</span> インストール</a>
+  <ul class="collapse">
+  <li><a href="#gitの導入" id="toc-gitの導入" class="nav-link" data-scroll-target="#gitの導入"><span class="header-section-number">6.2.1</span> gitの導入</a></li>
+  <li><a href="#birdnet-analyzerリポジトリのコピー" id="toc-birdnet-analyzerリポジトリのコピー" class="nav-link" data-scroll-target="#birdnet-analyzerリポジトリのコピー"><span class="header-section-number">6.2.2</span> BirdNET-Analyzerリポジトリのコピー</a></li>
+  <li><a href="#仮想環境の構築" id="toc-仮想環境の構築" class="nav-link" data-scroll-target="#仮想環境の構築"><span class="header-section-number">6.2.3</span> 仮想環境の構築</a></li>
+  <li><a href="#pythonライブラリのインストール" id="toc-pythonライブラリのインストール" class="nav-link" data-scroll-target="#pythonライブラリのインストール"><span class="header-section-number">6.2.4</span> Pythonライブラリのインストール</a></li>
+  </ul></li>
+  <li><a href="#sec-cli-gui" id="toc-sec-cli-gui" class="nav-link" data-scroll-target="#sec-cli-gui"><span class="header-section-number">6.3</span> MacでのGUIの利用</a></li>
+  <li><a href="#sec-cli-code" id="toc-sec-cli-code" class="nav-link" data-scroll-target="#sec-cli-code"><span class="header-section-number">6.4</span> CLIによる訓練と解析</a></li>
   </ul>
 </nav>
     </div>
@@ -174,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-inference" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></span></h1>
+<h1 class="title"><span id="sec-cli" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLIによる利用</span></span></h1>
 </div>
 
 
@@ -191,69 +219,48 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="sec-inference-intro" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="sec-inference-intro"><span class="header-section-number">5.1</span> はじめに</h2>
-<p>モデルの訓練（GUI）(<a href="train_gui.html" class="quarto-xref"><span>Chapter 4</span></a>)によって、ニホンヒキガエルとシュレーゲルアオガエルの鳴き声を判定できるカスタムモデルが作成できました。次はこのモデルを使って訓練データに利用していないデータを解析してみます。</p>
-<p>そのためのデータはsample_data/testのフォルダに入っていることを確認してください。ニホンヒキガエルが鳴いている音声が一つ、またシュレーゲルアオガエルが鳴いている音声が一つです。</p>
+<section id="sec-cli-intro" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-cli-intro"><span class="header-section-number">6.1</span> はじめに</h2>
+<p>論文等のため解析手順を正確に記録し、報告する場合には、CLIを使うと便利です。</p>
 </section>
-<section id="sec-inference-run" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="sec-inference-run"><span class="header-section-number">5.2</span> 実行</h2>
-<p>訓練時と同様に、BirdNETのGUIを起動してください。</p>
-<p>Batch analysisのタブから、Select input directory (recursive)をクリックし、sample_data/testを選択すると、解析予定のファイル一覧が表示されます（<a href="#fig-birdnet-test1" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>）。</p>
-<div id="fig-birdnet-test1" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-birdnet-test1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/birdnet-test1.png" class="img-fluid figure-img">
+<section id="sec-cli-install" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-cli-install"><span class="header-section-number">6.2</span> インストール</h2>
+<p>BirdnETをコマンドライン（CLI）で利用するには、<strong>Windows</strong>の場合はGUIを使うときにインストールしたもので十分なようです。<strong>Mac</strong>の場合は以下の手順を踏みます。公式ドキュメントの説明が少し簡素で個人的につまづいたため、若干の補足をしています。</p>
+<section id="gitの導入" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="gitの導入"><span class="header-section-number">6.2.1</span> gitの導入</h3>
+<p>git（バージョン管理ソフト）を使えるようにする。このためにターミナルを開いて</p>
+<pre><code>xcode-select --install</code></pre>
+<p>と入力し、xcodeをインストールする。</p>
+</section>
+<section id="birdnet-analyzerリポジトリのコピー" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="birdnet-analyzerリポジトリのコピー"><span class="header-section-number">6.2.2</span> BirdNET-Analyzerリポジトリのコピー</h3>
+<p>任意のフォルダにGitHubのBirdNETリポジトリをコピーする。</p>
+<pre><code>cd ~/YOUR_FOLDER
+git clone https://github.com/kahst/BirdNET-Analyzer.git</code></pre>
+<p>ここで、YOUR_FOLDERには音声データの解析フォルダに設定したいフォルダまでのパスを入力します。これにより指定したフォルダにBirdNETのソースコードがすべてコピーされます。</p>
+</section>
+<section id="仮想環境の構築" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="仮想環境の構築"><span class="header-section-number">6.2.3</span> 仮想環境の構築</h3>
+<p>適切なバージョンのPython（3.9以上3.11以下）で仮想環境を構築。Pythonのバージョン管理にcondaを用いる場合は、たとえば<a href="https://docs.anaconda.com/miniconda/#quick-command-line-install">minicondaをインストール</a>してから、以下のコマンドをターミナルに入力して仮想環境を構築します。</p>
+<pre><code>conda create -n birdnet python=3.10</code></pre>
+<p>ここでbirdnetが新規仮想環境名で、birdnet以外にも好きな名前を入力できます。うまく仮想環境構築されたか確認するため、まず仮想環境をアクティブにします。</p>
+<pre><code>conda activate birdnet</code></pre>
+<p>ターミナルの冒頭の文字が(base)から(birdnet)に変更されたら、Pythonのバージョンを確認します。</p>
+<pre><code>python --version</code></pre>
+<p>Python 3.10.XX のように表示されたら成功です。</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-test1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: 解析の設定
-</figcaption>
-</figure>
-</div>
-<p>続いて、画面の下の方に行って Species selection &gt; Custom Classifier にチェック。Select classifierから、先程訓練したモデルを選択します。Output settingsとしてはデフォルトのRaven selection tableのほかにも好みの形式を選ぶことができます（<a href="#fig-birdnet-test2" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>）。</p>
-<div id="fig-birdnet-test2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-birdnet-test2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/birdnet-test2.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-test2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.2: 解析の設定つづき
-</figcaption>
-</figure>
-</div>
-<p>この設定でAnalyzeすると、sample_data/testフォルダの中に、「~BirdNET.selection.table.txt」が末尾についたファイルが生成されます。</p>
-<p>結果をRavenで確認してみると、<a href="#fig-birdnet-results" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> のようになりました（Ravenを立ち上げ、音声ファイル、BirdNETの出力ファイルの順にドラッグ・アンド・ドロップすることで結果を確認可能です）。</p>
-<div id="fig-birdnet-results" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-birdnet-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/birdnet-BUFJAP-result.png" class="img-fluid figure-img"></p>
-<figcaption>ニホンヒキガエルの解析結果</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Warning
 </div>
 </div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/birdnet-ZHASCH-result.png" class="img-fluid figure-img"></p>
-<figcaption>シュレーゲルアオガエルの解析結果</figcaption>
-</figure>
+<div class="callout-body-container callout-body">
+<p>BirdNETが依存しているTensorflow 2.15.0に適合するPythonのバージョンは3.9から3.11のようです。単純に最新のpythonをインストールすると、3.11よりも新しいものがインストールされて使えませんので、仮想環境の構築では明示的にPythonのバージョンを指定する必要があります。少なくとも私の環境ではPython 3.10であれば問題なく利用できました。</p>
 </div>
 </div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.3: 解析結果
-</figcaption>
-</figure>
-</div>
-<p>青色で囲われた部分が、BirdNETモデルが検出した各種の鳴き声です。BirdNETでは３秒間が解析単位なので、鳴き声の開始点と終了点が正確に出力されるわけではありませんが、どちらの種も、鳴き声を含んだ音声セグメントをよく検出できています。</p>
-<p>どれだけよく検出できているかを、より具体的に評価する方法は、<a href="test.html" class="quarto-xref"><span>Chapter 7</span></a> で扱います。</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -264,12 +271,46 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>このページを用意する過程で、最初は現在の３分の１ほどのデータ量（音声ファイルとしては10ファイル、3秒間に区切った後の数では各種約45サンプルずつ）でモデルを訓練していました。その結果、モデルはシュレーゲルアオガエルはよく検出できたのですが、ヒキガエルは見落としが多く、検出できていた場合もConfidence Score（モデルの確信度）が低いものでした。そこでデータを追加して訓練し直したところ、性能が向上し、ヒキガエルもよく検出できるようになりました。</p>
-<p>今回サンプルデータとして用いたのは、山中の小さな池で、背景雑音（川の流れや車の音など）がほとんどせず、カエルもレコーダと距離が近い狭い範囲で鳴くため、かなり識別しやすい音声になっています。音響モニタリングではもっと難しい条件の地点も珍しくなく、これほど容易には学習が進まないケースもあります。</p>
+<p>公式ドキュメントではvenvを用いて仮想環境の構築を行っているため、condaを用いたここでのコードと少し異なっています。venvでも仮想環境を管理できますが、単体ではPythonバージョンを自由に指定することができないため、Homebrewと組み合わせて扱うとよいようです。個人的にHomebrewを利用していないのでこれ以上詳しく書けませんが、<span class="citation" data-cites="Symes2023-ps">Symes et al. (<a href="references.html#ref-Symes2023-ps" role="doc-biblioref">2023</a>)</span> による<a href="https://tinyurl.com/BirdNETsounds">BirdNET Analyzer GUI MacOS install notes</a>にやり方が書かれています。</p>
 </div>
 </div>
+</section>
+<section id="pythonライブラリのインストール" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="pythonライブラリのインストール"><span class="header-section-number">6.2.4</span> Pythonライブラリのインストール</h3>
+<p>適切なライブラリをインストールする。仮想環境がアクティブになっている（ターミナルの冒頭の文字が(base)から(birdnet)に変更されている）ことを確認してから、以下のコマンドを入力します。</p>
+<pre><code>pip insall tensorflow==2.15.0 tensorflow-metal</code></pre>
+<p>これはディープラーニングを用いるときによく利用されるライブラリであるTensorfowをインストールしています。またtensorflow-metalはmacOSでTensorflowを利用するためのライブラリです。同様に、他にも必要なものをインストールします。</p>
+<pre><code>pip install librosa resampy</code></pre>
+<p>訓練時にautotune機能を用いる場合は、加えて</p>
+<pre><code>pip install keras-tuner</code></pre>
+<p>MacでGUIを使いたい場合は、</p>
+<pre><code>pip install pywebview gradio</code></pre>
+<p>をさらにインストールします。</p>
+</section>
+</section>
+<section id="sec-cli-gui" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-cli-gui"><span class="header-section-number">6.3</span> MacでのGUIの利用</h2>
+<p>GUIを使うためには、GitHubからコピーしたBirdNET-AnalyzerフォルダをFinder上で右クリックし、「フォルダに新規ターミナル」を選択します。立ち上がったターミナルに以下のコマンドを入力し、GUIを起動させます。</p>
+<pre><code>conda activate birdnet
+python -m gui</code></pre>
+<p>その後はWindowsでのGUIの使い方（<a href="train_gui.html" class="quarto-xref"><span>Chapter 4</span></a>）と同じです。</p>
+</section>
+<section id="sec-cli-code" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-cli-code"><span class="header-section-number">6.4</span> CLIによる訓練と解析</h2>
+<p>CLIによりモデルの訓練を行う場合、先ほど（<a href="#sec-cli-gui" class="quarto-xref"><span>Section 6.3</span></a>）と同様にBirdNET-Analyzerフォルダにターミナルを立ち上げ、以下のコードを打ち込みます。</p>
+<pre><code>conda activate BirdNET
+python train.py --i PATH/TO/TRAIN/DATASET --o model/CustomClassifier_autotune --autotune </code></pre>
+<p>PATH/TO/TRAIN/DATASETの部分には訓練データへのパスを記入します。</p>
+<p>また、データ解析も同様に簡単なコードにより実行できます。</p>
+<pre><code>python analyze.py --i PATH/TO/AUDIO/DATA --o output/BirdNET-output --classifier model/CustomClassifier_autotune.tflite</code></pre>
+<p>詳細なオプションは<a href="https://github.com/kahst/BirdNET-Analyzer">公式のドキュメント</a>を確認してください。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Symes2023-ps" class="csl-entry" role="listitem">
+Symes, Laurel, Larissa S M Sugai, Benjamin Gottesman, Michael Pitzrick, and Connor Wood. 2023. <span>“<span class="nocase">Acoustic analysis with BirdNET and (almost) no coding: practical instructions</span>.”</span> Zenodo. <a href="https://doi.org/10.5281/zenodo.8357176">https://doi.org/10.5281/zenodo.8357176</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -684,13 +725,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./train_gui.html" class="pagination-link" aria-label="モデルの訓練（GUI）">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">モデルの訓練（GUI）</span></span>
+      <a href="./inference.html" class="pagination-link" aria-label="データの解析">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./use_cli.html" class="pagination-link" aria-label="CLIによる利用">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLIによる利用</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./test.html" class="pagination-link" aria-label="性能評価">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">性能評価</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

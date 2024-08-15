@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ディープラーニングによるカエル類の種の識別方法 - 5&nbsp; データの解析</title>
+<title>ディープラーニングによるカエル類の種の識別方法 - 4&nbsp; モデルの訓練（GUI）</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./use_cli.html" rel="next">
-<link href="./train_gui.html" rel="prev">
+<link href="./inference.html" rel="next">
+<link href="./data_prep.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./inference.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./train_gui.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">モデルの訓練（GUI）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -109,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">本ページは準備中です</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,13 +146,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./train_gui.html" class="sidebar-item-text sidebar-link">
+  <a href="./train_gui.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">モデルの訓練（GUI）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inference.html" class="sidebar-item-text sidebar-link active">
+  <a href="./inference.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></span></a>
   </div>
 </li>
@@ -164,8 +184,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-inference-intro" id="toc-sec-inference-intro" class="nav-link active" data-scroll-target="#sec-inference-intro"><span class="header-section-number">5.1</span> はじめに</a></li>
-  <li><a href="#sec-inference-run" id="toc-sec-inference-run" class="nav-link" data-scroll-target="#sec-inference-run"><span class="header-section-number">5.2</span> 実行</a></li>
+  <li><a href="#sec-gui-intro" id="toc-sec-gui-intro" class="nav-link active" data-scroll-target="#sec-gui-intro"><span class="header-section-number">4.1</span> はじめに</a></li>
+  <li><a href="#sec-gui-win-install" id="toc-sec-gui-win-install" class="nav-link" data-scroll-target="#sec-gui-win-install"><span class="header-section-number">4.2</span> BitdNETのインストール（Windows）</a></li>
+  <li><a href="#sec-gui-train" id="toc-sec-gui-train" class="nav-link" data-scroll-target="#sec-gui-train"><span class="header-section-number">4.3</span> 訓練</a></li>
+  <li><a href="#sec-gui-options" id="toc-sec-gui-options" class="nav-link" data-scroll-target="#sec-gui-options"><span class="header-section-number">4.4</span> 訓練オプション</a></li>
   </ul>
 </nav>
     </div>
@@ -174,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-inference" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></span></h1>
+<h1 class="title"><span id="sec-gui" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">モデルの訓練（GUI）</span></span></h1>
 </div>
 
 
@@ -191,69 +213,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="sec-inference-intro" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="sec-inference-intro"><span class="header-section-number">5.1</span> はじめに</h2>
-<p>モデルの訓練（GUI）(<a href="train_gui.html" class="quarto-xref"><span>Chapter 4</span></a>)によって、ニホンヒキガエルとシュレーゲルアオガエルの鳴き声を判定できるカスタムモデルが作成できました。次はこのモデルを使って訓練データに利用していないデータを解析してみます。</p>
-<p>そのためのデータはsample_data/testのフォルダに入っていることを確認してください。ニホンヒキガエルが鳴いている音声が一つ、またシュレーゲルアオガエルが鳴いている音声が一つです。</p>
-</section>
-<section id="sec-inference-run" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="sec-inference-run"><span class="header-section-number">5.2</span> 実行</h2>
-<p>訓練時と同様に、BirdNETのGUIを起動してください。</p>
-<p>Batch analysisのタブから、Select input directory (recursive)をクリックし、sample_data/testを選択すると、解析予定のファイル一覧が表示されます（<a href="#fig-birdnet-test1" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>）。</p>
-<div id="fig-birdnet-test1" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-birdnet-test1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/birdnet-test1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-test1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: 解析の設定
-</figcaption>
-</figure>
-</div>
-<p>続いて、画面の下の方に行って Species selection &gt; Custom Classifier にチェック。Select classifierから、先程訓練したモデルを選択します。Output settingsとしてはデフォルトのRaven selection tableのほかにも好みの形式を選ぶことができます（<a href="#fig-birdnet-test2" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>）。</p>
-<div id="fig-birdnet-test2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-birdnet-test2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/birdnet-test2.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-test2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.2: 解析の設定つづき
-</figcaption>
-</figure>
-</div>
-<p>この設定でAnalyzeすると、sample_data/testフォルダの中に、「~BirdNET.selection.table.txt」が末尾についたファイルが生成されます。</p>
-<p>結果をRavenで確認してみると、<a href="#fig-birdnet-results" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> のようになりました（Ravenを立ち上げ、音声ファイル、BirdNETの出力ファイルの順にドラッグ・アンド・ドロップすることで結果を確認可能です）。</p>
-<div id="fig-birdnet-results" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-birdnet-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/birdnet-BUFJAP-result.png" class="img-fluid figure-img"></p>
-<figcaption>ニホンヒキガエルの解析結果</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/birdnet-ZHASCH-result.png" class="img-fluid figure-img"></p>
-<figcaption>シュレーゲルアオガエルの解析結果</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.3: 解析結果
-</figcaption>
-</figure>
-</div>
-<p>青色で囲われた部分が、BirdNETモデルが検出した各種の鳴き声です。BirdNETでは３秒間が解析単位なので、鳴き声の開始点と終了点が正確に出力されるわけではありませんが、どちらの種も、鳴き声を含んだ音声セグメントをよく検出できています。</p>
-<p>どれだけよく検出できているかを、より具体的に評価する方法は、<a href="test.html" class="quarto-xref"><span>Chapter 7</span></a> で扱います。</p>
+<section id="sec-gui-intro" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-gui-intro"><span class="header-section-number">4.1</span> はじめに</h2>
+<p>訓練データを用意できたら<a href="https://github.com/kahst/BirdNET-Analyzer">BirdNET-Analyzer</a>（以下BirdNET）というソフトを利用してモデルの訓練を行います。BirdNETは鳥類を主とした鳴き声によって訓練済みのモデルで、2024年7月現在、世界で6千種以上の生物の鳴き声を識別することができる大規模なものです(<span class="citation" data-cites="Kahl2021-jo">Kahl et al. (<a href="references.html#ref-Kahl2021-jo" role="doc-biblioref">2021</a>)</span>)。デフォルトのモデルで識別できる種のなかにはカエルも何種か含まれていますが、基本的に北米の種で、日本にも分布しているのは外来種であるウシガエルのみです。</p>
+<p>しかしBirdNETは訓練データさえこちらで用意すれば、デフォルトのモデルに含まれていない種でも認識するよう訓練できます。多様な鳴き声で事前に訓練されているため、音声に含まれる各種の特徴を抽出する能力が高く、比較的少数のサンプルでも高性能なモデルを作りやすいとされています(<span class="citation" data-cites="Ghani2023-ro">Ghani et al. (<a href="references.html#ref-Ghani2023-ro" role="doc-biblioref">2023</a>)</span>)。</p>
+<p>またBirdNETはGUI（グラフィカルユーザーインターフェイス）を提供していることも特徴で、とくにWindowsを使っている場合はインストールからモデルの訓練・解析まで、コードを書かずに完了できるため、とっつきやすいソフトです。CLI（コマンドラインインターフェイス）も用意されているので、解析手順の再現性を高めたい場合にはCLIを利用することができます。</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -264,12 +228,86 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>このページを用意する過程で、最初は現在の３分の１ほどのデータ量（音声ファイルとしては10ファイル、3秒間に区切った後の数では各種約45サンプルずつ）でモデルを訓練していました。その結果、モデルはシュレーゲルアオガエルはよく検出できたのですが、ヒキガエルは見落としが多く、検出できていた場合もConfidence Score（モデルの確信度）が低いものでした。そこでデータを追加して訓練し直したところ、性能が向上し、ヒキガエルもよく検出できるようになりました。</p>
-<p>今回サンプルデータとして用いたのは、山中の小さな池で、背景雑音（川の流れや車の音など）がほとんどせず、カエルもレコーダと距離が近い狭い範囲で鳴くため、かなり識別しやすい音声になっています。音響モニタリングではもっと難しい条件の地点も珍しくなく、これほど容易には学習が進まないケースもあります。</p>
+<p>MacでもGUIが使えますが、インストールのために仮想環境を用意し、適切なバージョンのPythonとライブラリーを入れる必要があります。この手順は <a href="use_cli.html" class="quarto-xref"><span>Chapter 6</span></a> で紹介します。</p>
 </div>
 </div>
+<p>公式にきちんと操作方法解説されているため、ここでの内容は、シンプルな訓練手順を日本語で簡単に紹介することにとどめます。詳細な訓練のオプションやその他の機能については、以下のドキュメントに書かれています。</p>
+<ul>
+<li><a href="https://github.com/kahst/BirdNET-Analyzer#3-usage-guide">BirdNETの利用方法</a></li>
+</ul>
+</section>
+<section id="sec-gui-win-install" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-gui-win-install"><span class="header-section-number">4.2</span> BitdNETのインストール（Windows）</h2>
+<p>WindowsにおけるBirdNETのインストール方法は<a href="https://www.youtube.com/watch?v=SWhvkWjzamw">YouTubeでの解説</a>がわかりやすいです。英語ですが、自動翻訳の字幕で日本語を選択することができます。</p>
+</section>
+<section id="sec-gui-train" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-gui-train"><span class="header-section-number">4.3</span> 訓練</h2>
+<p>BirdNETのインストールを終えてソフトを立ち上げたら（ソフトの立ち上がりに少し時間がかかると思います）、datasetフォルダに含まれている音声を利用してモデルの訓練を行ってみます。</p>
+<p>タブからTrainを選択し、Select training dataから、先ほど用意したdatasetのフォルダを選択してください。少し時間をおいて、訓練データに含まれていた、BUFJAP、ZHASCH、backgroundの３つのクラスが表示されるはずです (<a href="#fig-birdnet-train" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>)。</p>
+<div id="fig-birdnet-train" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-birdnet-train-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/birdnet-train.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-train-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: BirdNET-Analyzerの訓練画面
+</figcaption>
+</figure>
+</div>
+<p>続いて、訓練したモデルの保存先を Select classifier output から指定します。ここではdatasetと同じfrog_DL_exampleフォルダのなかに、modelというフォルダを新規に作って選択します。</p>
+<p>その下にいろいろな訓練時のオプションがありますが、デフォルト設定のまま下にスクロールし、Start training のボタンを押して訓練を開始します。</p>
+<p>訓練データセットの読み込みから始まり、訓練過程を示す情報が現れたのちに、次のようなグラフが出力されたら完了です（<a href="#fig-birdnet-default" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>）。</p>
+<div id="fig-birdnet-default" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-birdnet-default-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/birdnet-default.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-default-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: 学習曲線
+</figcaption>
+</figure>
+</div>
+<p>このグラフはモデルの学習曲線であり、訓練が進む（Epochの値が高くなる）ほど、モデルの評価指標であるAUPRCやAUROCが向上する様子が見られます。</p>
+</section>
+<section id="sec-gui-options" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-gui-options"><span class="header-section-number">4.4</span> 訓練オプション</h2>
+<p>続いて <strong>autotune</strong> 機能を利用してモデルの訓練を行ってみます。先ほどは様々なパラメータを変更せずデフォルトのまま訓練しましたが、訓練時の学習率やモデルの構造などを決めるパラメータ（ハイパーパラメータ）を様々に操作して、最適な値の探索を行うオプションが Use autotune と書かれたチェック項目です。ここにチェックを入れると、ベイズ最適化によるハイパーパラメータ探索が行われます。</p>
+<p>ハイパーパラメータの値の組み合わせをどれだけ探索するかはTrialsの数で変更できます。ここではTrialsをデフォルトの50のままにして訓練を行ってみます。Select classifier outputの欄で、モデルを保存する名称をデフォルト（CustomClassifier）から変更し、たとえばCustomClassifier_autotuneなどとして訓練開始（Start training）します。結果を <a href="#fig-birdnet-autotune" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> に示します。</p>
+<div id="fig-birdnet-autotune" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-birdnet-autotune-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/birdnet-autotune.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-birdnet-autotune-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: autotune機能を使った場合の学習曲線
+</figcaption>
+</figure>
+</div>
+<p>先ほどのデフォルトのモデルですでに高い性能が出ていたため、パラメータの調整を行っても最終的なAUPRC,AUROCの値にはわずかな違いしか見られませんでした。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>モデルの訓練過程にはランダム性があるため、実際に訓練してみても、同じ学習曲線にはならないかと思います。</p>
+</div>
+</div>
+<p>最適と判断されたハイパーパラメータは、modelフォルダに出力された、CustomeClassifier_autotune_Params.csvから確認できます。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Ghani2023-ro" class="csl-entry" role="listitem">
+Ghani, Burooj, Tom Denton, Stefan Kahl, and Holger Klinck. 2023. <span>“Global Birdsong Embeddings Enable Superior Transfer Learning for Bioacoustic Classification.”</span> <em>Sci. Rep.</em> 13 (1): 22876. <a href="https://doi.org/10.1038/s41598-023-49989-z">https://doi.org/10.1038/s41598-023-49989-z</a>.
+</div>
+<div id="ref-Kahl2021-jo" class="csl-entry" role="listitem">
+Kahl, Stefan, Connor M Wood, Maximilian Eibl, and Holger Klinck. 2021. <span>“<span>BirdNET</span>: A Deep Learning Solution for Avian Diversity Monitoring.”</span> <em>Ecol. Inform.</em> 61: 101236. <a href="https://doi.org/10.1016/j.ecoinf.2021.101236">https://doi.org/10.1016/j.ecoinf.2021.101236</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -684,13 +722,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./train_gui.html" class="pagination-link" aria-label="モデルの訓練（GUI）">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">モデルの訓練（GUI）</span></span>
+      <a href="./data_prep.html" class="pagination-link" aria-label="訓練データの整理">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">訓練データの整理</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./use_cli.html" class="pagination-link" aria-label="CLIによる利用">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLIによる利用</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./inference.html" class="pagination-link" aria-label="データの解析">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">データの解析</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
