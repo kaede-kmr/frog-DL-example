@@ -14,11 +14,13 @@ Batch analysisのタブから、Select input directory (recursive)をクリッ�
 
 ![解析の設定](figs/birdnet-test1.png){#fig-birdnet-test1}
 
+ここでInference settingsでモデルがデータ解析（＝推論 inference）するときの設定を定めることができます。いくつかのパラメータがありますが特に重要なのは Minimum confidence で、この値を高くすると在判定が厳しくなり、低くすると逆に甘くなります。Minimum confidenceを低くすると他の生き物の鳴き声を検出しやすいのでノイジーになりがちなのですが、珍しい種や外来種で、見落としを避けたいといった場合には低く設定することが有利に働く場面もありえます。ここではデフォルトのまま先に進みましょう。
+
 続いて、画面の下の方に行って Species selection \> Custom Classifier にチェック。Select classifierから、先程訓練したモデルを選択します。Output settingsとしてはデフォルトのRaven selection tableのほかにも好みの形式を選ぶことができます（@fig-birdnet-test2）。
 
 ![解析の設定つづき](figs/birdnet-test2.png){#fig-birdnet-test2}
 
-この設定でAnalyzeすると、sample_data/testフォルダの中に、「~BirdNET.selection.table.txt」が末尾についたファイルが生成されます。
+このままの設定でAnalyzeすると、sample_data/testフォルダの中に、「~BirdNET.selection.table.txt」が末尾についたファイルが生成されます。
 
 結果をRavenで確認してみると、@fig-birdnet-results のようになりました（Ravenを立ち上げ、音声ファイル、BirdNETの出力ファイルの順にドラッグ・アンド・ドロップすることで結果を確認可能です）。
 
