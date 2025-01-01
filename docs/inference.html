@@ -109,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">本ページは準備中です</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -210,6 +210,7 @@ Figure&nbsp;5.1: 解析の設定
 </figcaption>
 </figure>
 </div>
+<p>ここでInference settingsでモデルがデータ解析（＝推論 inference）するときの設定を定めることができます。いくつかのパラメータがありますが特に重要なのは Minimum confidence で、この値を高くすると在判定が厳しくなり、低くすると逆に甘くなります。Minimum confidenceを低くすると他の生き物の鳴き声を検出しやすいのでノイジーになりがちなのですが、珍しい種や外来種で、見落としを避けたいといった場合には低く設定することが有利に働く場面もありえます。ここではデフォルトのまま先に進みましょう。</p>
 <p>続いて、画面の下の方に行って Species selection &gt; Custom Classifier にチェック。Select classifierから、先程訓練したモデルを選択します。Output settingsとしてはデフォルトのRaven selection tableのほかにも好みの形式を選ぶことができます（<a href="#fig-birdnet-test2" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>）。</p>
 <div id="fig-birdnet-test2" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -221,7 +222,7 @@ Figure&nbsp;5.2: 解析の設定つづき
 </figcaption>
 </figure>
 </div>
-<p>この設定でAnalyzeすると、sample_data/testフォルダの中に、「~BirdNET.selection.table.txt」が末尾についたファイルが生成されます。</p>
+<p>このままの設定でAnalyzeすると、sample_data/testフォルダの中に、「~BirdNET.selection.table.txt」が末尾についたファイルが生成されます。</p>
 <p>結果をRavenで確認してみると、<a href="#fig-birdnet-results" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> のようになりました（Ravenを立ち上げ、音声ファイル、BirdNETの出力ファイルの順にドラッグ・アンド・ドロップすることで結果を確認可能です）。</p>
 <div id="fig-birdnet-results" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">

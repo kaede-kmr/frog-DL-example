@@ -129,7 +129,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">本ページは準備中です</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -230,7 +230,7 @@ div.csl-indent {
 <p><a href="https://store.birds.cornell.edu/products/raven-lite-2-0-free-license">Raven Lite</a>のページからソフトのインストールを行ってください。インストール方法については全国鳥類繁殖分布調査による解説 <a href="https://www.bird-atlas.jp/data/download.pdf" class="uri">https://www.bird-atlas.jp/data/download.pdf</a> があります。</p>
 <p>インストールが完了したらRaven Liteを起動します。以下では初期設定とアノテーションの流れを扱います。より詳しいRavenの操作方法はYoutubeでわかりやすい <a href="https://www.youtube.com/playlist?list=PL9iLFNlWcYEVrvictnro8VWfzLJaFqvLw">解説</a> があります。動画は英語ですが必要に応じて字幕&gt;自動翻訳を使うこともできます。</p>
 <p><strong>設定</strong></p>
-<p>続いてRavenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（<a href="index.html#sec-index-dataset" class="quarto-xref"><span>Section 1.3</span></a>）でダウンロードしたデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと <a href="#fig-raven-initial" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> のような表示になるかと思います（Macでの画面です）。</p>
+<p>Ravenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（<a href="index.html#sec-index-dataset" class="quarto-xref"><span>Section 3</span></a>）に含まれているデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと <a href="#fig-raven-initial" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> のような表示になるかと思います（Macでの画面です）。</p>
 <div class="callout callout-style-default callout-note callout-titled" title="サンプルデータについて">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -255,12 +255,12 @@ Figure&nbsp;2.1: Ravenの初期表示
 </figcaption>
 </figure>
 </div>
-<p>画面上部には波形が、下部はスペクトログラムが表示されています。この音源にはヒキガエルの鳴き声が含まれていますが、デフォルトの設定では表示が小さくアノテーションしにくいので、設定を変更します。定まった方法があるわけではなく好みの問題ですが、個人的には以下のような設定で表示させています。</p>
+<p>画面上部には波形が、下部はスペクトログラムが表示されています。この音源にはヒキガエルの鳴き声が含まれていますが、鳴き声の部分がほとんど見えません（下部にへばりつくよう小さく表示された赤色の縦線がそうです）。デフォルトの設定では鳴き声の表示が小さくなりアノテーションしにくいので、設定を変更します。定まった方法があるわけではなく好みの問題ですが、個人的には以下のような設定で表示させています。</p>
 <ol type="1">
 <li>波形を非表示にする（Waveform 1 のチェックを外す <a href="#fig-raven-setting-menu" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>)</li>
 <li>4段表示にする（Lines: 1 を Lines: 4に変更する）。</li>
 <li>白黒表示にして、明るさとコントラストを少し上げる（初期設定の50から、70くらいに変更）。</li>
-<li>表示される周波数の上限を7 kHzほどまで下げる（画面右端の＋マークをクリックして、周波数方向に拡大表示をする）。</li>
+<li>表示される周波数の上限を5 kHzほどまで下げる（画面右端の＋マークをクリックして、周波数方向に拡大表示をする）。</li>
 </ol>
 <div id="fig-raven-setting-menu" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -354,9 +354,10 @@ Figure&nbsp;2.6: アノテーションを完了したファイルの例
 <section id="アノテーションの基準" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="アノテーションの基準"><span class="header-section-number">2.3.2</span> アノテーションの基準</h3>
 <p>どのようにアノテーションするかについて定まった方法はありません。北米の鳥(<span class="citation" data-cites="Chronister2021-au">Chronister et al. (<a href="references.html#ref-Chronister2021-au" role="doc-biblioref">2021</a>)</span>) やブラジルのカエル(<span class="citation" data-cites="Canas2023-hs">Cañas et al. (<a href="references.html#ref-Canas2023-hs" role="doc-biblioref">2023</a>)</span>)についてアノテーションされたデータセットが公開されているため、手法の検討のうえで参考にしました。</p>
-<p>なお、サンプルデータの作成にあたっては以下の基準でカエルの鳴き声をアノテーションしました。</p>
+<p>なお、今回のサンプルデータの作成にあたっては以下の基準でカエルの鳴き声をアノテーションしました。</p>
 <ul>
-<li>同種の鳴き声で、鳴き声の間隔が0.5秒未満のものは一つの鳴き声として四角で囲った。</li>
+<li>録音中に含まれていたすべてのカエルの鳴き声に対し種名ラベルを付与した。</li>
+<li>ただし同種の鳴き声で、鳴き声の間隔が0.5秒未満のものは一つの鳴き声として結合して四角で囲った。</li>
 <li>音を聞くとかろうじて聞こえるものでも、スペクトログラム上でほとんど表示されない鳴き声については無視した。</li>
 <li>種不名の鳴き声は「frog」というラベルをつけた。</li>
 </ul>
@@ -364,7 +365,7 @@ Figure&nbsp;2.6: アノテーションを完了したファイルの例
 <section id="どれだけアノテーションするのか" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="どれだけアノテーションするのか"><span class="header-section-number">2.3.3</span> どれだけアノテーションするのか</h3>
 <p>アノテーションは時間と手間のかかる作業です。どれだけアノテーションする必要があるか、一概には言えないようですが、たとえば<a href="https://github.com/kahst/BirdNET-Analyzer">BirdNETのドキュメント</a>では各種最低100サンプル以上を推奨しています。BirdNETの場合、3秒間を一つの解析処理の単位として扱うため、3秒の音声ファイルが100個（合計300秒）ということになります。個人的な経験でも、背景音のノイズが比較的少なく、鳴き声が明瞭に聞こえる場合にはこれくらいの分量で一定の精度が出るような感覚があります。各種100サンプル以上用意できたら一度モデルを訓練してみて、目標とする性能に達していなければ、アノテーションを追加するという作業を繰り返すのが良いように思います。</p>
-<p>ディープラーニングでは訓練データに含まれないような音声があると適切に判断できないことが多いので、なるべく様々な種類の背景音（雨・救急車の音・異なる鳥や虫の声など）が含まれるようアノテーションする音声ファイルを選ぶことが推奨されます。</p>
+<p>ディープラーニングでは訓練データに含まれないような音声があると適切に判断できないことが多いので、なるべく様々な種類の背景音（異なる録音地点（もしあれば）・雨・様々な鳥や虫の声など）が含まれるようアノテーションする音声ファイルを選ぶことが推奨されます。</p>
 </section>
 </section>
 <section id="sec-annotation-others" class="level2" data-number="2.4">
@@ -804,8 +805,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="本ページは準備中です">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">本ページは準備中です</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="はじめに">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -172,7 +192,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">本ページは準備中です</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -229,6 +249,7 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-test-index" id="toc-sec-test-index" class="nav-link active" data-scroll-target="#sec-test-index"><span class="header-section-number">7.1</span> 性能の評価指標</a></li>
   <li><a href="#sec-test-calc" id="toc-sec-test-calc" class="nav-link" data-scroll-target="#sec-test-calc"><span class="header-section-number">7.2</span> 評価指標の算出</a></li>
+  <li><a href="#閾値の設定への利用" id="toc-閾値の設定への利用" class="nav-link" data-scroll-target="#閾値の設定への利用"><span class="header-section-number">7.3</span> 閾値の設定への利用</a></li>
   </ul>
 </nav>
     </div>
@@ -254,11 +275,10 @@ window.Quarto = {
 </header>
 
 
-<p>自動化した解析結果がどれだけ信用できるかを判断したり、複数のモデルの性能を比較するうえで、モデルの<strong>性能評価</strong>が役立ちます。</p>
+<p>自動化した解析結果がどれだけ信用できるかを判断するうえで、モデルの<strong>性能評価</strong>が役立ちます。</p>
 <section id="sec-test-index" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="sec-test-index"><span class="header-section-number">7.1</span> 性能の評価指標</h2>
-<p>機械学習モデルの性能評価指標の一つとして、モデルの訓練（<a href="train_gui.html" class="quarto-xref"><span>Chapter 4</span></a>）で登場した<strong>AUPRC</strong>や<strong>AUROC</strong>があります。BirdNETではデフォルトで訓練データの20%をモデルの評価に利用してこれらの値を算出しています。</p>
-<p>その他のよく用いられる評価指標に<strong>Precision</strong>と<strong>Recall</strong>があります。それぞれ以下の式で定義されます。</p>
+<p>機械学習モデルの性能評価指標の一つとして、<strong>Precision</strong>と<strong>Recall</strong>があります。それぞれ以下の式で定義されます。</p>
 <p><span class="math display">\[
 \begin{aligned}
 Precision = \frac{TP}{TP + FP}, \\
@@ -266,8 +286,9 @@ Recall = \frac{TP}{TP + FN}
 \end{aligned}
 \]</span></p>
 <p>ここでTP, FP, FNはそれぞれ真陽性（true positives）、偽陽性（false positives）、偽陰性（false negatives）を表します。</p>
-<p>すなわち、precisionは「モデルがこのカエルだと判断したサンプルのうち、実際にそのカエルが鳴いていたサンプルの割合」を、recallは「あるカエルが鳴いているすべてのサンプルのうち、モデルが正しく検出できたサンプルの割合」を表します。どちらも1に近いほどモデルの性能が良いことを表します。Precisionとrecallは一般にトレードオフの関係にあり、モデルの検出閾値を高めることで偽陽性（FP）が減ってprecisionは向上するものの、偽陰性（FN）が増えてrecallの値が低下します。</p>
-<p>Precisionとrecallは、AUROC等と比べて値の意味が解釈がしやすく、解析結果がどれだけ信用できるものなのか判断するうえで役立つため、以下でそれを算出するコードの一例を紹介します。このページの内容はサンプルデータ内にある、test.qmdを開いて実行することができます。</p>
+<p>すなわち、precisionは「モデルがこのカエルだと判断したサンプルのうち、実際にそのカエルが鳴いていたサンプルの割合」を、recallは「あるカエルの鳴き声を含むサンプルのうち、モデルが正しく検出できたサンプルの割合」を表します。どちらも1に近いほどモデルの性能が良いことを表します。Precisionとrecallは一般にトレードオフの関係にあり、モデルの検出閾値を高めると偽陽性（FP）が減ってprecisionは向上するものの、偽陰性（FN）が増えてrecallの値が低下します。</p>
+<p>また<strong>F1-score</strong>という指標はprecisionとrecallの調和平均で、それら２つを両方加味した単一の指標として用いるのに便利です。</p>
+<p>Precisionとrecallは値の意味が解釈がしやすく、解析結果がどれだけ信用できるものなのか判断するうえで役立つため、以下でそれを算出するコードの一例を紹介します。このページの内容はサンプルデータ内にある、test.qmdを開いて実行することができます。</p>
 </section>
 <section id="sec-test-calc" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="sec-test-calc"><span class="header-section-number">7.2</span> 評価指標の算出</h2>
@@ -302,7 +323,7 @@ Recall = \frac{TP}{TP + FN}
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(label_vec)</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>これを用いて、モデルの予測をfactor形式で取得します。</p>
+<p>この関数雨を用いて、モデルの予測をfactor形式で取得します。Factor形式に変換するのは、後に登場する<code>confusionMatrix()</code>という関数でfactor形式でインプットする必要があるためです。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pred_list <span class="ot">&lt;-</span> annotation_list <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="cf">function</span>(x) x <span class="sc">|&gt;</span> </span>
@@ -417,8 +438,28 @@ Prediction   background ZHASCH
 </div>
 </div>
 <p>今回のケースでは、モデルの性能は高く、1分間×2つの音声ファイルについて、ニホンヒキガエルとシュレーゲルアオガエルのprecison、recallはいずれも100％という結果になりました。</p>
+</section>
+<section id="閾値の設定への利用" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="閾値の設定への利用"><span class="header-section-number">7.3</span> 閾値の設定への利用</h2>
+<p><a href="inference.html#sec-inference-run" class="quarto-xref"><span>Section 5.2</span></a> ではBirdNETの設定としてminimum confidenceがあることを述べました。これは<strong>検出閾値</strong>で、confidence scoreがいくつ以上だったら在と判定するかを決める値です。この検出閾値を設定するうえで上記の評価指標を利用することができます。</p>
+<p>たとえば閾値にするconfidenceに様々な値を設定し、毎回F1-scoreを算出することで、F1-scoreが最大になるような閾値を設定することができます(<span class="citation" data-cites="Funosas2024-fd">Funosas et al. (<a href="references.html#ref-Funosas2024-fd" role="doc-biblioref">2024</a>)</span>)。F1はprecisionとrecallの調和平均ですが、多少の見落としはあっても良いから偽陽性は避けたいという場面は多く、precisionへの重み付けを増やしたF0.5やF0.25といった指標を使うことも有効でしょう(<span class="citation" data-cites="Funosas2024-fd">Funosas et al. (<a href="references.html#ref-Funosas2024-fd" role="doc-biblioref">2024</a>)</span>)。</p>
+<p>Recallは無視してprecisionが0.9となるように閾値を設定する場合もあります(<span class="citation" data-cites="Sethi2024-yi">Sethi et al. (<a href="references.html#ref-Sethi2024-yi" role="doc-biblioref">2024</a>)</span>)。Precisionというのはモデルが在判定した部分だけに着目して正解か再確認すればよいので算出しやすいのですが、recallはモデルの見落とし（false negative）がどれくらいかカウントする必要があるため、対象種が鳴いていない録音データも確認する必要があり、それが大変なためです。</p>
+<p>また、BirdNETの開発者グループはロジスティック回帰によって在不在を確率として扱い、在確率が~~%以上となるよう閾値を設定する、といった方法を提案していますが(<span class="citation" data-cites="Wood2024-mh">Wood and Kahl (<a href="references.html#ref-Wood2024-mh" role="doc-biblioref">2024</a>)</span>)、これはprecisionによって閾値設定する方法の修正案のようなものです。</p>
+<p>様々な閾値設定の方法があり混乱するかもしれません。しかし現状では論文によって閾値設定の方法にはバリエーションがあり、これといった方法論が確立されているわけではない印象を受けます。調査目的や手元のデータの性質によって、どういった方法を採用するか検討する必要があるようです。</p>
+<p>内容は以上となります。次ページは引用文献一覧です。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Funosas2024-fd" class="csl-entry" role="listitem">
+Funosas, David, Luc Barbaro, Laura Schillé, Arnaud Elger, Bastien Castagneyrol, and Maxime Cauchoix. 2024. <span>“Assessing the Potential of <span>BirdNET</span> to Infer European Bird Communities from Large-Scale Ecoacoustic Data.”</span> <em>Ecol. Indic.</em> 164 (112146): 112146. <a href="https://doi.org/10.1016/j.ecolind.2024.112146">https://doi.org/10.1016/j.ecolind.2024.112146</a>.
+</div>
+<div id="ref-Sethi2024-yi" class="csl-entry" role="listitem">
+Sethi, Sarab S, Avery Bick, Ming-Yuan Chen, Renato Crouzeilles, Ben V Hillier, Jenna Lawson, Chia-Yun Lee, et al. 2024. <span>“Large-Scale Avian Vocalization Detection Delivers Reliable Global Biodiversity Insights.”</span> <em>Proc. Natl. Acad. Sci. U.S.A.</em> 121 (33): e2315933121. <a href="https://doi.org/10.1073/pnas.2315933121">https://doi.org/10.1073/pnas.2315933121</a>.
+</div>
+<div id="ref-Wood2024-mh" class="csl-entry" role="listitem">
+Wood, Connor M, and Stefan Kahl. 2024. <span>“Guidelines for Appropriate Use of <span>BirdNET</span> Scores and Other Detector Outputs.”</span> <em>J. Ornithol.</em> <a href="https://doi.org/10.1007/s10336-024-02144-5">https://doi.org/10.1007/s10336-024-02144-5</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

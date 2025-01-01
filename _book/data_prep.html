@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">本ページは準備中です</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -243,9 +243,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>カエルの種ごとにフォルダを作成し、その中に３秒間の音声データを入れていく</p></li>
 </ol>
 <ul>
-<li>たとえば３秒間の音声にヒキガエルが含まれているならBUFJAPという名称のフォルダに入れ、シュレーゲルアオガエルが含まれているならZHASCHに入れます。</li>
+<li>たとえば３秒間の音声にニホンヒキガエルが含まれているならBUFJAPという名称のフォルダに入れ、シュレーゲルアオガエルが含まれているならZHASCHに入れます。</li>
 <li>どの種も含まれていない背景音ならbackgroundという名称のフォルダを作って、そこに入れます。</li>
-<li>ヒキガエルとシュレーゲルアオガエルの両種が含まれる場合は、保存フォルダの名称を「BUFJAP,ZHASCH」のようにカンマ区切りで両種の名前をつけます（種名の間にはスペースを入れない）。</li>
+<li>ニホンヒキガエルとシュレーゲルアオガエルの両種が含まれる場合は、保存フォルダの名称を「BUFJAP,ZHASCH」のようにカンマ区切りで両種の名前をつけます（種名の間にはスペースを入れない）。</li>
 </ul>
 <p>以下、Rを用いてその作業を自動化するサンプルコードを提示します。このページの内容はサンプルデータ内にある、data_prep.qmdを開いて実行することができます。</p>
 </section>
@@ -285,11 +285,24 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>以下に記載しているコードが適切に実行されるには、Rのワーキングディレクトリの直下にsample_dataフォルダがある必要があります。ダウンロードしたサンプルデータ・コード（<a href="index.html#sec-index-dataset" class="quarto-xref"><span>Section 1.3</span></a>）から、frog-DL-example.RprojをクリックしてRを開くと、ワーキングディレクトリが適切に設定されるはずです。</p>
+<p><code>there is no package calles 'tuneR'</code> などのエラーが出る場合はパッケージのインストールが済んでいませんので、<code>install.packages("tuneR")</code> を実行してインストールしてください（初回のみ必要。tidyverseも同様）。</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>サンプルデータをダウンロードして利用する場合、以下に記載しているコードが適切に実行されるには、Rのワーキングディレクトリの直下にsample_dataフォルダがある必要があります。ダウンロードしたサンプルデータ・コード（<a href="index.html#sec-index-dataset" class="quarto-xref"><span>Section 3</span></a>）から、frog-DL-example.RprojをクリックしてRを開くと、ワーキングディレクトリが適切に設定されるはずです。</p>
 <p>なおワーキングディレクトリはコンソールに<code>getwd()</code>と打ち込んで確認できます。</p>
 </div>
 </div>
-<p>まずサンプルデータに含まれているアノテーションを確認します。このために、<code>list.files()</code>関数によりsample_data/trainフォルダに入っているアノテーションファイルの一覧を取得し、その冒頭6個を表示させてみます。</p>
+<p>まずサンプルデータに含まれているアノテーションを確認します。これは前節で紹介したようにRavenを用いて作成しました。このために、<code>list.files()</code>関数によりsample_data/trainフォルダに入っているアノテーションファイルの一覧を取得し、その冒頭6個を表示させてみます。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>annotations <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"sample_data/train"</span>, <span class="st">"selections.txt"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(annotations))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -434,7 +447,7 @@ Note
 </table>
 </div>
 </div>
-<p>なお末尾の show_col_types は、列の形式（数値か文字列かなど）を表示するかどうかを決めるオプションです。また、<code>knitr::kable()</code>部分は、オンライン上で表が綺麗に表示されるためだけのもので、ここでは無視して問題ありません。</p>
+<p>なお末尾の show_col_types は、各列の形式（数値か文字列かなど）を表示するかどうかを決めるオプションで、今回は表示を短くするためオフにしました。また、<code>knitr::kable()</code>部分は、オンライン上で表が綺麗に表示されるためだけのもので、ここでは無視して問題ありません。</p>
 <p>つづいて３秒間ずつ（０から３秒目、３から６秒目、６から９秒目…のように）アノテーションされた種を抜き出すことを考えます。例えば前述の表で、15から18秒目までに含まれるアノテーションを抜き出すには、</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>label_df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
@@ -465,12 +478,13 @@ Note
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Annotation)  <span class="co"># アノテーションをアルファベット順に並べ替え</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>label <span class="ot">&lt;-</span> <span class="cf">if</span>(<span class="fu">nrow</span>(label_df) <span class="sc">==</span> <span class="dv">0</span>) <span class="st">"background"</span> <span class="cf">else</span> <span class="fu">str_flatten</span>(label_df<span class="sc">$</span>Annotation, <span class="at">collapse =</span> <span class="st">","</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "background"</code></pre>
 </div>
 </div>
-<p>ここでアノテーションが含まれない部分は、表の行数が0になることを利用し、<code>if(nrow(label_df) == 0)</code>で判定して、backgroundというラベル名をつけています。また複数種の鳴き声が含まれる場合は、<code>str_flatten()</code>関数によりカンマで連結されたラベル名とします（例：BUFJAP,ZHASCH）。</p>
+<p>ここでアノテーションが含まれない部分は<code>label_df</code> の行数が0になることを利用し、<code>if(nrow(label_df) == 0)</code>でそれを判定して、backgroundというラベル名をつけています。また複数種の鳴き声が含まれる場合は、<code>str_flatten()</code>関数によりカンマで連結されたラベル名とします（例：BUFJAP,ZHASCH）。</p>
 <p>ここまでのことを利用して、アノテーションファイルを読み込み、3秒ごとのラベルを作成する関数を作成します。０から３秒目、３から６秒目…と逐次的な操作を行うため、<code>for</code>文を用いて繰り返しの処理を行っています。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>create_labels <span class="ot">&lt;-</span> <span class="cf">function</span>(annotation){</span>
@@ -483,10 +497,10 @@ Note
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    start <span class="ot">&lt;-</span> (i<span class="dv">-1</span>) <span class="sc">*</span> <span class="dv">3</span>  <span class="co"># i番目の音声クリップの開始時間</span></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    end <span class="ot">&lt;-</span> i <span class="sc">*</span> <span class="dv">3</span>  <span class="co"># i番目の音声クリップの終了時間</span></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 音声クリップ内に含まれるアノテーションを整理</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    label_df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    label_df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>      <span class="co"># startからendと重複する部分のあるアノテーションのみを抜き出す</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="st">`</span><span class="at">Begin Time (s)</span><span class="st">`</span> <span class="sc">&lt;</span> end <span class="sc">&amp;</span> <span class="st">`</span><span class="at">End Time (s)</span><span class="st">`</span> <span class="sc">&gt;</span> start) <span class="sc">%&gt;%</span>  </span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">distinct</span>(Annotation) <span class="sc">%&gt;%</span>  <span class="co"># 同じ種のラベルの重複を削除</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="st">`</span><span class="at">Begin Time (s)</span><span class="st">`</span> <span class="sc">&lt;</span> end <span class="sc">&amp;</span> <span class="st">`</span><span class="at">End Time (s)</span><span class="st">`</span> <span class="sc">&gt;</span> start) <span class="sc">|&gt;</span> </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">distinct</span>(Annotation) <span class="sc">|&gt;</span>   <span class="co"># 同じ種のラベルの重複を削除</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">arrange</span>(Annotation)  <span class="co"># アノテーションをアルファベット順に並べ替え</span></span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># クリップ内にアノテーションがない場合は"background"、ある場合はアノテーションをカンマ区切りで連結</span></span>
@@ -596,7 +610,7 @@ Wave Object
     Bit (8/16/24/32/64):    16 </code></pre>
 </div>
 </div>
-<p>このように、３秒ずつに区切られた音声データ（Durationに着目）が生成されています。</p>
+<p>20個にカットされた音声のうち冒頭３つを表示すると、このように３秒ずつに区切られた音声データ（Durationに着目）が生成されています。</p>
 </section>
 <section id="音声とラベルの保存" class="level3" data-number="3.4.3">
 <h3 data-number="3.4.3" class="anchored" data-anchor-id="音声とラベルの保存"><span class="header-section-number">3.4.3</span> 音声とラベルの保存</h3>
@@ -609,7 +623,7 @@ Wave Object
 <pre><code>[1] "dataset/background"</code></pre>
 </div>
 </div>
-<p>すでにdataset/backgroundのようなフォルダが存在している場合にはこれで問題なく音声を保存できますが、最初の一回はフォルダの作成から始める必要があります。Rでは`<code>dir.create()</code>によりフォルダを作成することが出来ます。</p>
+<p>すでにdataset/backgroundのようなフォルダが存在している場合にはこれで問題なく音声を保存できますが、最初の一回はフォルダの作成から始める必要があります。Rでは<code>dir.create()</code>によりフォルダを作成することが出来ます。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(save_dir, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)  <span class="co"># フォルダが存在しない場合は作成</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
