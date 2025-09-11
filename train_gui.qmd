@@ -10,13 +10,17 @@
 
 公式にきちんと操作方法解説されているため、ここでの内容は、シンプルな訓練手順を日本語で簡単に紹介することにとどめます。詳細な訓練のオプションやその他の機能については、以下のドキュメントに書かれています。
 
-* [BirdNETの利用方法](https://github.com/kahst/BirdNET-Analyzer#3-usage-guide)
+* [BirdNETの公式ドキュメント](https://birdnet-team.github.io/BirdNET-Analyzer/)
+
+::: {.callout-note}
+BirdNETは活発に更新されており、それに伴い古いバージョンのモデルが機能しなかったり、操作手順が変わることがしばしばあります。以下の内容も古くなっているかもしれませんので、うまくいかない場合は公式ドキュメントを参照してください。
+:::
 
 ## BitdNETのインストール {#sec-gui-win-install}
 
 WindowsにおけるBirdNETのインストール方法は[YouTubeでの解説](https://www.youtube.com/watch?v=SWhvkWjzamw)がわかりやすいです。英語ですが、自動翻訳の字幕で日本語を選択することができます。
 
-Macでもほぼ同様に簡単で、[公式ページ](https://github.com/kahst/BirdNET-Analyzer?tab=readme-ov-file#introduction)の Click here to download the macOS package からソフトをダウンロードできます。
+Macでもほぼ同様に簡単で、[公式ページ](https://github.com/kahst/BirdNET-Analyzer?tab=readme-ov-file#introduction)の Download からソフトをダウンロードできます。
 
 ## 訓練 {#sec-gui-train}
 

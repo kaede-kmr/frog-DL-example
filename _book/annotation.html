@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ディープラーニングによるカエル類の種の識別方法 - 2&nbsp; アノテーション</title>
+<title>2&nbsp; アノテーション – ディープラーニングによるカエル類の種の識別方法</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a2d8df1b43f7b184f4f3734a1e3852c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -98,13 +98,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./annotation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">アノテーション</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -220,7 +220,7 @@ div.csl-indent {
 
 <section id="sec-annotation-intro" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-annotation-intro"><span class="header-section-number">2.1</span> はじめに</h2>
-<p>ここでは、野外に設置した音声レコーダーを用いてカエルの鳴き声を録音した、あるいは録音する予定であるという状況を想定し、得られた録音データの解析方法を扱います。同様の手法がカエル以外の生物でも適用可能ですが、コウモリなど可聴域を超える音声については後に紹介するBirdNETが<a href="https://github.com/kahst/BirdNET-Analyzer/issues/236">未対応です</a>。</p>
+<p>ここでは、野外に設置した音声レコーダーを用いてカエルの鳴き声を録音した、あるいは録音する予定であるという状況を想定し、得られた録音データの解析方法を扱います。同様の手法がカエル以外の生物でも適用可能です。</p>
 <p>種を判定するためのディープラーニングモデルを作るには、まず<strong>対象種の訓練データが必要</strong>となります。このために、データに対し種名等のラベルを付けることを<strong>アノテーション</strong>といいます。日本産のカエル類ではアノテーション済みの公開データは非常に少ないため、多くの場合、調査者がアノテーションを行うか、あるいは合成音声を作成する必要があります。ここでは野外環境に近いデータに基づき訓練を行うため、野外録音をアノテーションする方法を紹介します。</p>
 <p>アノテーション用のソフトとして、生物音響分野では<a href="https://store.birds.cornell.edu/collections/raven-sound-software">Raven Pro/Lite</a>（Proは有料版。無料版のLiteでもアノテーションは可能）や<a href="https://www.audacityteam.org/">Audacity</a>を利用している例が多いようです。これらのソフトは音響解析一般を扱うもので、必ずしも大量のファイルをアノテーションすることに最適化されているわけではありませんが、ユーザーが多く動作が安定しているため、扱いやすいと思いました。ここでは<strong>Raven Lite</strong>を用いてアノテーションする方法を紹介します。</p>
 </section>
@@ -230,7 +230,7 @@ div.csl-indent {
 <p><a href="https://store.birds.cornell.edu/products/raven-lite-2-0-free-license">Raven Lite</a>のページからソフトのインストールを行ってください。インストール方法については全国鳥類繁殖分布調査による解説 <a href="https://www.bird-atlas.jp/data/download.pdf" class="uri">https://www.bird-atlas.jp/data/download.pdf</a> があります。</p>
 <p>インストールが完了したらRaven Liteを起動します。以下では初期設定とアノテーションの流れを扱います。より詳しいRavenの操作方法はYoutubeでわかりやすい <a href="https://www.youtube.com/playlist?list=PL9iLFNlWcYEVrvictnro8VWfzLJaFqvLw">解説</a> があります。動画は英語ですが必要に応じて字幕&gt;自動翻訳を使うこともできます。</p>
 <p><strong>設定</strong></p>
-<p>Ravenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（<a href="index.html#sec-index-dataset" class="quarto-xref"><span>Section 3</span></a>）に含まれているデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと <a href="#fig-raven-initial" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> のような表示になるかと思います（Macでの画面です）。</p>
+<p>Ravenの表示設定をアノテーションしやすいように調整します。試しにサンプルデータ（<a href="index.html#sec-index-dataset" class="quarto-xref"><span>Section 1.2</span></a>）に含まれているデータのうちの一つ（sample_data/train/20220315_090000.WAV）をRavenで開いてみましょう。ファイルをRavenの画面にドラッグアンドドロップし、OKを押すと <a href="#fig-raven-initial" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> のような表示になるかと思います（Macでの画面です）。</p>
 <div class="callout callout-style-default callout-note callout-titled" title="サンプルデータについて">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -245,7 +245,7 @@ div.csl-indent {
 <p>このデータは京都市の山中の小さな池にAudiomoth（OpenAcoustics社製）というレコーダーを設置して録音されたものです。各ファイルの長さは60秒です。もともと <span class="citation" data-cites="Kimura2023-tc">Kimura and Sota (<a href="references.html#ref-Kimura2023-tc" role="doc-biblioref">2023</a>)</span> で扱ったデータをRavenを用いてアノテーションし直したものになります。すべてのサンプル音声データはアノテーション済みで、サンプルの音声データと同じフォルダ内に、アノテーション結果を保存したtxtファイルも含めています。</p>
 </div>
 </div>
-<div id="fig-raven-initial" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-raven-initial" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-raven-initial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/raven-initial.png" class="img-fluid figure-img">
@@ -262,7 +262,7 @@ Figure&nbsp;2.1: Ravenの初期表示
 <li>白黒表示にして、明るさとコントラストを少し上げる（初期設定の50から、70くらいに変更）。</li>
 <li>表示される周波数の上限を5 kHzほどまで下げる（画面右端の＋マークをクリックして、周波数方向に拡大表示をする）。</li>
 </ol>
-<div id="fig-raven-setting-menu" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-raven-setting-menu" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-raven-setting-menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/raven-setting-menu.png" class="img-fluid figure-img">
@@ -280,7 +280,7 @@ Figure&nbsp;2.2: Ravenの表示設定変更。説明の文字が見えやすい�
 </ul></li>
 </ul>
 <p>これにより <a href="#fig-raven-setting" class="quarto-xref">Figure&nbsp;<span>2.3</span></a> のように表示されます。</p>
-<div id="fig-raven-setting" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-raven-setting" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-raven-setting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/raven-setting.png" class="img-fluid figure-img">
@@ -291,7 +291,7 @@ Figure&nbsp;2.3: 表示設定を調整後
 </figure>
 </div>
 <p>この状態で画面を右クリックし、Window Presets &gt; Save as… から表示設定を保存してください。たとえばFrogAnnotationといった後からわかる名前にします。次回以降、音声を読み込む際にはWindow PresetをFrogAnnotationに変更することで 、ここで定めた表示設定で音声を読み込むことができます（<a href="#fig-raven-preset" class="quarto-xref">Figure&nbsp;<span>2.4</span></a>）。</p>
-<div id="fig-raven-preset" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-raven-preset" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-raven-preset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/raven-window-preset.png" class="img-fluid figure-img">
@@ -312,7 +312,7 @@ Figure&nbsp;2.4: 音声読み込みの際にWindow Presetを新しく保存し�
 <li><p>そのままEnterをクリックするとAnnotation（どんなラベルを付けるか）を聞かれるので、種名を記録します（<a href="#fig-raven-annotation" class="quarto-xref">Figure&nbsp;<span>2.5</span></a>）。</p></li>
 </ol>
 <p>私は <span class="citation" data-cites="Canas2023-hs">Cañas et al. (<a href="references.html#ref-Canas2023-hs" role="doc-biblioref">2023</a>)</span> をまねて、学名の属名と種小名の冒頭３文字をAnnotationに記載しています。たとえばニホンヒキガエル <em>Bufo japonicus</em> であればBUFJAPです。このとき「Use specified value as default」にチェックをいれると、同じファイルのなかで別の領域を選択した場合にBUFJAPが記入された状態から始まるので、何度も同じ文字を打ち込む必要がなく、ミスを減らせます。</p>
-<div id="fig-raven-annotation" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-raven-annotation" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-raven-annotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/raven-annotation.png" class="img-fluid figure-img">
@@ -371,7 +371,7 @@ Figure&nbsp;2.6: アノテーションを完了したファイルの例
 <section id="sec-annotation-others" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="sec-annotation-others"><span class="header-section-number">2.4</span> その他のアノテーションソフト</h2>
 <p>はじめに（<a href="#sec-annotation-intro" class="quarto-xref"><span>2.1</span></a>） で述べたように、Raven Liteは大量のファイルをアノテーションすることに必ずしも最適化されていないと感じます。生物音響用のアノテーションに特化したソフトを開発している論文も複数あり、たとえば Deep Audio Segmenter (<span class="citation" data-cites="Steinfath2021-du">Steinfath et al. (<a href="references.html#ref-Steinfath2021-du" role="doc-biblioref">2021</a>)</span>) や Whombat (<span class="citation" data-cites="Balvanera2023-uw">Balvanera et al. (<a href="references.html#ref-Balvanera2023-uw" role="doc-biblioref">2023</a>)</span>) が挙げられ、それぞれに面白い機能を持っています。生物音響解析ソフトまとめている<a href="https://github.com/rhine3/bioacoustics-software">サイト</a>には他の選択肢も載っています。</p>
-<p>このうちのいくつかMacで使えるものを試してみましたが、インストールにPythonの環境構築が必要だったり、動作が不安定だったりと、自分で使う分には慣れればなんとかなるものの、他人に勧めるという観点からはRavenが現状一番かなと感じました。</p>
+<p>このうちのいくつかMacで使えるものを試してみましたが、インストールにPythonの環境構築が必要だったり、動作が不安定だったりと、自分で使う分には慣れればなんとかなるものの、他人に勧めるという観点からはRavenが現状一番だと感じました。</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -429,18 +429,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -472,7 +461,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -480,7 +489,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -577,7 +586,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

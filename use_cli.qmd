@@ -31,10 +31,10 @@ git clone https://github.com/kahst/BirdNET-Analyzer.git
 
 ### 仮想環境の構築
 
-適切なバージョンのPython（3.10）で仮想環境を構築。Pythonのバージョン管理にcondaを用いる場合は、たとえば[minicondaをインストール](https://docs.anaconda.com/miniconda/#quick-command-line-install)してから、以下のコマンドをターミナルに入力して仮想環境を構築します。
+適切なバージョンのPython（3.11）で仮想環境を構築。Pythonのバージョン管理にcondaを用いる場合は、たとえば[minicondaをインストール](https://docs.anaconda.com/miniconda/#quick-command-line-install)してから、以下のコマンドをターミナルに入力して仮想環境を構築します。
 
 ```         
-conda create -n birdnet python=3.10
+conda create -n birdnet python=3.11
 ```
 
 ここでbirdnetが新規仮想環境名で、birdnet以外にも好きな名前を入力できます。うまく仮想環境構築されたか確認するため、まず仮想環境をアクティブにします。
@@ -49,7 +49,7 @@ conda activate birdnet
 python --version
 ```
 
-Python 3.10.XX のように表示されたら成功です。
+Python 3.11.XX のように表示されたら成功です。
 
 ::: callout-warning
 BirdNETが依存しているTensorflow 2.15.0に適合するPythonのバージョンは3.9から3.11のようです。単純に最新のpythonをインストールすると、3.11よりも新しいものがインストールされて使えませんので、仮想環境の構築では明示的にPythonのバージョンを指定する必要があります。
@@ -61,16 +61,12 @@ BirdNETが依存しているTensorflow 2.15.0に適合するPythonのバージ�
 
 ### Pythonライブラリのインストール
 
+開発に伴いコマンドが変わることがあるので、最新の情報は[公式のドキュメント](https://birdnet-team.github.io/BirdNET-Analyzer/)を参照してください
+
 適切なライブラリをインストールする。仮想環境がアクティブになっている（ターミナルの冒頭の文字が(base)から(birdnet)に変更されている）ことを確認してから、以下のコマンドを入力します。
 
 ```         
-pip insall tensorflow==2.15.0 tensorflow-metal
-```
-
-これはディープラーニングを用いるときによく利用されるライブラリであるTensorfowをインストールしています。またtensorflow-metalはmacOSでTensorflowを利用するためのライブラリです。同様に、他にも必要なものをインストールします。
-
-```         
-pip install librosa resampy
+pip install .
 ```
 
 訓練時にautotune機能を用いる場合は、加えて
@@ -87,21 +83,21 @@ CLIによりモデルの訓練を行う場合、BirdNET-Analyzerフォルダに�
 
 ```
 conda activate birdnet
-python -m birdnet_analyzer.train --i PATH/TO/TRAIN/DATASET --o model/CustomClassifier
+python -m birdnet_analyzer.train PATH/TO/TRAIN/DATASET --o model/CustomClassifier
 ```
 
 PATH/TO/TRAIN/DATASETの部分には訓練データへのパスを記入します。ハイパーパラメータのチューニングをする場合には、以下のようにします。
 
 ```
-python -m birdnet_analyzer.train --i PATH/TO/TRAIN/DATASET --o model/CustomClassifier --autotune
+python -m birdnet_analyzer.train PATH/TO/TRAIN/DATASET -o model/CustomClassifier --autotune
 ```
 
 また、訓練だけでなく、データ解析も同様に簡単なコードにより実行できます。
 
 ```
-python -m birdnet_analyzer.analyze --i PATH/TO/AUDIO/DATA --o output/BirdNET-output --classifier model/CustomClassifier.tflite
+python -m birdnet_analyzer.analyze PATH/TO/AUDIO/DATA -o output/BirdNET-output -classifier model/CustomClassifier.tflite
 ```
 
---i が解析したい音声の入ったフォルダ、--oが結果出力先、--classifier が解析に用いるモデルです。必要に応じてパスを変更して下さい。
-また詳細なオプションは[公式のドキュメント](https://github.com/kahst/BirdNET-Analyzer)を確認してください。
+PATH/TO/AUDIO/DATA解析したい音声の入ったフォルダ、-oが結果出力先、-c が解析に用いるモデル（classifier）です。必要に応じてパスを変更して下さい。
+また詳細なオプションは[公式のドキュメント](https://birdnet-team.github.io/BirdNET-Analyzer/usage/cli.html#birdnet-analyzer-train)を確認してください。
 

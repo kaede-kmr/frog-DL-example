@@ -4,7 +4,7 @@ project:
 book:
   title: "ディープラーニングによるカエル類の種の識別方法"
   author: "Kaede Kimura"
-  date: "1/1/2025"
+  date: "9/11/2025"
   chapters:
     - index.qmd
     - annotation.qmd
