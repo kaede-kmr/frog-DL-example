@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ディープラーニングによるカエル類の種の識別方法 - 4&nbsp; モデルの訓練（GUI）</title>
+<title>4&nbsp; モデルの訓練（GUI） – ディープラーニングによるカエル類の種の識別方法</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a2d8df1b43f7b184f4f3734a1e3852c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -98,13 +98,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./train_gui.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">モデルの訓練（GUI）</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -220,19 +220,32 @@ div.csl-indent {
 <p>またBirdNETはGUI（グラフィカルユーザーインターフェイス）を提供していることも特徴で、インストールからモデルの訓練・解析まで、コードを書かずに完了できるため、とっつきやすいソフトです。CLI（コマンドラインインターフェイス）も用意されているので、解析手順の再現性を高めたい場合にはCLIを利用することができます。</p>
 <p>公式にきちんと操作方法解説されているため、ここでの内容は、シンプルな訓練手順を日本語で簡単に紹介することにとどめます。詳細な訓練のオプションやその他の機能については、以下のドキュメントに書かれています。</p>
 <ul>
-<li><a href="https://github.com/kahst/BirdNET-Analyzer#3-usage-guide">BirdNETの利用方法</a></li>
+<li><a href="https://birdnet-team.github.io/BirdNET-Analyzer/">BirdNETの公式ドキュメント</a></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>BirdNETは活発に更新されており、それに伴い古いバージョンのモデルが機能しなかったり、操作手順が変わることがしばしばあります。以下の内容も古くなっているかもしれませんので、うまくいかない場合は公式ドキュメントを参照してください。</p>
+</div>
+</div>
 </section>
 <section id="sec-gui-win-install" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="sec-gui-win-install"><span class="header-section-number">4.2</span> BitdNETのインストール</h2>
 <p>WindowsにおけるBirdNETのインストール方法は<a href="https://www.youtube.com/watch?v=SWhvkWjzamw">YouTubeでの解説</a>がわかりやすいです。英語ですが、自動翻訳の字幕で日本語を選択することができます。</p>
-<p>Macでもほぼ同様に簡単で、<a href="https://github.com/kahst/BirdNET-Analyzer?tab=readme-ov-file#introduction">公式ページ</a>の Click here to download the macOS package からソフトをダウンロードできます。</p>
+<p>Macでもほぼ同様に簡単で、<a href="https://github.com/kahst/BirdNET-Analyzer?tab=readme-ov-file#introduction">公式ページ</a>の Download からソフトをダウンロードできます。</p>
 </section>
 <section id="sec-gui-train" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="sec-gui-train"><span class="header-section-number">4.3</span> 訓練</h2>
 <p>BirdNETのインストールを終えてソフトを立ち上げたら（ソフトの立ち上がりに少し時間がかかると思います）、datasetフォルダに含まれている音声を利用してモデルの訓練を行ってみます。</p>
 <p>タブからTrainを選択し、Select training dataから、先ほど用意したdatasetのフォルダを選択してください。少し時間をおいて、訓練データに含まれていた、BUFJAP、ZHASCH、backgroundの３つのクラスが表示されるはずです (<a href="#fig-birdnet-train" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>)。</p>
-<div id="fig-birdnet-train" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-birdnet-train" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-birdnet-train-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/birdnet-train.png" class="img-fluid figure-img">
@@ -245,7 +258,7 @@ Figure&nbsp;4.1: BirdNET-Analyzerの訓練画面
 <p>続いて、訓練したモデルの保存先を Select classifier output から指定します。ここではdatasetと同じfrog_DL_exampleフォルダのなかに、modelというフォルダを新規に作って選択します。</p>
 <p>その下にいろいろな訓練時のオプションがありますが、デフォルト設定のまま下にスクロールし、Start training のボタンを押して訓練を開始します。</p>
 <p>訓練データセットの読み込みから始まり、訓練過程を示す情報が現れたのちに、次のようなグラフが出力されたら完了です（<a href="#fig-birdnet-default" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>）。</p>
-<div id="fig-birdnet-default" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-birdnet-default" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-birdnet-default-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/birdnet-default.png" class="img-fluid figure-img">
@@ -261,7 +274,7 @@ Figure&nbsp;4.2: 学習曲線
 <h2 data-number="4.4" class="anchored" data-anchor-id="sec-gui-options"><span class="header-section-number">4.4</span> 訓練オプション</h2>
 <p>続いて <strong>autotune</strong> 機能を利用してモデルの訓練を行ってみます。先ほどは様々なパラメータを変更せずデフォルトのまま訓練しましたが、訓練時の学習率やモデルの構造などを決めるパラメータ（ハイパーパラメータ）を様々に操作して、最適な値の探索を行うオプションが Use autotune と書かれたチェック項目です。ここにチェックを入れると、ベイズ最適化によるハイパーパラメータ探索が行われます。</p>
 <p>ハイパーパラメータの値の組み合わせをどれだけ探索するかはTrialsの数で変更できます。ここではTrialsをデフォルトの50のままにして訓練を行ってみます。Select classifier outputの欄で、モデルを保存する名称をデフォルト（CustomClassifier）から変更し、たとえばCustomClassifier_autotuneなどとして訓練開始（Start training）します。結果を <a href="#fig-birdnet-autotune" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> に示します。</p>
-<div id="fig-birdnet-autotune" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-birdnet-autotune" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-birdnet-autotune-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/birdnet-autotune.png" class="img-fluid figure-img">
@@ -334,18 +347,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -377,7 +379,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -385,7 +407,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -482,7 +504,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
